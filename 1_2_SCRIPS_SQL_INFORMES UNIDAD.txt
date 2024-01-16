@@ -1,0 +1,90 @@
+
+
+
+
+CREATE VIEW [dbo].[VI_APP_ListadoInformesDetalles]
+AS
+
+select 
+		Inde.IudeId as IdDetalle,
+		Inde.InformeUnidadFk as IdCabezera,
+		veh.VehiPlaca as Placa,
+		inf.TipoPrioridadFk as IdPrioridad, -- NEW
+		tipPrio.TipoDescripcion as IdPrioridadDesc,
+		cond.EntiRazonSocial as Conductor,
+		Inde.TipoParteIncidenciaFk as IdTipoIncidencia, 
+		Inc.TipoDescripcion as IdTipoIncidenciaDesc, --TEXT
+		Inde.IudeDescripcion as Descripcion,
+		isnull(inde.TipoEstadoAtencionFk,0) as IdTipoEstadoAtencion,
+		isnull(est.TipoDescripcion,'') as IdTipoEstadoAtencionDesc, --TEXT
+		isnull(inde.IudeFecProcesar,'') as FechaProcesar,
+		isnull(inde.IudeComentarioProcesado,'') as ComentarioProcesado,
+		isnull(inde.ResponsableProcesadoFk,'') as IdResponsableProcesado,
+		isnull(entPro.EntiRazonSocial,'') as IdResponsableProcesadoDesc,  --TEXT
+		isnull(inde.IudeFecSolucionado,'') as FechaSolucionado,
+		isnull(inde.TipoIncidenciaSolucionFk,'') as IdTipoIncidenciaSolucion, --new 13
+		isnull(TipIncSol.TipoDescripcion,'') as IdTipoIncidenciaSolucionDesc, --new 13 ESC
+		isnull(inde.IudeComentarioSolucionado,'') as ComentarioSolucionado,
+		isnull(inde.IudeResponsableSolucionadoFk,'') as IdResponsableSolucionado,
+		isnull(entSol.EntiRazonSocial,'') as IdResponsableSolucionadoDesc,  --TEXT
+		isnull(inde.IudeFecAnulado,'') as FechaAnulado,
+		isnull(inde.IudeComentarioAnulado,'') as ComentarioAnulado,
+		isnull(inde.UsuarioAnulacionFk,'') as IdUsuarioAnulado,
+		isnull(usuAnu.UsuaNombre,'') as IdUsuarioAnuladoDesc, --TEXT
+		inde.IudeFecCreacion as  FechaCreacion,  --QUIZAS INFORMADO
+		inde.IudeUsrCreacion as IdUsuarioCreacion,
+		usuCre.UsuaNombre as IdUsuarioCreacionDesc,
+		isnull(inde.IudeFecModificacion,'') as FechaModificacion --
+
+	from logistica.InformeUnidadDetalle Inde
+		inner join general.Tipos Inc on Inc.TipoId = Inde.TipoParteIncidenciaFk
+		left join logistica.InformesUnidad inf on inf.InunId = inde.InformeUnidadFk  --NUEVA PARA PLACAS 
+		left join general.Vehiculos veh on veh.VehiId = inf.VehiculoFk
+		left join general.Entidades cond on cond.EntiId = inf.ConductorFk
+		left join general.Tipos est on est.TipoId = Inde.TipoEstadoAtencionFk
+		left join general.Entidades entPro on entPro.EntiId = Inde.ResponsableProcesadoFk
+		left join general.Entidades entSol on entSol.EntiId = Inde.IudeResponsableSolucionadoFk
+		left join general.Usuarios usuAnu on usuAnu.UsuaId = inde.UsuarioAnulacionFk
+		left join general.Usuarios usuCre on usuCre.UsuaId = inde.IudeUsrCreacion
+		left join general.Tipos tipPrio on tipPrio.TipoId = inf.TipoPrioridadFk  --new
+		left join general.Tipos TipIncSol on TipIncSol.TipoId = Inde.TipoIncidenciaSolucionFk  --new
+GO
+
+
+
+-------------------------------------
+
+
+CREATE VIEW [dbo].[VI_APP_ObtenerEmpleados]
+AS
+	SELECT
+	Ent.EntiId,
+	Ent.EntiNroDocumento ,
+	ent.EntiRazonSocial 
+	from general.Entidades Ent
+	inner join general.EntidadRoles rol on ent.EntiId = rol.EntidadFk
+	where rol.TiposRolesFk ='10480'
+	and ent.EntiEstado = 1
+	and rol.Estado = 1
+GO
+
+
+-------------------------------------------
+
+
+CREATE VIEW [dbo].[VI_APP_ObtenerUsuarios]
+	AS
+		SELECT 
+		usu.UsuaId,
+		usu.UsuaNombre,
+		usu.UsuaPassword,
+		usu.UsuaEstado,
+		rol.RoleId,
+		rol.RoleDescripcion
+		from 
+		general.Usuarios usu
+		inner join general.Roles rol on rol.RoleId = usu.RolesFk
+
+GO
+
+

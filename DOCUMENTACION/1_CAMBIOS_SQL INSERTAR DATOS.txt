@@ -1,0 +1,62 @@
+
+select * from general.Tipos where TipoDescripcionCorta ='10541' OR TipoDescripcionCorta ='10542'  OR TipoDescripcionCorta ='10543' OR TipoDescripcionCorta ='10545' OR TipoDescripcionCorta ='10546' OR TipoDescripcionCorta ='10692'
+
+--MOTOR
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. REFRIGERACION - RADIADOR', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. REFRIGERACION - BOMBA DE AGUA', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. REFRIGERACION - CAÑERIAS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. REFRIGERACION - OTROS', GETDATE(),1);
+
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. ELECTRICO - ARRANCADOR', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. ELECTRICO - ALTERNADOR', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. ELECTRICO - OTROS', GETDATE(),1);
+
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. LUBRICACION - BOMBA ACEITE', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. LUBRICACION - CARTER', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. LUBRICACION - OTROS', GETDATE(),1);
+
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. COMBUSTION - INYECTORES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. COMBUSTION - BOMBA COMBUSTIBLE', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10541','SIST. COMBUSTION - OTROS', GETDATE(),1);
+
+-- TRANSMISION
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10542','KIT EMBRAGUE', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10542','CARDAN', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10542','CAJA VELOCIDADES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10542','CORONAS	', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10542','EJES MOTRICES', GETDATE(),1);
+		
+-- SUSPENCION / DIRECCION
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10543','FUELLES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10543','MUELLES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10543','PINES Y BOCINAS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10543','BUGES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10543','OTROS', GETDATE(),1);
+
+
+--10545 FRENOS
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10545','ZAPATAS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10545','BOMBA FRENO', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10545','TAMBOR DE FRENO ', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10545','OTROS', GETDATE(),1);
+
+
+--10546 CARROCERIA
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10546','CHASIS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10546','CABINA', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10546','PINTURA', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10546','OTROS', GETDATE(),1);
+
+
+--10692 NEUMATICOS
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10692','CAMBIO', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10692','ROTACIONES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10692','AROS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcionCorta, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 101, '10692','OTROS', GETDATE(),1);
+
+		
+	
+		
+
+
+

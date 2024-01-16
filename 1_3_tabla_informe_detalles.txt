@@ -1,0 +1,87 @@
+USE [GEPPERPTRANSMAPP]
+GO
+
+/****** Object:  Table [logistica].[InformeUnidadDetalle]    Script Date: 18/05/2022 09:32:36 a. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [logistica].[InformeUnidadDetalle](
+	[IudeId] [bigint] IDENTITY(1,1) NOT NULL,
+	[InformeUnidadFk] [bigint] NULL,
+	[TipoParteIncidenciaFk] [bigint] NULL,
+	[IudeDescripcion] [varchar](max) NULL,
+	[TipoEstadoAtencionFk] [bigint] NULL,
+	[IudeFecProcesar] [datetime] NULL,
+	[IudeComentarioProcesado] [varchar](max) NULL,
+	[ResponsableProcesadoFk] [bigint] NULL,
+	[TipoIncidenciaSolucionFk] [bigint] NULL,
+	[IudeFecSolucionado] [datetime] NULL,
+	[IudeComentarioSolucionado] [varchar](max) NULL,
+	[IudeResponsableSolucionadoFk] [bigint] NULL,
+	[IudeFecAnulado] [datetime] NULL,
+	[IudeComentarioAnulado] [varchar](max) NULL,
+	[UsuarioAnulacionFk] [bigint] NULL,
+	[IudeFecCreacion] [datetime] NULL,
+	[IudeUsrCreacion] [bigint] NULL,
+	[IudeFecModificacion] [datetime] NULL,
+	[IudeUsrModificacion] [bigint] NULL,
+ CONSTRAINT [PK_InformeUnidadDetalle] PRIMARY KEY CLUSTERED 
+(
+	[IudeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_InformesUnidadId] FOREIGN KEY([InformeUnidadFk])
+REFERENCES [logistica].[InformesUnidad] ([InunId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_InformesUnidadId]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_ResponsableProcesar] FOREIGN KEY([ResponsableProcesadoFk])
+REFERENCES [general].[Entidades] ([EntiId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_ResponsableProcesar]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_ResponsableSolucionado] FOREIGN KEY([IudeResponsableSolucionadoFk])
+REFERENCES [general].[Entidades] ([EntiId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_ResponsableSolucionado]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_TipoEstado] FOREIGN KEY([TipoEstadoAtencionFk])
+REFERENCES [general].[Tipos] ([TipoId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_TipoEstado]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_TiposParteInsidenciaId] FOREIGN KEY([TipoParteIncidenciaFk])
+REFERENCES [general].[Tipos] ([TipoId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_TiposParteInsidenciaId]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_TiposSolucionIncidencia] FOREIGN KEY([TipoIncidenciaSolucionFk])
+REFERENCES [general].[Tipos] ([TipoId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_TiposSolucionIncidencia]
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_InformeUnidadDetalle_UsuarioAnulacion] FOREIGN KEY([UsuarioAnulacionFk])
+REFERENCES [general].[Usuarios] ([UsuaId])
+GO
+
+ALTER TABLE [logistica].[InformeUnidadDetalle] CHECK CONSTRAINT [FK_InformeUnidadDetalle_UsuarioAnulacion]
+GO
+
+

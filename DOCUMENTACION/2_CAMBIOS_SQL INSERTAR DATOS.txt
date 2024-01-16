@@ -1,0 +1,47 @@
+--TIPOS GENERALES 102,103,104
+insert into general.TiposGeneral(EmpresasFk,TigeDescripcion,TigeEstado,TigeFecCreacion,TigeUsrCreacion)values(2,''Tipos Documentos Planilla de Gastos',1,GETDATE(),1)
+insert into general.TiposGeneral(EmpresasFk,TigeDescripcion,TigeEstado,TigeFecCreacion,TigeUsrCreacion)values(2,'App Tipos Compras',1,GETDATE(),1)
+insert into general.TiposGeneral(EmpresasFk,TigeDescripcion,TigeEstado,TigeFecCreacion,TigeUsrCreacion)values(2,'App Tipos Servicios',1,GETDATE(),1)
+
+
+
+
+-- PARA INSERTR LOS TIPOS de PLANILLA DE GASTOS
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'ALIMENTACION', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'PEAJES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'MOVILIDAD', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'HOSPEDAJE', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'PASAJES', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'COMPRAS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 102,'SERVICIOS', GETDATE(),1);
+
+
+--tipos para APP COMPRAS 103
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 103,'COMBUSTIBLE', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 103,'ACCESORIOS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 103,'REPUESTOS', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 103,'MATERIALES DE MANTENIMIENTO', GETDATE(),1);
+
+--tipos para APP COMPRAS 104
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 104,'MANTENIMIENTO Y REPARACION', GETDATE(),1);
+INSERT INTO general.Tipos(EmpresasFk, TiposGeneralFk, TipoDescripcion, TipoFecCreacion, TipoEstado) VALUES(2, 104,'INSPECCION VEHICULAR', GETDATE(),1);
+
+
+--CREACION DE TABLA “logística.Planilla_Peajes_Destinos” EN DOCUMENTO WORD 2 
+
+--INGRESO DE DATOS A TABLA  “logística.Planilla_Peajes_Destinos”
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('-', '20550372640', 39, 0,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('JAHUAY', '20511465061', 104.4, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('P10-ESTADIO', '20523621212', 37.8, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('P8-HUANUCO', '20523621212', 37.8, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('VILLA EL SALVADOR', '20550372640', 39, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('CHILCA', '20511465061', 104.4, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('ICA', '20511465061', 104.4, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('NAZCA', '20503503639', 39, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('MONTERRICO  ENTRADA', '20523621212', 37.8, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('MONTERRICO SALIDA', '20523621212', 37.8, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('LIRIN', '20550372640', 39, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('ATICO', '20503503639', 39, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('CAMANA', '20550033519', 21.3, 1,GETDATE(),2)
+insert into logistica.Planilla_Peajes_Destinos(DesDestino,DesRUC,DesMonto,DesEstado,FechaCreacion,UsuarioCreacion) values('UCHUMAYO', '20517252558', 12, 1,GETDATE(),2)
+

@@ -1,0 +1,61 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pe.transmap_app"
+4    android:versionCode="19"
+5    android:versionName="1.0.19" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android\app\src\main\AndroidManifest.xml:8:5-66
+14-->D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android\app\src\main\AndroidManifest.xml:8:22-64
+15
+16    <application
+17        android:name="android.app.Application"
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.6.0] C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+21        android:label="TransMAP - Guias" >
+22        <activity
+23            android:name="com.pe.transmap_app.MainActivity"
+24            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+25            android:exported="true"
+26            android:hardwareAccelerated="true"
+27            android:launchMode="singleTop"
+28            android:theme="@style/LaunchTheme"
+29            android:windowSoftInputMode="adjustResize" > <!-- NUEVO XD -->
+30            <intent-filter>
+31                <action android:name="android.intent.action.MAIN" />
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+34            </intent-filter>
+35        </activity>
+36        <!--
+37             Don't delete the meta-data below.
+38             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+39        -->
+40        <meta-data
+41            android:name="flutterEmbedding"
+42            android:value="2" />
+43
+44        <uses-library
+44-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+45            android:name="androidx.window.extensions"
+45-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+46            android:required="false" />
+46-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+47        <uses-library
+47-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+48            android:name="androidx.window.sidecar"
+48-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+49            android:required="false" />
+49-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+50    </application>
+51
+52</manifest>

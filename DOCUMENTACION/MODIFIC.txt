@@ -1,0 +1,25 @@
+SE CREA PAGINA ADM DE PRUEBA Y SE AÑADEN EN PAGINAS EXTRAS
+
+
+
+multiples estados
+
+ingresado
+procesado(asignar a un mecanico) ejem a juan 
+solucionado
+anulado(gerencia mecanico)
+
+
+los detalles
+añadir concepto y responable
+
+
+INGRSADO A PROCESA EN FLOTANTE Y ANULAR
+PARA ASIGNAR RESPONABLE Y DESCRPCION Y OPCION DE 
+
+
+CUANDO ESTA PROCESADO NO SE PUEDE ANULAR
+AÑADIR FLOTANTE SOLUCIONAR 
+-RESPONABLE
+-DESCRIPCION
+	
