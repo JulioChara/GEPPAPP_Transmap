@@ -4,21 +4,30 @@
 
 import 'dart:convert';
 
+
 class GuiasElectronicasModel {
   String? gutrId;
   String? empresasFk;
   String? tipoGuiaFk;
-  String? conductoresRelacionFk;
-  String? placasRelacionFk;
+  String? tipoGuiaFkDesc;
   String? unidadMedidaFk;
+  String? unidadMedidaFkDesc;
   String? clientesFk;
+  String? clientesFkDesc;
   String? transportistasFk;
+  String? transportistasFkDesc;
   String? clienteRemitenteFk;
+  String? clienteRemitenteFkDesc;
   String? clienteDestinatarioFk;
+  String? clienteDestinatarioFkDesc;
   String? proveedorFk;
+  String? proveedorFkDesc;
   String? compradorFk;
+  String? compradorFkDesc;
   String? tipoServicioFk;
+  String? tipoServicioFkDesc;
   String? tipoEstadoSituacionFk;
+  String? tipoEstadoSituacionFkDesc;
   String? gutrPuntoLlegada;
   String? gutrPuntoLlegadaUbigeo;
   String? gutrPuntoPartida;
@@ -40,26 +49,37 @@ class GuiasElectronicasModel {
   String? gutrMotivoAnulacion;
   String? codigoAnterior;
   String? estadoSunatFk;
+  String? estadoSunatFkDesc;
   String? gutrTicketSunat;
   String? gutrCodigoValidacionSunat;
   String? gutrCodigoHash;
   List<GuiasElectronicasDetalleModel>? detalle;
+  List<GuiasElectronicasConductoresModel>? detalleConductores;
+  List<GuiasElectronicasPlacasModel>? detallePlacas;
 
   GuiasElectronicasModel({
     this.gutrId,
     this.empresasFk,
     this.tipoGuiaFk,
-    this.conductoresRelacionFk,
-    this.placasRelacionFk,
+    this.tipoGuiaFkDesc,
     this.unidadMedidaFk,
+    this.unidadMedidaFkDesc,
     this.clientesFk,
+    this.clientesFkDesc,
     this.transportistasFk,
+    this.transportistasFkDesc,
     this.clienteRemitenteFk,
+    this.clienteRemitenteFkDesc,
     this.clienteDestinatarioFk,
+    this.clienteDestinatarioFkDesc,
     this.proveedorFk,
+    this.proveedorFkDesc,
     this.compradorFk,
+    this.compradorFkDesc,
     this.tipoServicioFk,
+    this.tipoServicioFkDesc,
     this.tipoEstadoSituacionFk,
+    this.tipoEstadoSituacionFkDesc,
     this.gutrPuntoLlegada,
     this.gutrPuntoLlegadaUbigeo,
     this.gutrPuntoPartida,
@@ -81,27 +101,38 @@ class GuiasElectronicasModel {
     this.gutrMotivoAnulacion,
     this.codigoAnterior,
     this.estadoSunatFk,
+    this.estadoSunatFkDesc,
     this.gutrTicketSunat,
     this.gutrCodigoValidacionSunat,
     this.gutrCodigoHash,
     this.detalle,
+    this.detalleConductores,
+    this.detallePlacas,
   });
 
   factory GuiasElectronicasModel.fromJson(Map<String, dynamic> json) => GuiasElectronicasModel(
     gutrId: json["GutrId"],
     empresasFk: json["EmpresasFk"],
     tipoGuiaFk: json["TipoGuiaFk"],
-    conductoresRelacionFk: json["ConductoresRelacionFk"],
-    placasRelacionFk: json["PlacasRelacionFk"],
+    tipoGuiaFkDesc: json["TipoGuiaFkDesc"],
     unidadMedidaFk: json["UnidadMedidaFk"],
+    unidadMedidaFkDesc: json["UnidadMedidaFkDesc"],
     clientesFk: json["ClientesFk"],
+    clientesFkDesc: json["ClientesFkDesc"],
     transportistasFk: json["TransportistasFk"],
+    transportistasFkDesc: json["TransportistasFkDesc"],
     clienteRemitenteFk: json["ClienteRemitenteFk"],
+    clienteRemitenteFkDesc: json["ClienteRemitenteFkDesc"],
     clienteDestinatarioFk: json["ClienteDestinatarioFk"],
+    clienteDestinatarioFkDesc: json["ClienteDestinatarioFkDesc"],
     proveedorFk: json["ProveedorFk"],
+    proveedorFkDesc: json["ProveedorFkDesc"],
     compradorFk: json["CompradorFk"],
+    compradorFkDesc: json["CompradorFkDesc"],
     tipoServicioFk: json["TipoServicioFk"],
+    tipoServicioFkDesc: json["TipoServicioFkDesc"],
     tipoEstadoSituacionFk: json["TipoEstadoSituacionFk"],
+    tipoEstadoSituacionFkDesc: json["TipoEstadoSituacionFkDesc"],
     gutrPuntoLlegada: json["GutrPuntoLlegada"],
     gutrPuntoLlegadaUbigeo: json["GutrPuntoLlegadaUbigeo"],
     gutrPuntoPartida: json["GutrPuntoPartida"],
@@ -123,27 +154,38 @@ class GuiasElectronicasModel {
     gutrMotivoAnulacion: json["GutrMotivoAnulacion"],
     codigoAnterior: json["CodigoAnterior"],
     estadoSunatFk: json["EstadoSunatFk"],
+    estadoSunatFkDesc: json["EstadoSunatFkDesc"],
     gutrTicketSunat: json["GutrTicketSunat"],
     gutrCodigoValidacionSunat: json["GutrCodigoValidacionSunat"],
     gutrCodigoHash: json["GutrCodigoHash"],
     detalle: List<GuiasElectronicasDetalleModel>.from(json["Detalle"]?.map((x) => GuiasElectronicasDetalleModel.fromJson(x))),
+    detalleConductores: List<GuiasElectronicasConductoresModel>.from(json["DetalleConductores"]?.map((x) => GuiasElectronicasConductoresModel.fromJson(x))),
+    detallePlacas: List<GuiasElectronicasPlacasModel>.from(json["DetallePlacas"]?.map((x) => GuiasElectronicasPlacasModel.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
     "GutrId": gutrId,
     "EmpresasFk": empresasFk,
     "TipoGuiaFk": tipoGuiaFk,
-    "ConductoresRelacionFk": conductoresRelacionFk,
-    "PlacasRelacionFk": placasRelacionFk,
+    "TipoGuiaFkDesc": tipoGuiaFkDesc,
     "UnidadMedidaFk": unidadMedidaFk,
+    "UnidadMedidaFkDesc": unidadMedidaFkDesc,
     "ClientesFk": clientesFk,
+    "ClientesFkDesc": clientesFkDesc,
     "TransportistasFk": transportistasFk,
+    "TransportistasFkDesc": transportistasFkDesc,
     "ClienteRemitenteFk": clienteRemitenteFk,
+    "ClienteRemitenteFkDesc": clienteRemitenteFkDesc,
     "ClienteDestinatarioFk": clienteDestinatarioFk,
+    "ClienteDestinatarioFkDesc": clienteDestinatarioFkDesc,
     "ProveedorFk": proveedorFk,
+    "ProveedorFkDesc": proveedorFkDesc,
     "CompradorFk": compradorFk,
+    "CompradorFkDesc": compradorFkDesc,
     "TipoServicioFk": tipoServicioFk,
+    "TipoServicioFkDesc": tipoServicioFkDesc,
     "TipoEstadoSituacionFk": tipoEstadoSituacionFk,
+    "TipoEstadoSituacionFkDesc": tipoEstadoSituacionFkDesc,
     "GutrPuntoLlegada": gutrPuntoLlegada,
     "GutrPuntoLlegadaUbigeo": gutrPuntoLlegadaUbigeo,
     "GutrPuntoPartida": gutrPuntoPartida,
@@ -165,10 +207,13 @@ class GuiasElectronicasModel {
     "GutrMotivoAnulacion": gutrMotivoAnulacion,
     "CodigoAnterior": codigoAnterior,
     "EstadoSunatFk": estadoSunatFk,
+    "EstadoSunatFkDesc": estadoSunatFkDesc,
     "GutrTicketSunat": gutrTicketSunat,
     "GutrCodigoValidacionSunat": gutrCodigoValidacionSunat,
     "GutrCodigoHash": gutrCodigoHash,
-    "Detalle": detalle != null ? List<dynamic>.from(detalle!.map((x) => x.toJson())): null,
+    "Detalle": List<dynamic>.from(detalle!.map((x) => x.toJson())),
+    "DetalleConductores": List<dynamic>.from(detalleConductores!.map((x) => x.toJson())),
+    "DetallePlacas": List<dynamic>.from(detallePlacas!.map((x) => x.toJson())),
   };
 }
 
@@ -177,8 +222,11 @@ class GuiasElectronicasDetalleModel {
   String? empresasFk;
   String? guiaTransportistasElectronicaFk;
   String? productosFk;
+  String? productosFkDesc;
   String? tipoProductoFk;
+  String? tipoProductoFkDesc;
   String? tipoProductoUnidadMedidaFk;
+  String? tipoProductoUnidadMedidaFkDesc;
   String? gudeItem;
   String? gudeProductoDescripcion;
   String? gudeCantidad;
@@ -191,14 +239,16 @@ class GuiasElectronicasDetalleModel {
   String? gudeFecModificacion;
   String? gudeUsrModificacion;
   String? subProductoFk;
-
   GuiasElectronicasDetalleModel({
     this.gudeId,
     this.empresasFk,
     this.guiaTransportistasElectronicaFk,
     this.productosFk,
+    this.productosFkDesc,
     this.tipoProductoFk,
+    this.tipoProductoFkDesc,
     this.tipoProductoUnidadMedidaFk,
+    this.tipoProductoUnidadMedidaFkDesc,
     this.gudeItem,
     this.gudeProductoDescripcion,
     this.gudeCantidad,
@@ -218,8 +268,11 @@ class GuiasElectronicasDetalleModel {
     empresasFk: json["EmpresasFk"],
     guiaTransportistasElectronicaFk: json["GuiaTransportistasElectronicaFk"],
     productosFk: json["ProductosFk"],
+    productosFkDesc: json["ProductosFkDesc"],
     tipoProductoFk: json["TipoProductoFk"],
+    tipoProductoFkDesc: json["TipoProductoFkDesc"],
     tipoProductoUnidadMedidaFk: json["TipoProductoUnidadMedidaFk"],
+    tipoProductoUnidadMedidaFkDesc: json["TipoProductoUnidadMedidaFkDesc"],
     gudeItem: json["GudeItem"],
     gudeProductoDescripcion: json["GudeProductoDescripcion"],
     gudeCantidad: json["GudeCantidad"],
@@ -239,8 +292,11 @@ class GuiasElectronicasDetalleModel {
     "EmpresasFk": empresasFk,
     "GuiaTransportistasElectronicaFk": guiaTransportistasElectronicaFk,
     "ProductosFk": productosFk,
+    "ProductosFkDesc": productosFkDesc,
     "TipoProductoFk": tipoProductoFk,
+    "TipoProductoFkDesc": tipoProductoFkDesc,
     "TipoProductoUnidadMedidaFk": tipoProductoUnidadMedidaFk,
+    "TipoProductoUnidadMedidaFkDesc": tipoProductoUnidadMedidaFkDesc,
     "GudeItem": gudeItem,
     "GudeProductoDescripcion": gudeProductoDescripcion,
     "GudeCantidad": gudeCantidad,
@@ -253,5 +309,109 @@ class GuiasElectronicasDetalleModel {
     "GudeFecModificacion": gudeFecModificacion,
     "GudeUsrModificacion": gudeUsrModificacion,
     "SubProductoFk": subProductoFk,
+  };
+}
+
+class GuiasElectronicasConductoresModel {
+  String? coreId;
+  String? conductoresFk;
+  String? conductoresFkDesc;
+  String? guiaTransportistaElectronicaFk;
+  String? coreEstado;
+  String? coreFecCreacion;
+  String? coreUsrCreacion;
+  String? coreFecModificacion;
+  String? coreUsrModificacion;
+
+  GuiasElectronicasConductoresModel({
+    this.coreId,
+    this.conductoresFk,
+    this.conductoresFkDesc,
+    this.guiaTransportistaElectronicaFk,
+    this.coreEstado,
+    this.coreFecCreacion,
+    this.coreUsrCreacion,
+    this.coreFecModificacion,
+    this.coreUsrModificacion,
+  });
+
+  factory GuiasElectronicasConductoresModel.fromJson(Map<String, dynamic> json) => GuiasElectronicasConductoresModel(
+    coreId: json["CoreId"],
+    conductoresFk: json["ConductoresFk"],
+    conductoresFkDesc: json["ConductoresFkDesc"],
+    guiaTransportistaElectronicaFk: json["GuiaTransportistaElectronicaFk"],
+    coreEstado: json["CoreEstado"],
+    coreFecCreacion: json["CoreFecCreacion"],
+    coreUsrCreacion: json["CoreUsrCreacion"],
+    coreFecModificacion: json["CoreFecModificacion"],
+    coreUsrModificacion: json["CoreUsrModificacion"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "CoreId": coreId,
+    "ConductoresFk": conductoresFk,
+    "ConductoresFkDesc": conductoresFkDesc,
+    "GuiaTransportistaElectronicaFk": guiaTransportistaElectronicaFk,
+    "CoreEstado": coreEstado,
+    "CoreFecCreacion": coreFecCreacion,
+    "CoreUsrCreacion": coreUsrCreacion,
+    "CoreFecModificacion": coreFecModificacion,
+    "CoreUsrModificacion": coreUsrModificacion,
+  };
+}
+
+class GuiasElectronicasPlacasModel {
+  String? plreId;
+  String? vehiculosFk;
+  String? vehiculosFkDesc;
+  String? placasFk;
+  String? placasFkDesc;
+  String? guiaTransportistasElectronicaFk;
+  String? plreEstado;
+  String? plreFecCreacion;
+  String? plreUsrCreacion;
+  String? plreFecModificacion;
+  String? preUsrModificacion;
+
+  GuiasElectronicasPlacasModel({
+    this.plreId,
+    this.vehiculosFk,
+    this.vehiculosFkDesc,
+    this.placasFk,
+    this.placasFkDesc,
+    this.guiaTransportistasElectronicaFk,
+    this.plreEstado,
+    this.plreFecCreacion,
+    this.plreUsrCreacion,
+    this.plreFecModificacion,
+    this.preUsrModificacion,
+  });
+
+  factory GuiasElectronicasPlacasModel.fromJson(Map<String, dynamic> json) => GuiasElectronicasPlacasModel(
+    plreId: json["PlreId"],
+    vehiculosFk: json["VehiculosFk"],
+    vehiculosFkDesc: json["VehiculosFkDesc"],
+    placasFk: json["PlacasFk"],
+    placasFkDesc: json["PlacasFkDesc"],
+    guiaTransportistasElectronicaFk: json["GuiaTransportistasElectronicaFk"],
+    plreEstado: json["PlreEstado"],
+    plreFecCreacion: json["PlreFecCreacion"],
+    plreUsrCreacion: json["PlreUsrCreacion"],
+    plreFecModificacion: json["PlreFecModificacion"],
+    preUsrModificacion: json["PreUsrModificacion"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "PlreId": plreId,
+    "VehiculosFk": vehiculosFk,
+    "VehiculosFkDesc": vehiculosFkDesc,
+    "PlacasFk": placasFk,
+    "PlacasFkDesc": placasFkDesc,
+    "GuiaTransportistasElectronicaFk": guiaTransportistasElectronicaFk,
+    "PlreEstado": plreEstado,
+    "PlreFecCreacion": plreFecCreacion,
+    "PlreUsrCreacion": plreUsrCreacion,
+    "PlreFecModificacion": plreFecModificacion,
+    "PreUsrModificacion": preUsrModificacion,
   };
 }

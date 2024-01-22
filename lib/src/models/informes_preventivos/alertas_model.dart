@@ -80,6 +80,8 @@ class TiposModel {
     this.usuario,
     this.tipoDescripcion,
     this.tipoId,
+    this.extraNumero,
+    this.extraDescripcion,
     this.mensaje,
     this.resultado,
   });
@@ -90,6 +92,8 @@ class TiposModel {
   String? usuario;
   String? tipoDescripcion;
   String? tipoId;
+  String? extraNumero;
+  String? extraDescripcion;
   String? mensaje;
   String? resultado;
 
@@ -101,6 +105,8 @@ class TiposModel {
     usuario: json["usuario"],
     tipoDescripcion: json["tipoDescripcion"],
     tipoId: json["tipoId"],
+    extraNumero: json["extraNumero"],
+    extraDescripcion: json["extraDescripcion"],
     mensaje: json["mensaje"],
     resultado: json["resultado"],
   );
@@ -113,6 +119,8 @@ class TiposModel {
     "usuario": usuario,
     "tipoDescripcion": tipoDescripcion,
     "tipoId": tipoId,
+    "extraNumero": extraNumero,
+    "extraDescripcion": extraDescripcion,
     "mensaje": mensaje,
     "resultado": resultado,
   };

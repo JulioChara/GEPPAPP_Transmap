@@ -52,6 +52,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   lottie: 1.4.2
   line_icons: ^2.0.3
+#  flutter_tags: ^0.4.9+1
+  flutter_tags: 1.0.0-nullsafety.0
 
 
 #   3.0.3 # SE QUITA DESDE LA VERSION 1.0.12 POR USO DE INSTALADOR DE PAQUETES

@@ -139,7 +139,9 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
             iconSize: 30.0,
             onPressed: () {
               //Navigator.pushNamed(context, 'general');
-              existeCheckList();
+              Navigator.pushNamed(context, 'guiasElectronicasCreate');
+
+             // existeCheckList();
             },
           )
         ],

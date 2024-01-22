@@ -5,6 +5,7 @@ import 'package:transmap_app/src/pages/checkList/checkList_page.dart';
 import 'package:transmap_app/src/pages/drive_gepp/carpetas_page.dart';
 import 'package:transmap_app/src/pages/general_page.dart';
 import 'package:transmap_app/src/pages/guia_page.dart';
+import 'package:transmap_app/src/pages/guiasElectronicas/guiasElectronicas_create.dart';
 import 'package:transmap_app/src/pages/guiasElectronicas/guiasElectronicas_page.dart';
 import 'package:transmap_app/src/pages/home_page.dart';
 import 'package:transmap_app/src/pages/login_page.dart';
@@ -85,6 +86,7 @@ class MyApp extends StatelessWidget {
           'checkListHome':  (BuildContext context) => CheckListPage(),
           'checkListCreate':  (BuildContext context) => CheckListCreatePage(),
           'guiasElectronicasHome':  (BuildContext context) => GuiasElectronicasPage(),
+          'guiasElectronicasCreate':  (BuildContext context) => GuiasElectronicasCreatePage(),
 
 
 
