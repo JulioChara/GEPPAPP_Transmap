@@ -1,14 +1,19 @@
 
-
-
+import 'dart:io';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:open_filex/open_filex.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:transmap_app/src/models/guiasElectronicas/guiasElectronicas_model.dart';
 import 'package:transmap_app/src/services/guiasElectronicas/guiasElectronicas_services.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/utils/sp_global.dart';
+// import 'package:url_launcher/url_launcher.dart';
+import 'package:transmap_app/src/constants/constants.dart';
 
 class GuiasElectronicasPage extends StatefulWidget {
 
@@ -19,6 +24,9 @@ class GuiasElectronicasPage extends StatefulWidget {
 
 
 
+// const fileName = '/pspdfkit-flutter-quickstart-guide.pdf';
+// const fileName = '/archivo.pdf';
+// const imageUrl = 'http://192.168.2.92:9091/Service/Service1.svc/Download';
 
 class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
 
@@ -32,7 +40,7 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
   var _dataServices = new GuiasElectronicasServices();
 
   String initDate = DateTime.now().toString().substring(0, 10);
-  String endDate = DateTime.now().toString().substring(0, 10);
+  String endDate = DateTime.now().add(const Duration(days: 1)).toString().substring(0, 10);
 
   int Accion = 0;
 
@@ -40,6 +48,10 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
   DateTime selectedDate = DateTime.now();
   List<GuiasElectronicasModel> listaModel = [];
   bool isLoading = true;
+
+  double progress = 0;
+  bool didDownloadPDF = false;
+  String progressString = 'no';
 
 
   @override
@@ -53,15 +65,55 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
 
 
   getData(){
-    // isLoading = true;
-    // _dataServices.postCheckList_ObtenerListaGeneral("0", initDate, endDate).then((value) {
-    //   listaModel = value;
-    //   //   informeModelList3.addAll(informeModelList2);
-    //   Accion = 0;
+    isLoading = true;
+    _dataServices.GuiasElectronicas_ObtenerListaGeneral("0", initDate, endDate).then((value) {
+      listaModel = value;
+      //  informeModelList3.addAll(informeModelList2);
+      Accion = 0;
       setState(() {
         isLoading = false;
       });
-    // });
+     });
+  }
+
+  Future download(Dio dio, String url, String IdGuia, String savePath) async {
+    try {
+      Response response = await dio.post(
+        url,
+        data: {
+          'Id': IdGuia,
+        },
+        onReceiveProgress: updateProgress,
+        options: Options(
+            responseType: ResponseType.bytes,
+            followRedirects: false,
+            validateStatus: (status) { return status! < 500; }
+        ),
+      );
+      print(savePath);
+      var file = File(savePath).openSync(mode: FileMode.write);
+      file.writeFromSync(response.data);
+      await file.close();
+
+    } catch (e) {
+      print(e);
+    }
+  }
+  void updateProgress(done, total) {
+    progress = done / total;
+    setState(() {
+      if (progress >= 1) {
+        progressString = '✅ File has finished downloading. Try opening the file.';
+        didDownloadPDF = true;
+        mensajeToast("Documento Descargado", Colors.green, Colors.white);
+      } else {
+        progressString = 'Download progress: ' + (progress * 100).toStringAsFixed(0) + '% done.';
+      }
+    });
+  }
+
+  _openAndroidPrivateFile(String ruta) async {
+    final result = await OpenFilex.open(ruta);
   }
 
   existeCheckList() async{
@@ -71,7 +123,6 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
       showMessajeAWYesNo(DialogType.ERROR, "SIN PLACA","No se selecciono ninguna PLACA, ¿Desea Ingresarlo?", 1);
     }
   }
-
 
 
   showMessajeAWYesNo(DialogType type, String titulo, String desc, int accion) {
@@ -116,6 +167,22 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
 
 
 
+  void Pruebas(String Id) async {
+    try {
+      var _guiasElectronicasServices = new GuiasElectronicasServices();
+      String a = await _guiasElectronicasServices.DescargarGuiaElectronicaPDF(Id);
+    }catch(ex){
+
+    }
+  }
+  // _launchURL() async {
+  //
+  //   String FUrl = kUrl + "/Download";
+  //   final Uri url = Uri.parse(FUrl);
+  //   if (!await launchUrl(url)) {
+  //     throw Exception('Could not launch ');
+  //   }
+  // }
 
 
   @override
@@ -145,7 +212,21 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
             },
           )
         ],
+
+
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
+      //   tooltip: 'Increment',
+      //   onPressed: (){
+      //     print("Que riko aprietas kata");
+      //     // print(_selectedTipoSubClientes!.scId);
+      //   //  _launchURL();
+      //    // Pruebas();
+      //    // PDF().cachedFromUrl('http://192.168.2.92:9091/Service/Service1.svc/Download');
+      //   },
+      //   child: const Icon(Icons.add, color: Colors.white, size: 28),
+      // ),
       drawer: MenuWidget(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () => setState(() {
@@ -157,6 +238,33 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
       body: !isLoading
           ? Column(
         children: <Widget>[
+
+
+          ListTile(
+            onTap: null,
+            tileColor: Colors.white54,
+            leading: CircleAvatar(child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Sunat",style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold) ),
+              //  Text(informeModelList2[i].cabNumero!, style: TextStyle(color: Colors.blue, fontSize: 18, fontWeight: FontWeight.bold)),
+              ],
+            ),backgroundColor: Colors.blue,
+            ),
+            // leading: CircleAvatar(
+            //   backgroundColor: Colors.transparent,
+            // ),
+          //  leading: Expanded(child: Text("SUNAT",style: TextStyle(fontWeight: FontWeight.bold, color: CupertinoColors.activeBlue),)),
+            title: Row(
+                children: <Widget>[
+                  Expanded(child: Text("Documento",style: TextStyle(fontWeight: FontWeight.bold),)),
+                  Expanded(child: Text("Fecha",style: TextStyle(fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                  Expanded(child: Text("Acciones",style: TextStyle(fontWeight: FontWeight.bold),textAlign: TextAlign.right,)),
+                  //Expanded(child: Text("Id")),
+                ]
+            ),
+          ),
 
           Expanded(
             child: ListView.builder(
@@ -179,7 +287,9 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
                           maxLines: 1,
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.black54),
+                              color: Colors.black54,
+                              fontSize: 13,
+                          ),
                         ),
                         Text(
                           // "${double.parse(informeModelList2[i].usuarioCreacionDesc!).toStringAsFixed(2)}",
@@ -188,7 +298,9 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
                           maxLines: 1,
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.black54),
+                              color: Colors.black54,
+                              fontSize: 13,
+                          ),
                         ),
                       ],
                     ),
@@ -196,14 +308,18 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
                     subtitle: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          listaModel[i].clienteRemitenteFk! ,
-                          //   "RESTANTES?",
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blueAccent),
+                        Flexible(
+                          child: Text(
+                             listaModel[i].clienteRemitenteFkDesc! ,
+                          // "aaaaaaaal istaModel[i]. clienteRemiteneeeeeteFk Desc!" ,
+                            //   "RESTANTES?",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blueAccent
+                            ),
+                          ),
                         ) ,
                     //Text(
                         //   // "${double.parse(informeModelList2[i].usuarioCreacionDesc!).toStringAsFixed(2)}",
@@ -219,21 +335,44 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
                     ),
 
 
-                    leading: IconButton(
-                      icon: Icon(Icons.paste, color: Colors.red, size: 30,),
+                    leading: listaModel[i].estadoSunatFk! =="56" ? IconButton(
+                      icon: Icon(Icons.check_circle, color: Colors.green, size: 30,),
                       onPressed: () {
 
                       },
-                    ),
+                    ) :IconButton(
+                      icon: Icon(Icons.warning_outlined, color: Colors.orangeAccent, size: 30,),
+                      onPressed: () {
 
-                    trailing: listaModel[i].gutrEstado! ==
-                        "True" && listaModel[i].gutrEstado! == "True"
-                        ? Icon(
-                      Icons.check,
-                      color: Colors.green,
-                      size: 50.0,
+                      },
                     )
-                        : null
+                  ,
+
+                  trailing: Wrap(
+                    spacing: 12, // space between two icons
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.download_for_offline,
+                            color: Colors.green),
+                        // onPressed: didDownloadPDF ? null : () async {
+                        onPressed: () async {
+                          var tempDir = await getTemporaryDirectory();
+                          var imageUrl = kUrl + "/GuiasElectronicas_DescargarPDF";
+                          download(Dio(), imageUrl, listaModel[i].gutrId!, tempDir.path +'/'+listaModel[i].gutrSerie! + listaModel[i].gutrNumero!+'.pdf' );
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.remove_red_eye_outlined,
+                            color: Colors.blue),
+                        // onPressed: !didDownloadPDF ? null : () async {
+                        onPressed:  () async {
+                          var tempDir = await getTemporaryDirectory();
+                          //_openAndroidPrivateFile(tempDir.path + fileName);
+                          _openAndroidPrivateFile(tempDir.path+'/' +listaModel[i].gutrSerie! + listaModel[i].gutrNumero!+'.pdf' );
+                        },
+                      ),
+                    ],
+                  ),
 
                 );
               },

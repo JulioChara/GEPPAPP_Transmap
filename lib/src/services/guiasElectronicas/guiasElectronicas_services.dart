@@ -4,9 +4,12 @@
 
 
 import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:transmap_app/src/constants/constants.dart';
 import 'package:transmap_app/src/models/guia_model.dart';
+import 'package:transmap_app/src/models/guiasElectronicas/guiasElectronicas_model.dart';
 import 'package:transmap_app/src/models/informes_preventivos/alertas_model.dart';
 import 'package:transmap_app/utils/sp_global.dart';
 
@@ -249,9 +252,123 @@ class GuiasElectronicasServices {
 
 
 
+  Future<String> DescargarGuiaElectronicaPDF(String IdGuia) async {
+    try {
+
+      String url = kUrl + "/GuiasElectronicas_DescargarPDF";
+      http.Response resp = await http.post(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: jsonEncode({'Id': IdGuia}));
+      if (resp.statusCode == 200) {
+        List list = jsonDecode(resp.body);
+      //  tiposList = list.map((e) => TiposModel.fromJson(e)).toList();
+        return 'a';
+      }
+      return 'a';
+    } catch (e) {
+      print(e);
+      return 'a';
+    }
+  }
+
+  Future<List<GuiasElectronicasModel>> GuiasElectronicas_ObtenerListaGeneral(String id, String FecIni, String FecFin) async {
+    List<GuiasElectronicasModel> modelList = [];
+    String url = kUrl + "/GuiasElectronicas_ObtenerListaGeneral";
+    print("Send Data---------");
+    print(id);
+    print(FecIni);
+    print(FecFin);
+    print(_prefs.idUser);
+    http.Response response = await http.post(Uri.parse(url),
+        headers: {
+          'Content-type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: jsonEncode({'Id': id,
+          "FecIni": FecIni,
+          "FecFin": FecFin,
+          "idUsuario": _prefs.idUser
+        }));
+    print(response.statusCode);
+    print(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      List list = jsonDecode(response.body);
+      modelList = list.map((e) => GuiasElectronicasModel.fromJson(e)).toList();
+      return modelList;
+    }
+    return modelList;
+  }
+
+
+  //
+  // Future<String> DescargarGuiaElectronicaPDF() async {
+  //   try {
+  //
+  //     String url = kUrl + "/Download";
+  //     http.Response resp = await http.get(Uri.parse(url),
+  //         headers: {
+  //           'Content-type': 'application/json',
+  //           'Accept': 'application/json'
+  //         });
+  //     if (resp.statusCode == 200) {
+  //       List list = jsonDecode(resp.body);
+  //       //  tiposList = list.map((e) => TiposModel.fromJson(e)).toList();
+  //       return 'a';
+  //     }
+  //     return 'a';
+  //   } catch (e) {
+  //     print(e);
+  //     return 'a';
+  //   }
+  // }
 
 
 
+  //
+  // Future<String> readHello() async {
+  //   try {
+  //     String url = kUrl + "/Download";
+  //     http.Response resp = await http.get(Uri.parse(url),
+  //     final file = await http.get(Uri.parse(url); //Line 1
+  //     // Read the file.
+  //     return await file.readAsString(); //Line 2
+  //   } catch (e) {
+  //     // If encountering an error, return 0.
+  //     return "Can't read";
+  //   }
+  // }
+
+    //
+    //
+    // Future<String> DescargarGuiaElectronicaPDF(String url, String fileName, String dir) async {
+    //   HttpClient httpClient = new HttpClient();
+    //   File file;
+    //   String filePath = '';
+    //   String myUrl = '';
+    //
+    //   try {
+    //     myUrl = url+'/'+fileName;
+    //     var request = await httpClient.getUrl(Uri.parse(myUrl));
+    //     var response = await request.close();
+    //     if(response.statusCode == 200) {
+    //       var bytes = await consolidateHttpClientResponseBytes(response);
+    //       filePath = '$dir/$fileName';
+    //       file = File(filePath);
+    //       await file.writeAsBytes(bytes);
+    //     }
+    //     else
+    //       filePath = 'Error code: '+response.statusCode.toString();
+    //   }
+    //   catch(ex){
+    //     filePath = 'Can not fetch url';
+    //   }
+    //
+    //   return filePath;
+    // }
+    //
 
 
 

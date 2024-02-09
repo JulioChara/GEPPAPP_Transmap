@@ -54,6 +54,15 @@ dependencies:
   line_icons: ^2.0.3
 #  flutter_tags: ^0.4.9+1
   flutter_tags: 1.0.0-nullsafety.0
+  #NUEVAS TEST 07/02/2024
+#  flutter_pdfview: ^1.0.1
+#  permission_handler: any
+#  url_launcher: ^6.1.10
+#  flutter_cached_pdfview: 0.4.2
+  dio: ^4.0.0
+  open_filex: 3.4.0
+#  pspdfkit_flutter:
+
 
 
 #   3.0.3 # SE QUITA DESDE LA VERSION 1.0.12 POR USO DE INSTALADOR DE PAQUETES

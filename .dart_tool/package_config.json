@@ -86,6 +86,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/dio-4.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "easy_localization",
       "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/easy_localization-3.0.3",
       "packageUri": "lib/",
@@ -105,9 +111,9 @@
     },
     {
       "name": "ffi",
-      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-2.0.2",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.12"
     },
     {
       "name": "file",
@@ -266,6 +272,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "open_filex",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/open_filex-3.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
@@ -315,9 +327,9 @@
     },
     {
       "name": "path_provider_windows",
-      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.1.6",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.7",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.12"
     },
     {
       "name": "pdf",
@@ -471,7 +483,7 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/win32-4.1.4",
+      "rootUri": "file:///D:/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.6.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -494,7 +506,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2024-01-17T19:36:01.714068Z",
+  "generated": "2024-02-07T17:10:19.372967Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

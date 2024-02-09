@@ -17,6 +17,32 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_pdfview::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\flutter_pdfview\.transforms\c066238eeca86efdc0a95f9cfd8a438a\transformed\out\jars\classes.jar"
+      resolved="io.endigo.plugings.pdfview:flutter_pdfview:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\flutter_pdfview\.transforms\c066238eeca86efdc0a95f9cfd8a438a\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:permission_handler_android::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\permission_handler_android\.transforms\27562c3251ec83fe8426dfc63f467d61\transformed\out\jars\classes.jar"
+      resolved="com.baseflow.permissionhandler:permission_handler_android:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\permission_handler_android\.transforms\27562c3251ec83fe8426dfc63f467d61\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_keyboard_visibility::release"
       jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\flutter_keyboard_visibility\.transforms\28c4ee5ccc8e35df420355af51892ae6\transformed\out\jars\classes.jar"
       resolved="com.jrai.flutter_keyboard_visibility:flutter_keyboard_visibility:unspecified"
@@ -34,6 +60,19 @@
       jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\fluttertoast\.transforms\f5150fcbe63261a9bcc715dba92a96b1\transformed\out\jars\classes.jar"
       resolved="com.example.FlutterToast:fluttertoast:unspecified"
       folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\fluttertoast\.transforms\f5150fcbe63261a9bcc715dba92a96b1\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:url_launcher_android::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\url_launcher_android\.transforms\96a163d83e2c44a31197acc3b75c4b9a\transformed\out\jars\classes.jar"
+      resolved="io.flutter.plugins.urllauncher:url_launcher_android:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\url_launcher_android\.transforms\96a163d83e2c44a31197acc3b75c4b9a\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -183,10 +222,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.core:core:1.6.0@aar"
-      jars="C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\jars\classes.jar"
-      resolved="androidx.core:core:1.6.0"
-      folder="C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0"
+      name="androidx.core:core:1.7.0@aar"
+      jars="C:\Users\JULIO\.gradle\caches\transforms-3\5e083c06c9925c2309f02468fc66e376\transformed\core-1.7.0\jars\classes.jar"
+      resolved="androidx.core:core:1.7.0"
+      folder="C:\Users\JULIO\.gradle\caches\transforms-3\5e083c06c9925c2309f02468fc66e376\transformed\core-1.7.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -196,10 +235,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-runtime:2.2.0@aar"
-      jars="C:\Users\JULIO\.gradle\caches\transforms-3\025f0ebb178f72f967988fd890b9b9c6\transformed\lifecycle-runtime-2.2.0\jars\classes.jar"
-      resolved="androidx.lifecycle:lifecycle-runtime:2.2.0"
-      folder="C:\Users\JULIO\.gradle\caches\transforms-3\025f0ebb178f72f967988fd890b9b9c6\transformed\lifecycle-runtime-2.2.0"
+      name="androidx.lifecycle:lifecycle-runtime:2.3.1@aar"
+      jars="C:\Users\JULIO\.gradle\caches\transforms-3\8a5514d4341f323606d890e29d4268b9\transformed\lifecycle-runtime-2.3.1\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-runtime:2.3.1"
+      folder="C:\Users\JULIO\.gradle\caches\transforms-3\8a5514d4341f323606d890e29d4268b9\transformed\lifecycle-runtime-2.3.1"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -248,14 +287,14 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-common:2.2.0@jar"
-      jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common\2.2.0\4ef09a745007778eef83b92f8f23987a8ea59496\lifecycle-common-2.2.0.jar"
-      resolved="androidx.lifecycle:lifecycle-common:2.2.0"/>
+      name="androidx.lifecycle:lifecycle-common:2.3.1@jar"
+      jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common\2.3.1\fc466261d52f4433863642fb40d12441ae274a98\lifecycle-common-2.3.1.jar"
+      resolved="androidx.lifecycle:lifecycle-common:2.3.1"/>
   <library
-      name="androidx.arch.core:core-runtime:2.0.0@aar"
-      jars="C:\Users\JULIO\.gradle\caches\transforms-3\57003bf956257e647aeaeb419a007e24\transformed\core-runtime-2.0.0\jars\classes.jar"
-      resolved="androidx.arch.core:core-runtime:2.0.0"
-      folder="C:\Users\JULIO\.gradle\caches\transforms-3\57003bf956257e647aeaeb419a007e24\transformed\core-runtime-2.0.0"
+      name="androidx.arch.core:core-runtime:2.1.0@aar"
+      jars="C:\Users\JULIO\.gradle\caches\transforms-3\b0ed3bc1190a335fc620be73cef0fa31\transformed\core-runtime-2.1.0\jars\classes.jar"
+      resolved="androidx.arch.core:core-runtime:2.1.0"
+      folder="C:\Users\JULIO\.gradle\caches\transforms-3\b0ed3bc1190a335fc620be73cef0fa31\transformed\core-runtime-2.1.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -340,4 +379,38 @@
       symbolFile="R.txt"
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
+  <library
+      name="com.github.mhiew:android-pdf-viewer:3.2.0-beta.3@aar"
+      jars="C:\Users\JULIO\.gradle\caches\transforms-3\912a8c7dc2982d2a2408a79b1197693e\transformed\jetified-android-pdf-viewer-3.2.0-beta.3\jars\classes.jar"
+      resolved="com.github.mhiew:android-pdf-viewer:3.2.0-beta.3"
+      folder="C:\Users\JULIO\.gradle\caches\transforms-3\912a8c7dc2982d2a2408a79b1197693e\transformed\jetified-android-pdf-viewer-3.2.0-beta.3"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.concurrent:concurrent-futures:1.0.0@jar"
+      jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\androidx.concurrent\concurrent-futures\1.0.0\c1e77e3ee6f4643b77496a1ddf7a2eef1aefdaa1\concurrent-futures-1.0.0.jar"
+      resolved="androidx.concurrent:concurrent-futures:1.0.0"/>
+  <library
+      name="com.github.mhiew:pdfium-android:1.9.2@aar"
+      jars="C:\Users\JULIO\.gradle\caches\transforms-3\81beafd8648be0f1400a6a91cb6da7a1\transformed\jetified-pdfium-android-1.9.2\jars\classes.jar"
+      resolved="com.github.mhiew:pdfium-android:1.9.2"
+      folder="C:\Users\JULIO\.gradle\caches\transforms-3\81beafd8648be0f1400a6a91cb6da7a1\transformed\jetified-pdfium-android-1.9.2"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.guava:listenablefuture:1.0@jar"
+      jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\com.google.guava\listenablefuture\1.0\c949a840a6acbc5268d088e47b04177bf90b3cad\listenablefuture-1.0.jar"
+      resolved="com.google.guava:listenablefuture:1.0"/>
 </libraries>

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:transmap_app/src/pages/TEST/pdf_test_page.dart';
 import 'package:transmap_app/src/pages/checkList/checkList_create_page.dart';
 import 'package:transmap_app/src/pages/checkList/checkList_page.dart';
 import 'package:transmap_app/src/pages/drive_gepp/carpetas_page.dart';
@@ -89,6 +90,9 @@ class MyApp extends StatelessWidget {
           'guiasElectronicasCreate':  (BuildContext context) => GuiasElectronicasCreatePage(),
 
 
+          'tests':  (BuildContext context) => MyHomePage(),
+
+
 
         },
       ),
@@ -111,6 +115,7 @@ class PreInit extends StatelessWidget {
     // return _prefs.isLogin ? ((_prefs.rolId == "1"|| _prefs.rolId == "13" )? HomePage(): OfflinePedidosEntregasPage()) : LoginPage();
     // return _prefs.isLogin ? HomePage() : LoginPage();
     return  LoginPage();
+    //return  MyHomePage();
  //    return CarpetasPage();
   }
 }

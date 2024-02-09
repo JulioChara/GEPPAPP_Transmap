@@ -1,14 +1,16 @@
 android.content.res.Resources#getIdentifier present: true
-Web content present: false
+Web content present: true
 Referenced Strings:
 exception
+android.settings.MANAGE_APP_ALL_FILES...
 cancel
 DISMISS
 kotlinx.coroutines.debug
 TextInput.requestAutofill
 app_flutter
-deviceId
+descriptor
 java.lang.Integer
+deviceId
 music
 PICTURES
 verticalText
@@ -16,38 +18,44 @@ android.util.LongArray
 FlutterSharedPreferences
 getUncaughtExceptionPreHandler
 onBackPressed
-adapter
 GeneratedPluginsRegister
+adapter
+LANDSCAPE_RIGHT
 LEFT
 java.lang.CharSequence
-LANDSCAPE_RIGHT
-_handled
 givenName
+_handled
+PermissionHandler.AppSettingsManager
 androidx.window.layout.WindowInfoTrac...
 ActivityRule
 click
 0
-kotlin.jvm.functions.
 left
+kotlin.jvm.functions.
 WindowInfoTrackerImpl.kt
 kotlinx.coroutines.DefaultExecutor
+Author
 TextInputClient.updateEditingStateWit...
 registerWith
 SystemSoundType.alert
+android.permission.READ_CONTACTS
 kotlinx.coroutines.stacktrace.recovery
+SHOWN
 kotlin.internal.JRE7PlatformImplement...
 DECREASE
 $splitPairFilters
 PORTRAIT_DOWN
+android.settings.action.MANAGE_OVERLA...
 sidecarAdapter
 libapp.so
 result
-RestorationChannel
 middleInitial
+RestorationChannel
 SystemUiMode.immersiveSticky
 flutter/platform_views
 TextCapitalization.words
 codePoint
+a
 SystemUiOverlay.top
 destroy_engine_with_activity
 truncated
@@ -57,8 +65,10 @@ displayFeatures
 io.flutter.embedding.android.SplashSc...
 component
 dev.flutter.pigeon.SharedPreferencesA...
+r
 java.lang.Module
 SUSPEND
+package:
 this$0
 splitPairFilters
 x
@@ -68,6 +78,7 @@ acc
 flutter_assets
 TextInputClient.performPrivateCommand
 displayFeature.rect
+Creator
 emailAddress
 addSuppressed
 componentName
@@ -79,6 +90,7 @@ extensionCallback
 LONG_PRESS
 DID_LOSE_ACCESSIBILITY_FOCUS
 HAS_CHECKED_STATE
+com.shockwave.pdfium.PdfiumCore
 FlutterEngine
 flutter/keyevent
 phoneCountryCode
@@ -86,20 +98,27 @@ telephoneNumberCountryCode
 deviceState
 decimal
 SystemChrome.setSystemUIOverlayStyle
+Keywords
 ROOT
 TextInput.setEditableSizeAndTransform
-enable_state_restoration
 COMPLETING_WAITING_CHILDREN
+enable_state_restoration
 ClassVerificationFailure
 _invoked
 locale
+android.permission.WRITE_EXTERNAL_STO...
 SDK_INT
 SET_SELECTION
+plugins.flutter.io/url_launcher_android
+android.permission.WRITE_CONTACTS
 _delayed
 android.os.Build
 io.flutter.embedding.android.OldGenHe...
+android.permission.RECEIVE_SMS
+headers
 BITMAP_MASKABLE
 MOVE_CURSOR_BACKWARD_BY_CHARACTER
+onError
 FlutterSplashView
 kotlin.collections.List
 IS_OBSCURED
@@ -114,6 +133,7 @@ resizeUpLeft
 setDisplayFeatures
 HapticFeedbackType.lightImpact
 TextInputType.emailAddress
+START
 creditCardExpirationDay
 ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE
 username
@@ -122,6 +142,8 @@ java.lang.Float
 decorate
 Dispatchers.IO
 UNDEFINED
+requestPermissions
+android.settings.REQUEST_SCHEDULE_EXA...
 EmptyQueue
 embeddingExtension
 SCOPES_ROUTE
@@ -129,6 +151,7 @@ android.os.Build$VERSION
 SplitPairRule
 executor
 IS_TEXT_FIELD
+android.settings.NOTIFICATION_POLICY_...
 kotlinx.coroutines.internal.StackTrac...
 dev.flutter.pigeon.SharedPreferencesA...
 write
@@ -139,19 +162,20 @@ TextInputAction.none
 secondaryActivityName.className
 byte
 getNextMatch
-binding.applicationContext
 getDeferredComponentInstallState
+binding.applicationContext
 splitRule
 creditCardNumber
 resizeUp
 onPostResume
 io.flutter.Entrypoint
 CLIP_RECT
-other
 wait
+other
 FlutterActivityAndFragmentDelegate
 birthDateYear
 IS_LINK
+WIDTH
 cell
 %s.%sParcelizer
 safeCast
@@ -165,30 +189,37 @@ it.parameterTypes
 mNextServedView
 kotlin.Long
 POLL_FAILED
+enableSwipe
 Completing
 java.lang.String
-addressRegion
 NOTIFICATIONS
-TextInput.setClient
+addressRegion
 resizeDown
+TextInput.setClient
+android.settings.APPLICATION_DETAILS_...
 _resumed
 PLATFORM_VIEW
+fitPolicy
 TextInputType.multiline
 coroutine
 getChildId
+android.permission.RECEIVE_MMS
+updateSettings
 PRIVATE
 comparator
 framework
 java.util.concurrent.ForkJoinPool
 LIGHT_IMPACT
 DESTROYED
-New
-SystemChrome.setEnabledSystemUIOverlays
 selectionExtent
+SystemChrome.setEnabledSystemUIOverlays
+New
+defaultPage
 MouseCursorChannel
 ATOMIC
 kotlin.collections.Collection
 TextInputAction.send
+pages
 onStart
 android.widget.CheckBox
 buffer
@@ -202,38 +233,48 @@ memoryPressure
 flutter/restoration
 touch
 onUserLeaveHint
-CommonPool
 _cur
+CommonPool
 onResume
+android.permission.MANAGE_EXTERNAL_ST...
 OFFER_SUCCESS
 java.util.List
 hybrid
 UNEXPECTED:
 kotlin.Int
 basic
-kotlin.Throwable
 collect
+kotlin.Throwable
 sidecarDisplayFeatures
 parkedWorkersStack
+OP_POST_NOTIFICATION
+android.permission.CALL_PHONE
+android.permission.GET_ACCOUNTS
+handleLifecycleEvent
 RINGTONES
 IS_IMAGE
 PHONE
 COMPLETING_ALREADY
 systemNavigationBarColor
-cause
 displayCutout
+cause
 PlatformPlugin
 java.lang.Iterable
 rect
 kotlinx.coroutines.DefaultExecutor.ke...
 kotlin.Annotation
 INVERT_COLORS
-synchronizeToNativeViewHierarchy
-packageName
+android.permission.NEARBY_WIFI_DEVICES
 LANDSCAPE_LEFT
+packageName
+synchronizeToNativeViewHierarchy
 info.displayFeatures
+OK
+enableJavaScript
 direction
+android.permission.RECEIVE_WAP_PUSH
 BITMAP
+android.permission.WRITE_CALL_LOG
 windowConfiguration
 newConfig
 resizeUpRight
@@ -244,13 +285,17 @@ WindowServer
 activities
 layout_inflater
 UNKNOWN
+android.permission.CAMERA
 ActivityFilter
 getParentNodeId
 RestrictedApi
 accessibility
+android.permission.READ_PHONE_NUMBERS
 getPoolSize
-SystemChrome.setEnabledSystemUIMode
 getAppBounds
+PermissionHandler.PermissionManager
+SystemChrome.setEnabledSystemUIMode
+permissions_handler
 ringtones
 android.widget.HorizontalScrollView
 password
@@ -259,15 +304,19 @@ INCREASE
 VGhpcyBpcyB0aGUgcHJlZml4IGZvciBEb3VibGUu
 NO_TARGET
 jar
+ERROR
 state
 secondaryActivityStack.activities
 CompanionObject
 element
+swipeHorizontal
 creditCardExpirationMonth
 cache
+android.permission.BLUETOOTH_SCAN
 deltaText
 zoomIn
 Destroying.
+LOADED
 input
 pushRoute
 REMOVE_FROZEN
@@ -277,15 +326,19 @@ oemFeature.bounds
 dev.flutter.pigeon.PathProviderApi.ge...
 dev.flutter.pigeon.SharedPreferencesA...
 CUSTOM_ACTION
-delimiters
 TextInputClient.updateEditingStateWit...
+delimiters
 PROTECTED
 STANDARD
 cached_engine_id
 setRemoveOnCancelPolicy
+android.permission.BODY_SENSORS_BACKG...
 MUSIC
+NO_ACTIVITY
 newLayoutInfo
+android.permission.READ_MEDIA_IMAGES
 IS_LIVE_REGION
+checkOpNoThrow
 forbidden
 windowToken
 blockingTasksInBuffer
@@ -293,6 +346,7 @@ onTrimMemory
 getSourceNodeId
 call
 streetAddress
+android.permission.READ_CALL_LOG
 kotlin.Char
 flutter/isolate
 ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN
@@ -304,12 +358,13 @@ java.util.ListIterator
 kotlinx.coroutines.android.AndroidDis...
 DefaultDispatcher
 SplitPlaceholderRule
-source
 ALERT
 kotlin.Double
+source
 onActivityResult
 LocalizationChannel
 view
+modpdfium
 allScroll
 java.lang.Short
 SystemChrome.systemUIChange
@@ -319,6 +374,7 @@ addressCity
 primaryActivityName
 includeSubdomains
 overlay
+android.intent.action.CALL
 creditCardSecurityCode
 parentMetrics
 FULL
@@ -327,6 +383,7 @@ flutter
 phoneNumber
 composingBase
 name
+page
 DartExecutor
 fields
 getDescriptor
@@ -344,13 +401,16 @@ EDGE_TO_EDGE
 description
 LEAN_BACK
 _isTerminated
-LifecycleChannel
 SEALED
+LifecycleChannel
 textScaleFactor
 CREATED
+onPageChanged
 namePrefix
+PermissionHandler.ServiceManager
 SharedPreferencesPlugin
 io.flutter.embedding.android.NormalTheme
+flutter.baseflow.com/permissions/methods
 Dispatchers.Main
 center
 FlutterSurfaceView
@@ -363,6 +423,7 @@ primitiveFqNames.values
 enableSuggestions
 PASTE
 gravity
+android.intent.action.VIEW
 short
 middleName
 window
@@ -371,42 +432,47 @@ Cancelling
 IS_HEADER
 CLIP_RRECT
 COMPLETING_RETRY
+plugins.endigo.io/pdfview_
 VISIBLE_PASSWORD
 IS_FOCUSABLE
 AppLifecycleState.inactive
 TextInput.clearClient
 SCROLL_RIGHT
+textCapitalization
 android.widget.ImageView
 android.widget.RadioButton
 moduleName
-textCapitalization
 oemFeature
-getBounds
 put
-EmptyCoroutineContext
+getBounds
 TextInputType.text
+EmptyCoroutineContext
 CPU_ACQUIRED
 ACTION_ARGUMENT_SELECTION_END_INT
 embeddingCallback
+shouldShowRequestPermissionRationale
 SCROLL_LEFT
-HapticFeedbackType.heavyImpact
 TextInputAction.search
 dev.flutter.pigeon.SharedPreferencesA...
+HapticFeedbackType.heavyImpact
 windowBackend
 InputConnectionAdaptor
 flutter/platform
 kotlinx.coroutines.scheduler.core.poo...
 kotlinx.coroutines.scheduler.max.pool...
+android.permission.ACCESS_BACKGROUND_...
 double
 newPassword
 POSTURE_HALF_OPENED
 POSTAL_ADDRESS
 smsOTPCode
-SystemChannel
 flutter_deeplinking_enabled
+SystemChannel
+com.android.browser.headers
 viewFocused
 flutterEngine
 HEAVY_IMPACT
+phone
 kotlin.Short
 light
 dev.flutter.pigeon.SharedPreferencesA...
@@ -414,23 +480,28 @@ bounds
 primaryActivityName.packageName
 PUBLIC
 RETRY_ATOMIC
+android.settings.MANAGE_UNKNOWN_APP_S...
 getDisplayFeatures
 BLOCKING
 uninstallDeferredComponent
+UrlLauncherPlugin
 java.lang.Throwable
 Dispatchers.Unconfined
 WindowInfoTrackerCallbackAdapter.kt
-flags
 $splitsWithActivity
 PrivateApi
+flags
 SystemSound.play
 onPause
 SystemUiOverlay.bottom
 enabled
 android.intent.action.RUN
+android.permission.ACCESS_FINE_LOCATION
 android.widget.SeekBar
+android.permission.ACCESS_NOTIFICATIO...
 INITIALIZED
 LAZY
+android.permission.REQUEST_IGNORE_BAT...
 PlatformViewWrapper
 KeyEventChannel
 producerIndex
@@ -441,8 +512,8 @@ java.util.Map$Entry
 SendQueued
 display
 composingExtent
-callbackInterface
 DeviceOrientation.landscapeLeft
+callbackInterface
 birthDateDay
 .immediate
 TextInputAction.unspecified
@@ -457,6 +528,8 @@ kotlin.Any
 Brightness.dark
 listen
 selectionBase
+notification
+location_providers_allowed
 SettingsChannel
 plainCodePoint
 _reusableCancellableContinuation
@@ -467,55 +540,65 @@ BOTH
 java.lang.Cloneable
 deltaEnd
 kind
+modpng
 GeneratedPluginRegistrant
 SplitPairFilter
+android.permission.REQUEST_INSTALL_PA...
 _consensus
 SCROLL_UP
 bgcolor
+Producer
 WrongConstant
-kotlin.collections.Iterator
 dev.flutter.pigeon.SharedPreferencesA...
 CLOSED_EMPTY
+kotlin.collections.Iterator
+android.permission.ACTIVITY_RECOGNITION
 job
 TextInputClient.requestExistingInputS...
 setLocale
 Clipboard.setData
-TextInput.sendAppPrivateCommand
 TextInputType.phone
+closeWebView
+TextInput.sendAppPrivateCommand
 SET_TEXT
 SystemChrome.restoreSystemUIOverlays
 consumerIndex
 point
 onCloseHandler
-_removedRef
 kotlin.Enum
-PlatformViewsChannel
+_removedRef
 alias
+PlatformViewsChannel
 deltas
 uniqueIdentifier
 kotlin.String.Companion
 move
 SplitRuleResolution
 alarms
+filePath
 jClass
 TextInput.show
 setPosture
+HEIGHT
+android.permission.ANSWER_PHONE_CALLS
 splitInfo.primaryActivityStack
 primaryActivityName.className
 windowMetrics
 systemNavigationBarDividerColor
 CLIP_PATH
+android.permission.READ_PHONE_STATE
 $splitRule
 getModule
 extent
 java.specification.version
-sidecarCompat
 resizeColumn
+sidecarCompat
 plugins
-textcolor
-kotlinx.coroutines.scheduler.blocking...
-kotlin.Cloneable
 tooltip
+openAppSettings
+kotlinx.coroutines.scheduler.blocking...
+textcolor
+kotlin.Cloneable
 IS_FOCUSED
 PlatformViewsController
 ReceiveQueued
@@ -529,8 +612,8 @@ ON_ANY
 MOVE_CURSOR_BACKWARD_BY_WORD
 kotlin.Unit
 kotlinx.coroutines.scheduler.resoluti...
-route
 ON_PAUSE
+route
 birthdayDay
 domain
 kotlin.jvm.internal.StringCompanionOb...
@@ -544,12 +627,16 @@ transparent
 java.
 SystemSoundType.click
 resizeUpDown
-background_mode
 popRoute
+background_mode
 NAMES_ROUTE
 defaultDisplay
 throwableMethods
+setPage
+android.permission.SEND_SMS
+android.permission.USE_SIP
 completion
+android.permission.READ_MEDIA_VIDEO
 clearFocus
 secondaryActivityIntent
 FRAMEWORK_CLIENT
@@ -559,6 +646,8 @@ InlinedApi
 personNamePrefix
 activityComponent.packageName
 VGhpcyBpcyB0aGUgcHJlZml4IGZvciBhIGxpc3Qu
+currentPage
+android.permission.BLUETOOTH
 MEDIUM_IMPACT
 feature.rect
 missingDelimiterValue
@@ -570,18 +659,21 @@ ruleComponent.className
 kotlin.Boolean
 _queue
 setSidecarCallback
-Override
 DOWNLOADS
+Override
 info
 DORMANT
 getRealSize
 image
+android.permission.READ_MEDIA_AUDIO
 TextInputChannel
 componentName.className
 MOVIES
 Failed
 OPACITY
 NonDisposableHandle
+android.permission.RECORD_AUDIO
+plugins.endigo.io/pdfview
 PODCASTS
 dev.flutter.pigeon.PathProviderApi.ge...
 dev.flutter.pigeon.PathProviderApi.ge...
@@ -589,11 +681,15 @@ SyntheticAccessor
 TextInputType.name
 navigation_bar_height
 java.lang.annotation.Annotation
+END
 countryName
+android.permission.BLUETOOTH_CONNECT
 FlutterImageView
 nodeId
 inputAction
 frame
+nightMode
+android.permission.ACCESS_MEDIA_LOCATION
 TERMINATED
 flutter/navigation
 Localization.getStringResource
@@ -605,12 +701,14 @@ kotlin.collections.Map
 ENQUEUE_FAILED
 statusBarColor
 VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJb...
+useWebView
 java.lang.Boolean
 showToast
 continuation
 DISABLE_ANIMATIONS
-DeferredComponentChannel
+pageCount
 DeviceOrientation.landscapeRight
+DeferredComponentChannel
 IconCompat
 length
 false
@@ -619,20 +717,23 @@ keydown
 workerCtl
 activateSystemCursor
 TextInputClient.updateEditingState
+onPageError
 flutter/accessibility
-io.flutter.embedding.android.LeakVM
 resizeLeft
+io.flutter.embedding.android.LeakVM
 resize
 TextEditingDelta
 TextInputAction.next
-DEFAULT
 setInitialRoute
+DEFAULT
+MethodCallHandlerImpl
 DROP_OLDEST
 splitInfoList
+android.permission.WRITE_CALENDAR
 TEXT
 lastScheduledTask
-birthdayMonth
 clipboard
+birthdayMonth
 inFlightTasks
 autocorrect
 HINGE
@@ -650,16 +751,19 @@ TextInput.finishAutofillContext
 SPELLOUT
 surface
 dev.flutter.pigeon.SharedPreferencesA...
+checkServiceStatus
+arch_disk_io_%d
 signed
 _bounds
-PlatformChannel
 it
+PlatformChannel
 params
+announce
+jniPdfium
 FlutterView
 UNDECIDED
-announce
-PLAIN_TEXT
 TextInputType.address
+PLAIN_TEXT
 getResId
 TextInputType.url
 MOVE_CURSOR_FORWARD_BY_WORD
@@ -669,19 +773,22 @@ AccessibilityChannel
 fullStreetAddress
 telephoneNumber
 secondaryActivityStack
+preventLinkNavigation
 PonnamKarthik/fluttertoast
 flutter_keyboard_visibility
 RIGHT
-placeholderIntent
 CancellableContinuation
+placeholderIntent
 mServedView
 onDestroy
 IS_KEYBOARD_KEY
 personNameSuffix
 kotlin.jvm.functions.Function
+PDFView
 EmbeddingCompat
 off
 resizeLeftRight
+url
 platformBrightness
 splitInfo.secondaryActivityStack
 TextInputAction.done
@@ -691,13 +798,14 @@ io.flutter.EntrypointUri
 onSaveInstanceState
 mH
 IS_SLIDER
-loadingUnitId
 newIndent
+loadingUnitId
 resizeUpLeftDownRight
 KeyboardManager
 RESUMED
 auto
 newUsername
+android.permission.READ_CALENDAR
 main
 activityFilters
 suffix
@@ -711,8 +819,8 @@ birthDateMonth
 ListenableEditingState
 separator
 personMiddleName
-null
 grabbing
+null
 NavigationChannel
 background
 alwaysUse24HourFormat
@@ -722,6 +830,7 @@ phoneNational
 UNDISPATCHED
 TextInputType.visiblePassword
 birthday
+pageSnap
 p0
 io.flutter.embedding.android.EnableSk...
 featureBounds
@@ -729,6 +838,8 @@ transformer
 statusBarIconBrightness
 dcim
 ClickableViewAccessibility
+android.permission.BLUETOOTH_ADVERTISE
+total
 transform
 STARTED
 activity.windowManager.maximumWindowM...
@@ -738,8 +849,8 @@ show_password
 on
 baseKey
 vm_snapshot_data
-Clipboard.getData
 currentDisplay
+Clipboard.getData
 longPress
 COROUTINE_SUSPENDED
 ACCESSIBLE_NAVIGATION
@@ -747,7 +858,9 @@ flutter/textinput
 Completed
 callback
 RESUME_TOKEN
+ModDate
 DCIM
+android.permission.READ_EXTERNAL_STORAGE
 HAS_TOGGLED_STATE
 PathProviderPlugin
 IS_SELECTED
@@ -755,7 +868,9 @@ TextInput.hide
 createAsync
 primaryActivityStack
 telephoneNumberNational
+CENTER
 .Companion
+sp_permission_handler_permission_was_...
 character
 dev.flutter.pigeon.PathProviderApi.ge...
 EMAIL_ADDRESS
@@ -791,17 +906,20 @@ RESOURCE
 android.type.verbatim
 creditCardExpirationDate
 obscureText
-WORDS
 secondaryActivityName.packageName
 texture
+WORDS
 SELECTION_CLICK
 windowMetricsCalculator
+android.intent.category.DEFAULT
+launch
 kotlin.Float
+checkPermissionStatus
 systemNavigationBarIconBrightness
 contextMenu
 handled
-SystemNavigator.pop
 resizeRight
+SystemNavigator.pop
 TextInputAction.newline
 autofill
 TextCapitalization.none
@@ -818,32 +936,39 @@ personGivenName
 dev.flutter.pigeon.PathProviderApi.ge...
 pairs
 TextInput.setEditingState
+enableDomStorage
 ON_START
+FitPolicy.BOTH
 birthDateFull
 windowMetrics.bounds
 TOP_OVERLAYS
 ruleComponent
 Dispatchers.Default
 kotlinx.coroutines.io.parallelism
+pdfData
 NUMBER
-java.util.Collection
+onLinkHandler
 LIST_EMPTY
+java.util.Collection
 componentName.packageName
+modft2
 collection
 android.view.DisplayInfo
 AppLifecycleState.paused
+autoSpacing
 postalAddressExtendedPostalCode
 NOT_IN_STACK
 TextInputAction.previous
 CLICK
 _next
 MULTILINE
+removeObserver
 destination
 ON_DESTROY
 rule
 enableDeltaModel
-flutter/mousecursor
 downloads
+flutter/mousecursor
 EMPTY
 text/plain
 kotlinx.coroutines.test.internal.Test...
@@ -851,24 +976,28 @@ creditCardExpirationYear
 CUTOUT
 flutter/system
 BlockedPrivateApi
+Title
 SystemUiMode.leanBack
 HAS_IMPLICIT_SCROLLING
 filters
-onWindowLayoutChangeListenerRemoved
 Dispatchers.Main.immediate
+onWindowLayoutChangeListenerRemoved
+Subject
 dev.flutter.pigeon.PathProviderApi.ge...
 splitRules
 ON_CLOSE_HANDLER_INVOKED
-java.lang.Object
 REMOVED_TASK
-SystemChrome.setSystemUIChangeListener
+java.lang.Object
 splitInfo
+SystemChrome.setSystemUIChangeListener
 base
 extendedPostalCode
+CreationDate
 TextInput.setPlatformViewClient
 prefix
 binding
 zoomOut
+location_mode
 none
 type
 actionLabel
@@ -876,39 +1005,49 @@ movies
 TextCapitalization.sentences
 IMMERSIVE_STICKY
 VERTICAL
+appops
+onRender
 delimiter
+PrivateConstructorForUtilityClass
+tel:123123
 HapticFeedbackType.mediumImpact
+FitPolicy.WIDTH
 NONE
 primaryActivityStack.activities
 ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT
 DeviceOrientation.portraitUp
-productId
 method
+productId
 hints
 systemNavigationBarContrastEnforced
-keyup
 onWindowLayoutChangeListenerAdded
 java.util.Set
+keyup
 ACTION_ARGUMENT_SELECTION_START_INT
 push
 _state
 SHOW_ON_SCREEN
-brieflyShowPassword
 notifications
+brieflyShowPassword
 overridingDecorator
 newDeviceState
 kotlinx.coroutines.scheduler
+android.permission.READ_SMS
 gender
 java.lang.Double
 AppLifecycleState.detached
+pageFling
+android.permission.BODY_SENSORS
+resizeRow
 range
 binding.binaryMessenger
-resizeRow
 IS_TOGGLED
 pictures
+com.android.voicemail.permission.ADD_...
 feature
 NO_THREAD_ELEMENTS
 get
+canLaunch
 oneTimeCode
 tracker
 dark
@@ -916,6 +1055,7 @@ FLAT
 getDisplayInfo
 copy
 precise
+power
 java.lang.Number
 BanUncheckedReflection
 resizeDownRight
@@ -923,15 +1063,18 @@ newLayout
 DARK
 COPY
 IS_READ_ONLY
-initializer
 token
-SystemChrome.setPreferredOrientations
+initializer
 filter
+SystemChrome.setPreferredOrientations
+ACTIVITY_NOT_FOUND
 help
 phoneNumberDevice
 podcasts
+UrlLauncher
 flutter/deferredcomponent
 elements
+android.settings.REQUEST_IGNORE_BATTE...
 ALARMS
 java.lang.Comparable
 URI_MASKABLE
@@ -948,11 +1091,13 @@ IS_BUTTON
 postalAddressExtended
 TextCapitalization.characters
 java.lang.Enum
+android.permission.ACCESS_COARSE_LOCA...
 familyName
 enableIMEPersonalizedLearning
 create
 TRANSFORM
 Flow.kt
+android.permission.POST_NOTIFICATIONS
 TextInputType.datetime
 TextInputAction.go
 tap
@@ -964,9 +1109,10 @@ IS_HIDDEN
 io.flutter.InitialRoute
 controlState
 transition_animation_scale
-keyCode
 sequence
+keyCode
 Active
+android.permission.SCHEDULE_EXACT_ALARM
 postalAddress
 telephoneNumberDevice
 kotlin.collections.Iterable
@@ -980,6 +1126,7 @@ mChildNodeIds
 kotlin.collections.Map.Entry
 ruleComponent.packageName
 line
+android.permission.SYSTEM_ALERT_WINDOW
 IS_CHECKED
 Brightness.light
 kotlinName
@@ -987,28 +1134,32 @@ LTR
 error
 kotlin.Byte
 array
+alarm
 kotlin.collections.Set
 postfix
 value
 getWindowLayoutInfo
-REUSABLE_CLAIMED
 opaque
+REUSABLE_CLAIMED
 java.util.Iterator
 0x%08x
-dart_entrypoint_args
 TextInputClient.performAction
+dart_entrypoint_args
 jar:file:
 addressState
 ON_STOP
+android.hardware.telephony
 kotlin.CharSequence
 intent
 int
 personName
+FitPolicy.HEIGHT
 boolean
+bluetooth
 emit
 SCROLL_DOWN
-AccessibilityBridge
 dev.flutter.pigeon.SharedPreferencesA...
+AccessibilityBridge
 Marking id:accessibility_action_clickable_span:2131034112 used because it matches string pool constant acc
 Marking id:accessibility_custom_action_0:2131034113 used because it matches string pool constant acc
 Marking id:accessibility_custom_action_1:2131034114 used because it matches string pool constant acc
@@ -1042,7 +1193,10 @@ Marking id:accessibility_custom_action_6:2131034141 used because it matches stri
 Marking id:accessibility_custom_action_7:2131034142 used because it matches string pool constant acc
 Marking id:accessibility_custom_action_8:2131034143 used because it matches string pool constant acc
 Marking id:accessibility_custom_action_9:2131034144 used because it matches string pool constant acc
-Marking id:locale:2131034162 used because it matches string pool constant locale
+Marking id:locale:2131034166 used because it matches string pool constant locale
+Marking id:locale:2131034166 used because it matches string pool constant locale
+Marking attr:secondaryActivityName:2130771996 used because it matches string pool constant secondaryActivityName.className
+Marking id:info:2131034158 used because it matches string pool constant info.displayFeatures
 Marking id:accessibility_action_clickable_span:2131034112 used because it matches string pool constant accessibility
 Marking id:accessibility_custom_action_0:2131034113 used because it matches string pool constant accessibility
 Marking id:accessibility_custom_action_1:2131034114 used because it matches string pool constant accessibility
@@ -1076,27 +1230,73 @@ Marking id:accessibility_custom_action_6:2131034141 used because it matches stri
 Marking id:accessibility_custom_action_7:2131034142 used because it matches string pool constant accessibility
 Marking id:accessibility_custom_action_8:2131034143 used because it matches string pool constant accessibility
 Marking id:accessibility_custom_action_9:2131034144 used because it matches string pool constant accessibility
-Marking attr:primaryActivityName:2130771988 used because it matches string pool constant primaryActivityName
+Marking id:view_tree_lifecycle_owner:2131034192 used because it matches string pool constant view
+Marking attr:primaryActivityName:2130771989 used because it matches string pool constant primaryActivityName
+Marking attr:primaryActivityName:2130771989 used because it matches string pool constant primaryActivityName
 Marking color:androidx_core_ripple_material_light:2130837504 used because it matches string pool constant android
 Marking color:androidx_core_secondary_text_default_material_light:2130837505 used because it matches string pool constant android
 Marking id:androidx_window_activity_scope:2131034150 used because it matches string pool constant android
-Marking attr:shortcutMatchRequired:2130771992 used because it matches string pool constant short
-Marking attr:secondaryActivityName:2130771991 used because it matches string pool constant secondaryActivityName
+Marking attr:shortcutMatchRequired:2130771997 used because it matches string pool constant short
+Marking attr:primaryActivityName:2130771989 used because it matches string pool constant primaryActivityName.packageName
+Marking color:notification_action_color_filter:2130837507 used because it matches string pool constant notification
+Marking color:notification_icon_bg_color:2130837508 used because it matches string pool constant notification
+Marking dimen:notification_action_icon_size:2130903047 used because it matches string pool constant notification
+Marking dimen:notification_action_text_size:2130903048 used because it matches string pool constant notification
+Marking dimen:notification_big_circle_margin:2130903049 used because it matches string pool constant notification
+Marking dimen:notification_content_margin_start:2130903050 used because it matches string pool constant notification
+Marking dimen:notification_large_icon_height:2130903051 used because it matches string pool constant notification
+Marking dimen:notification_large_icon_width:2130903052 used because it matches string pool constant notification
+Marking dimen:notification_main_column_padding_top:2130903053 used because it matches string pool constant notification
+Marking dimen:notification_media_narrow_margin:2130903054 used because it matches string pool constant notification
+Marking dimen:notification_right_icon_size:2130903055 used because it matches string pool constant notification
+Marking dimen:notification_right_side_padding_top:2130903056 used because it matches string pool constant notification
+Marking dimen:notification_small_icon_background_padding:2130903057 used because it matches string pool constant notification
+Marking dimen:notification_small_icon_size_as_large:2130903058 used because it matches string pool constant notification
+Marking dimen:notification_subtext_size:2130903059 used because it matches string pool constant notification
+Marking dimen:notification_top_pad:2130903060 used because it matches string pool constant notification
+Marking dimen:notification_top_pad_large_text:2130903061 used because it matches string pool constant notification
+Marking drawable:notification_action_background:2130968582 used because it matches string pool constant notification
+Marking drawable:notification_bg:2130968583 used because it matches string pool constant notification
+Marking drawable:notification_bg_low:2130968584 used because it matches string pool constant notification
+Marking drawable:notification_bg_low_normal:2130968585 used because it matches string pool constant notification
+Marking drawable:notification_bg_low_pressed:2130968586 used because it matches string pool constant notification
+Marking drawable:notification_bg_normal:2130968587 used because it matches string pool constant notification
+Marking drawable:notification_bg_normal_pressed:2130968588 used because it matches string pool constant notification
+Marking drawable:notification_icon_background:2130968589 used because it matches string pool constant notification
+Marking drawable:notification_template_icon_bg:2130968590 used because it matches string pool constant notification
+Marking drawable:notification_template_icon_low_bg:2130968591 used because it matches string pool constant notification
+Marking drawable:notification_tile_bg:2130968592 used because it matches string pool constant notification
+Marking id:notification_background:2131034169 used because it matches string pool constant notification
+Marking id:notification_main_column:2131034170 used because it matches string pool constant notification
+Marking id:notification_main_column_container:2131034171 used because it matches string pool constant notification
+Marking layout:notification_action:2131165185 used because it matches string pool constant notification
+Marking layout:notification_action_tombstone:2131165186 used because it matches string pool constant notification
+Marking layout:notification_template_custom_big:2131165187 used because it matches string pool constant notification
+Marking layout:notification_template_icon_group:2131165188 used because it matches string pool constant notification
+Marking layout:notification_template_part_chronometer:2131165189 used because it matches string pool constant notification
+Marking layout:notification_template_part_time:2131165190 used because it matches string pool constant notification
+Marking attr:primaryActivityName:2130771989 used because it matches string pool constant primaryActivityName.className
+Marking attr:secondaryActivityName:2130771996 used because it matches string pool constant secondaryActivityName
+Marking attr:secondaryActivityName:2130771996 used because it matches string pool constant secondaryActivityName
 Marking id:info:2131034158 used because it matches string pool constant info
-Marking attr:primaryActivityName:2130771988 used because it matches string pool constant primaryActivity
-Marking attr:secondaryActivityAction:2130771990 used because it matches string pool constant secondaryActivity
-Marking attr:secondaryActivityName:2130771991 used because it matches string pool constant secondaryActivity
+Marking id:info:2131034158 used because it matches string pool constant info
+Marking attr:primaryActivityName:2130771989 used because it matches string pool constant primaryActivity
+Marking attr:secondaryActivityAction:2130771995 used because it matches string pool constant secondaryActivity
+Marking attr:secondaryActivityName:2130771996 used because it matches string pool constant secondaryActivity
 Marking id:action_container:2131034145 used because it matches string pool constant action
 Marking id:action_divider:2131034146 used because it matches string pool constant action
 Marking id:action_image:2131034147 used because it matches string pool constant action
 Marking id:action_text:2131034148 used because it matches string pool constant action
 Marking id:actions:2131034149 used because it matches string pool constant action
-Marking id:text:2131034184 used because it matches string pool constant text
-Marking id:text2:2131034185 used because it matches string pool constant text
+Marking id:text:2131034188 used because it matches string pool constant text
+Marking id:text:2131034188 used because it matches string pool constant text
+Marking id:text2:2131034189 used because it matches string pool constant text
 Marking attr:activityAction:2130771968 used because it matches string pool constant activity
 Marking attr:activityName:2130771969 used because it matches string pool constant activity
-Marking id:line1:2131034160 used because it matches string pool constant line
-Marking id:line3:2131034161 used because it matches string pool constant line
+Marking attr:secondaryActivityName:2130771996 used because it matches string pool constant secondaryActivityName.packageName
+Marking drawable:launch_background:2130968581 used because it matches string pool constant launch
+Marking id:line1:2131034164 used because it matches string pool constant line
+Marking id:line3:2131034165 used because it matches string pool constant line
 @attr/activityAction : reachable=true
 @attr/activityName : reachable=true
 @attr/alpha : reachable=false
@@ -1115,10 +1315,15 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @attr/fontStyle : reachable=false
 @attr/fontVariationSettings : reachable=false
 @attr/fontWeight : reachable=false
+@attr/lStar : reachable=false
 @attr/nestedScrollViewStyle : reachable=false
 @attr/placeholderActivityName : reachable=false
 @attr/primaryActivityName : reachable=true
 @attr/queryPatterns : reachable=false
+@attr/sb_handlerColor : reachable=false
+@attr/sb_horizontal : reachable=false
+@attr/sb_indicatorColor : reachable=false
+@attr/sb_indicatorTextColor : reachable=false
 @attr/secondaryActivityAction : reachable=true
 @attr/secondaryActivityName : reachable=true
 @attr/shortcutMatchRequired : reachable=true
@@ -1130,9 +1335,9 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @color/androidx_core_ripple_material_light : reachable=true
 @color/androidx_core_secondary_text_default_material_light : reachable=true
 @color/ic_launcher_background : reachable=false
-@color/notification_action_color_filter : reachable=false
+@color/notification_action_color_filter : reachable=true
     @color/androidx_core_secondary_text_default_material_light
-@color/notification_icon_bg_color : reachable=false
+@color/notification_icon_bg_color : reachable=true
 @dimen/compat_button_inset_horizontal_material : reachable=false
 @dimen/compat_button_inset_vertical_material : reachable=false
 @dimen/compat_button_padding_horizontal_material : reachable=false
@@ -1140,45 +1345,51 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @dimen/compat_control_corner_material : reachable=false
 @dimen/compat_notification_large_icon_max_height : reachable=false
 @dimen/compat_notification_large_icon_max_width : reachable=false
-@dimen/notification_action_icon_size : reachable=false
-@dimen/notification_action_text_size : reachable=false
-@dimen/notification_big_circle_margin : reachable=false
-@dimen/notification_content_margin_start : reachable=false
-@dimen/notification_large_icon_height : reachable=false
-@dimen/notification_large_icon_width : reachable=false
-@dimen/notification_main_column_padding_top : reachable=false
-@dimen/notification_media_narrow_margin : reachable=false
-@dimen/notification_right_icon_size : reachable=false
-@dimen/notification_right_side_padding_top : reachable=false
-@dimen/notification_small_icon_background_padding : reachable=false
-@dimen/notification_small_icon_size_as_large : reachable=false
-@dimen/notification_subtext_size : reachable=false
-@dimen/notification_top_pad : reachable=false
-@dimen/notification_top_pad_large_text : reachable=false
+@dimen/notification_action_icon_size : reachable=true
+@dimen/notification_action_text_size : reachable=true
+@dimen/notification_big_circle_margin : reachable=true
+@dimen/notification_content_margin_start : reachable=true
+@dimen/notification_large_icon_height : reachable=true
+@dimen/notification_large_icon_width : reachable=true
+@dimen/notification_main_column_padding_top : reachable=true
+@dimen/notification_media_narrow_margin : reachable=true
+@dimen/notification_right_icon_size : reachable=true
+@dimen/notification_right_side_padding_top : reachable=true
+@dimen/notification_small_icon_background_padding : reachable=true
+@dimen/notification_small_icon_size_as_large : reachable=true
+@dimen/notification_subtext_size : reachable=true
+@dimen/notification_top_pad : reachable=true
+@dimen/notification_top_pad_large_text : reachable=true
 @drawable/corner : reachable=true
-@drawable/launch_background : reachable=false
-@drawable/notification_action_background : reachable=false
+@drawable/default_scroll_handle_bottom : reachable=false
+@drawable/default_scroll_handle_left : reachable=false
+    @drawable/default_scroll_handle_right
+@drawable/default_scroll_handle_right : reachable=false
+@drawable/default_scroll_handle_top : reachable=false
+    @drawable/default_scroll_handle_bottom
+@drawable/launch_background : reachable=true
+@drawable/notification_action_background : reachable=true
     @color/androidx_core_ripple_material_light
     @dimen/compat_button_inset_horizontal_material
     @dimen/compat_button_inset_vertical_material
     @dimen/compat_control_corner_material
     @dimen/compat_button_padding_horizontal_material
     @dimen/compat_button_padding_vertical_material
-@drawable/notification_bg : reachable=false
+@drawable/notification_bg : reachable=true
     @drawable/notification_bg_normal_pressed
     @drawable/notification_bg_normal
-@drawable/notification_bg_low : reachable=false
+@drawable/notification_bg_low : reachable=true
     @drawable/notification_bg_low_pressed
     @drawable/notification_bg_low_normal
-@drawable/notification_bg_low_normal : reachable=false
-@drawable/notification_bg_low_pressed : reachable=false
-@drawable/notification_bg_normal : reachable=false
-@drawable/notification_bg_normal_pressed : reachable=false
-@drawable/notification_icon_background : reachable=false
+@drawable/notification_bg_low_normal : reachable=true
+@drawable/notification_bg_low_pressed : reachable=true
+@drawable/notification_bg_normal : reachable=true
+@drawable/notification_bg_normal_pressed : reachable=true
+@drawable/notification_icon_background : reachable=true
     @color/notification_icon_bg_color
-@drawable/notification_template_icon_bg : reachable=false
-@drawable/notification_template_icon_low_bg : reachable=false
-@drawable/notification_tile_bg : reachable=false
+@drawable/notification_template_icon_bg : reachable=true
+@drawable/notification_template_icon_low_bg : reachable=true
+@drawable/notification_tile_bg : reachable=true
     @drawable/notify_panel_notification_icon_bg
 @drawable/notify_panel_notification_icon_bg : reachable=false
 @drawable/toast_bg : reachable=false
@@ -1230,14 +1441,18 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @id/icon_group : reachable=false
 @id/info : reachable=true
 @id/italic : reachable=false
+@id/item1 : reachable=false
+@id/item2 : reachable=false
+@id/item3 : reachable=false
+@id/item4 : reachable=false
 @id/line1 : reachable=true
 @id/line3 : reachable=true
 @id/locale : reachable=true
 @id/ltr : reachable=false
 @id/normal : reachable=false
-@id/notification_background : reachable=false
-@id/notification_main_column : reachable=false
-@id/notification_main_column_container : reachable=false
+@id/notification_background : reachable=true
+@id/notification_main_column : reachable=true
+@id/notification_main_column_container : reachable=true
 @id/right_icon : reachable=false
 @id/right_side : reachable=false
 @id/rtl : reachable=false
@@ -1258,17 +1473,18 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @id/text2 : reachable=true
 @id/time : reachable=false
 @id/title : reachable=false
+@id/view_tree_lifecycle_owner : reachable=true
 @integer/status_bar_notification_info_maxnum : reachable=false
 @layout/custom_dialog : reachable=false
-@layout/notification_action : reachable=false
+@layout/notification_action : reachable=true
     @style/Widget_Compat_NotificationActionContainer
     @dimen/notification_action_icon_size
     @style/Widget_Compat_NotificationActionText
-@layout/notification_action_tombstone : reachable=false
+@layout/notification_action_tombstone : reachable=true
     @style/Widget_Compat_NotificationActionContainer
     @dimen/notification_action_icon_size
     @style/Widget_Compat_NotificationActionText
-@layout/notification_template_custom_big : reachable=false
+@layout/notification_template_custom_big : reachable=true
     @layout/notification_template_icon_group
     @dimen/notification_large_icon_width
     @dimen/notification_large_icon_height
@@ -1276,17 +1492,19 @@ Marking id:line3:2131034161 used because it matches string pool constant line
     @layout/notification_template_part_time
     @layout/notification_template_part_chronometer
     @style/TextAppearance_Compat_Notification_Info
-@layout/notification_template_icon_group : reachable=false
+@layout/notification_template_icon_group : reachable=true
     @dimen/notification_large_icon_width
     @dimen/notification_large_icon_height
     @dimen/notification_big_circle_margin
     @dimen/notification_right_icon_size
-@layout/notification_template_part_chronometer : reachable=false
+@layout/notification_template_part_chronometer : reachable=true
     @style/TextAppearance_Compat_Notification_Time
-@layout/notification_template_part_time : reachable=false
+@layout/notification_template_part_time : reachable=true
     @style/TextAppearance_Compat_Notification_Time
 @layout/toast_custom : reachable=true
     @drawable/corner
+@menu/example_menu : reachable=false
+@menu/example_menu2 : reachable=false
 @mipmap/ic_launcher : reachable=true
     @color/ic_launcher_background
     @mipmap/ic_launcher_foreground
@@ -1308,17 +1526,47 @@ Marking id:line3:2131034161 used because it matches string pool constant line
 @style/Widget_Compat_NotificationActionText : reachable=false
     @color/androidx_core_secondary_text_default_material_light
     @dimen/notification_action_text_size
+@xml/network_security_config : reachable=true
 
 The root reachable resources are:
  attr:activityAction:2130771968
  attr:activityName:2130771969
- attr:primaryActivityName:2130771988
- attr:secondaryActivityAction:2130771990
- attr:secondaryActivityName:2130771991
- attr:shortcutMatchRequired:2130771992
+ attr:primaryActivityName:2130771989
+ attr:secondaryActivityAction:2130771995
+ attr:secondaryActivityName:2130771996
+ attr:shortcutMatchRequired:2130771997
  color:androidx_core_ripple_material_light:2130837504
  color:androidx_core_secondary_text_default_material_light:2130837505
+ color:notification_action_color_filter:2130837507
+ color:notification_icon_bg_color:2130837508
+ dimen:notification_action_icon_size:2130903047
+ dimen:notification_action_text_size:2130903048
+ dimen:notification_big_circle_margin:2130903049
+ dimen:notification_content_margin_start:2130903050
+ dimen:notification_large_icon_height:2130903051
+ dimen:notification_large_icon_width:2130903052
+ dimen:notification_main_column_padding_top:2130903053
+ dimen:notification_media_narrow_margin:2130903054
+ dimen:notification_right_icon_size:2130903055
+ dimen:notification_right_side_padding_top:2130903056
+ dimen:notification_small_icon_background_padding:2130903057
+ dimen:notification_small_icon_size_as_large:2130903058
+ dimen:notification_subtext_size:2130903059
+ dimen:notification_top_pad:2130903060
+ dimen:notification_top_pad_large_text:2130903061
  drawable:corner:2130968576
+ drawable:launch_background:2130968581
+ drawable:notification_action_background:2130968582
+ drawable:notification_bg:2130968583
+ drawable:notification_bg_low:2130968584
+ drawable:notification_bg_low_normal:2130968585
+ drawable:notification_bg_low_pressed:2130968586
+ drawable:notification_bg_normal:2130968587
+ drawable:notification_bg_normal_pressed:2130968588
+ drawable:notification_icon_background:2130968589
+ drawable:notification_template_icon_bg:2130968590
+ drawable:notification_template_icon_low_bg:2130968591
+ drawable:notification_tile_bg:2130968592
  id:accessibility_action_clickable_span:2131034112
  id:accessibility_custom_action_0:2131034113
  id:accessibility_custom_action_1:2131034114
@@ -1359,42 +1607,33 @@ The root reachable resources are:
  id:actions:2131034149
  id:androidx_window_activity_scope:2131034150
  id:info:2131034158
- id:line1:2131034160
- id:line3:2131034161
- id:locale:2131034162
- id:text:2131034184
- id:text2:2131034185
+ id:line1:2131034164
+ id:line3:2131034165
+ id:locale:2131034166
+ id:notification_background:2131034169
+ id:notification_main_column:2131034170
+ id:notification_main_column_container:2131034171
+ id:text:2131034188
+ id:text2:2131034189
+ id:view_tree_lifecycle_owner:2131034192
+ layout:notification_action:2131165185
+ layout:notification_action_tombstone:2131165186
+ layout:notification_template_custom_big:2131165187
+ layout:notification_template_icon_group:2131165188
+ layout:notification_template_part_chronometer:2131165189
+ layout:notification_template_part_time:2131165190
  layout:toast_custom:2131165191
- mipmap:ic_launcher:2131230720
- style:LaunchTheme:2131361792
-Skipped unused resource res/drawable-v21/notification_action_background.xml: 2250 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/drawable/notification_bg.xml: 751 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/drawable/notification_bg_low.xml: 753 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/drawable/notification_icon_background.xml: 314 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/drawable/notification_tile_bg.xml: 319 bytes (replaced with small dummy file of size 9 bytes)
+ mipmap:ic_launcher:2131296256
+ style:LaunchTheme:2131427328
+ xml:network_security_config:2131558400
+Skipped unused resource res/drawable/default_scroll_handle_bottom.xml: 617 bytes (replaced with small dummy file of size 9 bytes)
+Skipped unused resource res/drawable/default_scroll_handle_left.xml: 471 bytes (replaced with small dummy file of size 9 bytes)
+Skipped unused resource res/drawable/default_scroll_handle_right.xml: 619 bytes (replaced with small dummy file of size 9 bytes)
+Skipped unused resource res/drawable/default_scroll_handle_top.xml: 473 bytes (replaced with small dummy file of size 9 bytes)
 Skipped unused resource res/drawable/toast_bg.xml: 670 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/drawable-mdpi-v4/notification_bg_low_normal.9.png: 215 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-mdpi-v4/notification_bg_low_pressed.9.png: 223 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-mdpi-v4/notification_bg_normal.9.png: 215 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png: 223 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png: 98 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-hdpi-v4/notification_bg_low_normal.9.png: 212 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-hdpi-v4/notification_bg_low_pressed.9.png: 225 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-hdpi-v4/notification_bg_normal.9.png: 212 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png: 225 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png: 107 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/notification_bg_low_normal.9.png: 221 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png: 252 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/notification_bg_normal.9.png: 221 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png: 247 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png: 138 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/layout/custom_dialog.xml: 828 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/layout-v21/notification_action.xml: 2216 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/layout-v21/notification_action_tombstone.xml: 2677 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/layout-v21/notification_template_custom_big.xml: 6318 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/layout-v21/notification_template_icon_group.xml: 2432 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/layout/notification_template_part_chronometer.xml: 643 bytes (replaced with small dummy file of size 9 bytes)
-Skipped unused resource res/layout/notification_template_part_time.xml: 630 bytes (replaced with small dummy file of size 9 bytes)
+Skipped unused resource res/menu/example_menu.xml: 428 bytes (replaced with small dummy file of size 9 bytes)
+Skipped unused resource res/menu/example_menu2.xml: 428 bytes (replaced with small dummy file of size 9 bytes)
 Skipped unused resource res/mipmap-mdpi-v4/ic_launcher_round.png: 2787 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/mipmap-hdpi-v4/ic_launcher_round.png: 4884 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/mipmap-xhdpi-v4/ic_launcher_round.png: 7498 bytes (replaced with small dummy file of size 67 bytes)

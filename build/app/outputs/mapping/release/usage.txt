@@ -149,12 +149,14 @@ androidx.annotation.experimental.Experimental
 androidx.annotation.experimental.R
 androidx.annotation.experimental.UseExperimental
 androidx.arch.core.R
-androidx.arch.core.executor.ArchTaskExecutor$1
-androidx.arch.core.executor.ArchTaskExecutor$2
-androidx.arch.core.executor.ArchTaskExecutor
-androidx.arch.core.executor.DefaultTaskExecutor$1
-androidx.arch.core.executor.DefaultTaskExecutor
-androidx.arch.core.executor.TaskExecutor
+androidx.arch.core.executor.ArchTaskExecutor:
+    public static java.util.concurrent.Executor getIOThreadExecutor()
+    public static java.util.concurrent.Executor getMainThreadExecutor()
+    public void setDelegate(androidx.arch.core.executor.TaskExecutor)
+androidx.arch.core.executor.DefaultTaskExecutor$1:
+    private static final java.lang.String THREAD_NAME_STEM
+androidx.arch.core.executor.TaskExecutor:
+    public void executeOnMainThread(java.lang.Runnable)
 androidx.arch.core.internal.FastSafeIterableMap:
     public java.util.Map$Entry ceil(java.lang.Object)
     public java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)
@@ -192,6 +194,25 @@ androidx.collection.SimpleArrayMap:
     public void <init>(androidx.collection.SimpleArrayMap)
     public void putAll(androidx.collection.SimpleArrayMap)
 androidx.collection.SparseArrayCompat
+androidx.concurrent.futures.AbstractResolvableFuture$1
+androidx.concurrent.futures.AbstractResolvableFuture$AtomicHelper
+androidx.concurrent.futures.AbstractResolvableFuture$Cancellation
+androidx.concurrent.futures.AbstractResolvableFuture$Failure$1
+androidx.concurrent.futures.AbstractResolvableFuture$Failure
+androidx.concurrent.futures.AbstractResolvableFuture$Listener
+androidx.concurrent.futures.AbstractResolvableFuture$SafeAtomicHelper
+androidx.concurrent.futures.AbstractResolvableFuture$SetFuture
+androidx.concurrent.futures.AbstractResolvableFuture$SynchronizedHelper
+androidx.concurrent.futures.AbstractResolvableFuture$Waiter
+androidx.concurrent.futures.AbstractResolvableFuture
+androidx.concurrent.futures.CallbackToFutureAdapter$Completer
+androidx.concurrent.futures.CallbackToFutureAdapter$FutureGarbageCollectedException
+androidx.concurrent.futures.CallbackToFutureAdapter$Resolver
+androidx.concurrent.futures.CallbackToFutureAdapter$SafeFuture$1
+androidx.concurrent.futures.CallbackToFutureAdapter$SafeFuture
+androidx.concurrent.futures.CallbackToFutureAdapter
+androidx.concurrent.futures.DirectExecutor
+androidx.concurrent.futures.ResolvableFuture
 androidx.core.R$attr
 androidx.core.R$color
 androidx.core.R$dimen
@@ -199,20 +220,38 @@ androidx.core.R$drawable
 androidx.core.R$id
 androidx.core.R$integer
 androidx.core.R$layout
+androidx.core.R$menu
 androidx.core.R$string
 androidx.core.R$style
 androidx.core.R$styleable
 androidx.core.R
 androidx.core.accessibilityservice.AccessibilityServiceInfoCompat
-androidx.core.app.ActivityCompat$1
 androidx.core.app.ActivityCompat$2
 androidx.core.app.ActivityCompat$Api30Impl
-androidx.core.app.ActivityCompat$OnRequestPermissionsResultCallback
-androidx.core.app.ActivityCompat$PermissionCompatDelegate
-androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator
+androidx.core.app.ActivityCompat$Api31Impl
+androidx.core.app.ActivityCompat$PermissionCompatDelegate:
+    public abstract boolean onActivityResult(android.app.Activity,int,int,android.content.Intent)
 androidx.core.app.ActivityCompat$SharedElementCallback21Impl$1
 androidx.core.app.ActivityCompat$SharedElementCallback21Impl
-androidx.core.app.ActivityCompat
+androidx.core.app.ActivityCompat:
+    protected void <init>()
+    public static void finishAffinity(android.app.Activity)
+    public static void finishAfterTransition(android.app.Activity)
+    public static androidx.core.app.ActivityCompat$PermissionCompatDelegate getPermissionCompatDelegate()
+    public static android.net.Uri getReferrer(android.app.Activity)
+    public static boolean invalidateOptionsMenu(android.app.Activity)
+    public static boolean isLaunchedFromBubble(android.app.Activity)
+    public static void postponeEnterTransition(android.app.Activity)
+    public static void recreate(android.app.Activity)
+    public static androidx.core.view.DragAndDropPermissionsCompat requestDragAndDropPermissions(android.app.Activity,android.view.DragEvent)
+    public static android.view.View requireViewById(android.app.Activity,int)
+    public static void setEnterSharedElementCallback(android.app.Activity,androidx.core.app.SharedElementCallback)
+    public static void setExitSharedElementCallback(android.app.Activity,androidx.core.app.SharedElementCallback)
+    public static void setLocusContext(android.app.Activity,androidx.core.content.LocusIdCompat,android.os.Bundle)
+    public static void setPermissionCompatDelegate(androidx.core.app.ActivityCompat$PermissionCompatDelegate)
+    public static void startActivityForResult(android.app.Activity,android.content.Intent,int,android.os.Bundle)
+    public static void startIntentSenderForResult(android.app.Activity,android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)
+    public static void startPostponedEnterTransition(android.app.Activity)
 androidx.core.app.ActivityManagerCompat
 androidx.core.app.ActivityOptionsCompat$ActivityOptionsCompatImpl
 androidx.core.app.ActivityOptionsCompat
@@ -224,6 +263,7 @@ androidx.core.app.ActivityRecreator
 androidx.core.app.AlarmManagerCompat
 androidx.core.app.AppComponentFactory
 androidx.core.app.AppLaunchChecker
+androidx.core.app.AppOpsManagerCompat$Api29Impl
 androidx.core.app.AppOpsManagerCompat
 androidx.core.app.BundleCompat$BundleCompatBaseImpl
 androidx.core.app.BundleCompat
@@ -271,6 +311,7 @@ androidx.core.app.NotificationCompat$Action
 androidx.core.app.NotificationCompat$BadgeIconType
 androidx.core.app.NotificationCompat$BigPictureStyle$Api16Impl
 androidx.core.app.NotificationCompat$BigPictureStyle$Api23Impl
+androidx.core.app.NotificationCompat$BigPictureStyle$Api31Impl
 androidx.core.app.NotificationCompat$BigPictureStyle
 androidx.core.app.NotificationCompat$BigTextStyle
 androidx.core.app.NotificationCompat$BubbleMetadata$Api29Impl
@@ -288,6 +329,7 @@ androidx.core.app.NotificationCompat$InboxStyle
 androidx.core.app.NotificationCompat$MessagingStyle$Message
 androidx.core.app.NotificationCompat$MessagingStyle
 androidx.core.app.NotificationCompat$NotificationVisibility
+androidx.core.app.NotificationCompat$ServiceNotificationBehavior
 androidx.core.app.NotificationCompat$StreamType
 androidx.core.app.NotificationCompat$Style
 androidx.core.app.NotificationCompat$WearableExtender
@@ -303,7 +345,55 @@ androidx.core.app.NotificationManagerCompat$ServiceConnectedEvent
 androidx.core.app.NotificationManagerCompat$SideChannelManager$ListenerRecord
 androidx.core.app.NotificationManagerCompat$SideChannelManager
 androidx.core.app.NotificationManagerCompat$Task
-androidx.core.app.NotificationManagerCompat
+androidx.core.app.NotificationManagerCompat:
+    public static final java.lang.String ACTION_BIND_SIDE_CHANNEL
+    private static final java.lang.String CHECK_OP_NO_THROW
+    public static final java.lang.String EXTRA_USE_SIDE_CHANNEL
+    public static final int IMPORTANCE_DEFAULT
+    public static final int IMPORTANCE_HIGH
+    public static final int IMPORTANCE_LOW
+    public static final int IMPORTANCE_MAX
+    public static final int IMPORTANCE_MIN
+    public static final int IMPORTANCE_NONE
+    public static final int IMPORTANCE_UNSPECIFIED
+    static final int MAX_SIDE_CHANNEL_SDK_VERSION
+    private static final java.lang.String OP_POST_NOTIFICATION
+    private static final java.lang.String SETTING_ENABLED_NOTIFICATION_LISTENERS
+    private static final int SIDE_CHANNEL_RETRY_BASE_INTERVAL_MS
+    private static final int SIDE_CHANNEL_RETRY_MAX_COUNT
+    private static final java.lang.String TAG
+    private static java.lang.String sEnabledNotificationListeners
+    private static androidx.core.app.NotificationManagerCompat$SideChannelManager sSideChannelManager
+    public void cancel(int)
+    public void cancel(java.lang.String,int)
+    public void cancelAll()
+    public void createNotificationChannel(android.app.NotificationChannel)
+    public void createNotificationChannel(androidx.core.app.NotificationChannelCompat)
+    public void createNotificationChannelGroup(android.app.NotificationChannelGroup)
+    public void createNotificationChannelGroup(androidx.core.app.NotificationChannelGroupCompat)
+    public void createNotificationChannelGroups(java.util.List)
+    public void createNotificationChannelGroupsCompat(java.util.List)
+    public void createNotificationChannels(java.util.List)
+    public void createNotificationChannelsCompat(java.util.List)
+    public void deleteNotificationChannel(java.lang.String)
+    public void deleteNotificationChannelGroup(java.lang.String)
+    public void deleteUnlistedNotificationChannels(java.util.Collection)
+    public static java.util.Set getEnabledListenerPackages(android.content.Context)
+    public int getImportance()
+    public android.app.NotificationChannel getNotificationChannel(java.lang.String)
+    public android.app.NotificationChannel getNotificationChannel(java.lang.String,java.lang.String)
+    public androidx.core.app.NotificationChannelCompat getNotificationChannelCompat(java.lang.String)
+    public androidx.core.app.NotificationChannelCompat getNotificationChannelCompat(java.lang.String,java.lang.String)
+    public android.app.NotificationChannelGroup getNotificationChannelGroup(java.lang.String)
+    public androidx.core.app.NotificationChannelGroupCompat getNotificationChannelGroupCompat(java.lang.String)
+    public java.util.List getNotificationChannelGroups()
+    public java.util.List getNotificationChannelGroupsCompat()
+    public java.util.List getNotificationChannels()
+    public java.util.List getNotificationChannelsCompat()
+    public void notify(int,android.app.Notification)
+    public void notify(java.lang.String,int,android.app.Notification)
+    private void pushSideChannelQueue(androidx.core.app.NotificationManagerCompat$Task)
+    private static boolean useSideChannelForNotification(android.app.Notification)
 androidx.core.app.Person$Builder
 androidx.core.app.Person
 androidx.core.app.RemoteActionCompat:
@@ -333,6 +423,14 @@ androidx.core.app.SharedElementCallback$OnSharedElementsReadyListener
 androidx.core.app.SharedElementCallback
 androidx.core.app.TaskStackBuilder$SupportParentable
 androidx.core.app.TaskStackBuilder
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportCallback$Default
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportCallback$Stub$Proxy
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportCallback$Stub
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportCallback
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportService$Default
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportService$Stub$Proxy
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportService$Stub
+androidx.core.app.unusedapprestrictions.IUnusedAppRestrictionsBackportService
 androidx.core.content.ContentProviderCompat
 androidx.core.content.ContentResolverCompat
 androidx.core.content.ContextCompat$Api16Impl
@@ -349,7 +447,6 @@ androidx.core.content.ContextCompat$LegacyServiceMapHolder
 androidx.core.content.ContextCompat:
     private static final java.lang.String TAG
     protected void <init>()
-    public static int checkSelfPermission(android.content.Context,java.lang.String)
     public static android.content.Context createDeviceProtectedStorageContext(android.content.Context)
     private static java.io.File createFilesDir(java.io.File)
     public static java.lang.String getAttributionTag(android.content.Context)
@@ -375,11 +472,20 @@ androidx.core.content.IntentCompat
 androidx.core.content.LocusIdCompat$Api29Impl
 androidx.core.content.LocusIdCompat
 androidx.core.content.MimeTypeFilter
+androidx.core.content.PackageManagerCompat$Api30Impl
+androidx.core.content.PackageManagerCompat$UnusedAppRestrictionsStatus
+androidx.core.content.PackageManagerCompat
 androidx.core.content.PermissionChecker$PermissionResult
 androidx.core.content.PermissionChecker
 androidx.core.content.SharedPreferencesCompat$EditorCompat$Helper
 androidx.core.content.SharedPreferencesCompat$EditorCompat
 androidx.core.content.SharedPreferencesCompat
+androidx.core.content.UnusedAppRestrictionsBackportCallback
+androidx.core.content.UnusedAppRestrictionsBackportService$1
+androidx.core.content.UnusedAppRestrictionsBackportService
+androidx.core.content.UnusedAppRestrictionsBackportServiceConnection$1
+androidx.core.content.UnusedAppRestrictionsBackportServiceConnection
+androidx.core.content.UnusedAppRestrictionsConstants
 androidx.core.content.pm.ActivityInfoCompat
 androidx.core.content.pm.PackageInfoCompat$Api28Impl
 androidx.core.content.pm.PackageInfoCompat
@@ -395,6 +501,9 @@ androidx.core.content.pm.ShortcutManagerCompat$1
 androidx.core.content.pm.ShortcutManagerCompat$Api25Impl
 androidx.core.content.pm.ShortcutManagerCompat$ShortcutMatchFlags
 androidx.core.content.pm.ShortcutManagerCompat
+androidx.core.content.pm.ShortcutXmlParser
+androidx.core.content.res.CamColor
+androidx.core.content.res.CamUtils
 androidx.core.content.res.ColorStateListInflaterCompat
 androidx.core.content.res.ComplexColorCompat
 androidx.core.content.res.ConfigurationHelper
@@ -407,6 +516,7 @@ androidx.core.content.res.FontResourcesParserCompat
 androidx.core.content.res.GradientColorInflaterCompat$ColorStops
 androidx.core.content.res.GradientColorInflaterCompat
 androidx.core.content.res.GrowingArrayUtils
+androidx.core.content.res.ResourcesCompat$Api23Impl
 androidx.core.content.res.ResourcesCompat$ColorStateListCacheEntry
 androidx.core.content.res.ResourcesCompat$ColorStateListCacheKey
 androidx.core.content.res.ResourcesCompat$FontCallback$1
@@ -436,6 +546,7 @@ androidx.core.content.res.ResourcesCompat:
     private static android.graphics.Typeface loadFont(android.content.Context,int,android.util.TypedValue,int,androidx.core.content.res.ResourcesCompat$FontCallback,android.os.Handler,boolean,boolean)
     private static android.graphics.Typeface loadFont(android.content.Context,android.content.res.Resources,android.util.TypedValue,int,int,androidx.core.content.res.ResourcesCompat$FontCallback,android.os.Handler,boolean,boolean)
 androidx.core.content.res.TypedArrayUtils
+androidx.core.content.res.ViewingConditions
 androidx.core.database.CursorWindowCompat
 androidx.core.database.DatabaseUtilsCompat
 androidx.core.database.sqlite.SQLiteCursorCompat
@@ -550,29 +661,26 @@ androidx.core.location.GnssStatusWrapper
 androidx.core.location.GpsStatusWrapper
 androidx.core.location.LocationCompat$Api17Impl
 androidx.core.location.LocationCompat$Api18Impl
+androidx.core.location.LocationCompat$Api26Impl
 androidx.core.location.LocationCompat
+androidx.core.location.LocationListenerCompat$-CC
+androidx.core.location.LocationListenerCompat
 androidx.core.location.LocationManagerCompat$1
-androidx.core.location.LocationManagerCompat$2
-androidx.core.location.LocationManagerCompat$3
 androidx.core.location.LocationManagerCompat$Api28Impl
-androidx.core.location.LocationManagerCompat$Api30Impl$1
 androidx.core.location.LocationManagerCompat$Api30Impl
+androidx.core.location.LocationManagerCompat$Api31Impl
 androidx.core.location.LocationManagerCompat$CancellableLocationListener$1
-androidx.core.location.LocationManagerCompat$CancellableLocationListener$2
 androidx.core.location.LocationManagerCompat$CancellableLocationListener
+androidx.core.location.LocationManagerCompat$GnssLazyLoader
 androidx.core.location.LocationManagerCompat$GnssStatusTransport
-androidx.core.location.LocationManagerCompat$GpsStatusTransport$1
-androidx.core.location.LocationManagerCompat$GpsStatusTransport$2
-androidx.core.location.LocationManagerCompat$GpsStatusTransport$3
-androidx.core.location.LocationManagerCompat$GpsStatusTransport$4
 androidx.core.location.LocationManagerCompat$GpsStatusTransport
 androidx.core.location.LocationManagerCompat$InlineHandlerExecutor
-androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$1
-androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$2
-androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$3
-androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$4
+androidx.core.location.LocationManagerCompat$LocationListenerTransport
 androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport
 androidx.core.location.LocationManagerCompat
+androidx.core.location.LocationRequestCompat$Builder
+androidx.core.location.LocationRequestCompat$Quality
+androidx.core.location.LocationRequestCompat
 androidx.core.math.MathUtils
 androidx.core.net.ConnectivityManagerCompat$RestrictBackgroundStatus
 androidx.core.net.ConnectivityManagerCompat
@@ -615,6 +723,11 @@ androidx.core.provider.CallbackWithHandler$1
 androidx.core.provider.CallbackWithHandler$2
 androidx.core.provider.CallbackWithHandler
 androidx.core.provider.CalleeHandler
+androidx.core.provider.DocumentsContractCompat$DocumentCompat
+androidx.core.provider.DocumentsContractCompat$DocumentsContractApi19Impl
+androidx.core.provider.DocumentsContractCompat$DocumentsContractApi21Impl
+androidx.core.provider.DocumentsContractCompat$DocumentsContractApi24Impl
+androidx.core.provider.DocumentsContractCompat
 androidx.core.provider.FontProvider$1
 androidx.core.provider.FontProvider
 androidx.core.provider.FontRequest
@@ -677,7 +790,13 @@ androidx.core.text.util.LinkifyCompat
 androidx.core.util.AtomicFile
 androidx.core.util.DebugUtils
 androidx.core.util.LogWriter
-androidx.core.util.ObjectsCompat
+androidx.core.util.ObjectsCompat:
+    private void <init>()
+    public static boolean equals(java.lang.Object,java.lang.Object)
+    public static varargs int hash(java.lang.Object[])
+    public static int hashCode(java.lang.Object)
+    public static java.lang.Object requireNonNull(java.lang.Object)
+    public static java.lang.String toString(java.lang.Object,java.lang.String)
 androidx.core.util.Pair
 androidx.core.util.PatternsCompat
 androidx.core.util.Pools$Pool
@@ -688,7 +807,11 @@ androidx.core.util.Preconditions:
     private void <init>()
     public static void checkArgument(boolean)
     public static void checkArgument(boolean,java.lang.Object)
+    public static varargs void checkArgument(boolean,java.lang.String,java.lang.Object[])
+    public static double checkArgumentInRange(double,double,double,java.lang.String)
+    public static float checkArgumentInRange(float,float,float,java.lang.String)
     public static int checkArgumentInRange(int,int,int,java.lang.String)
+    public static long checkArgumentInRange(long,long,long,java.lang.String)
     public static int checkArgumentNonnegative(int)
     public static int checkArgumentNonnegative(int,java.lang.String)
     public static int checkFlagsArgument(int,int)
@@ -706,7 +829,14 @@ androidx.core.view.AccessibilityDelegateCompat
 androidx.core.view.ActionProvider$SubUiVisibilityListener
 androidx.core.view.ActionProvider$VisibilityListener
 androidx.core.view.ActionProvider
+androidx.core.view.ContentInfoCompat$Api31Impl
 androidx.core.view.ContentInfoCompat$Builder
+androidx.core.view.ContentInfoCompat$BuilderCompat31Impl
+androidx.core.view.ContentInfoCompat$BuilderCompat
+androidx.core.view.ContentInfoCompat$BuilderCompatImpl
+androidx.core.view.ContentInfoCompat$Compat31Impl
+androidx.core.view.ContentInfoCompat$Compat
+androidx.core.view.ContentInfoCompat$CompatImpl
 androidx.core.view.ContentInfoCompat$Flags
 androidx.core.view.ContentInfoCompat$Source
 androidx.core.view.ContentInfoCompat
@@ -734,9 +864,13 @@ androidx.core.view.LayoutInflaterCompat
 androidx.core.view.LayoutInflaterFactory
 androidx.core.view.MarginLayoutParamsCompat
 androidx.core.view.MenuCompat
+androidx.core.view.MenuHost
+androidx.core.view.MenuHostHelper$LifecycleContainer
+androidx.core.view.MenuHostHelper
 androidx.core.view.MenuItemCompat$1
 androidx.core.view.MenuItemCompat$OnActionExpandListener
 androidx.core.view.MenuItemCompat
+androidx.core.view.MenuProvider
 androidx.core.view.MotionEventCompat
 androidx.core.view.NestedScrollingChild2
 androidx.core.view.NestedScrollingChild3
@@ -759,20 +893,28 @@ androidx.core.view.ViewCompat$1
 androidx.core.view.ViewCompat$2
 androidx.core.view.ViewCompat$3
 androidx.core.view.ViewCompat$4
-androidx.core.view.ViewCompat$5
 androidx.core.view.ViewCompat$AccessibilityPaneVisibilityManager
 androidx.core.view.ViewCompat$AccessibilityViewProperty
+androidx.core.view.ViewCompat$Api15Impl
+androidx.core.view.ViewCompat$Api16Impl
+androidx.core.view.ViewCompat$Api17Impl
+androidx.core.view.ViewCompat$Api18Impl
+androidx.core.view.ViewCompat$Api19Impl
+androidx.core.view.ViewCompat$Api20Impl
 androidx.core.view.ViewCompat$Api21Impl$1
 androidx.core.view.ViewCompat$Api21Impl
 androidx.core.view.ViewCompat$Api23Impl
+androidx.core.view.ViewCompat$Api24Impl
+androidx.core.view.ViewCompat$Api26Impl
+androidx.core.view.ViewCompat$Api28Impl
 androidx.core.view.ViewCompat$Api29Impl
 androidx.core.view.ViewCompat$Api30Impl
-androidx.core.view.ViewCompat$CompatImplApi28$1
-androidx.core.view.ViewCompat$CompatImplApi28
+androidx.core.view.ViewCompat$Api31Impl
 androidx.core.view.ViewCompat$FocusDirection
 androidx.core.view.ViewCompat$FocusRealDirection
 androidx.core.view.ViewCompat$FocusRelativeDirection
 androidx.core.view.ViewCompat$NestedScrollType
+androidx.core.view.ViewCompat$OnReceiveContentListenerAdapter
 androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat
 androidx.core.view.ViewCompat$ScrollAxis
 androidx.core.view.ViewCompat$ScrollIndicators
@@ -908,10 +1050,11 @@ androidx.core.view.accessibility.AccessibilityViewCommand
 androidx.core.view.accessibility.AccessibilityWindowInfoCompat
 androidx.core.view.animation.PathInterpolatorApi14
 androidx.core.view.animation.PathInterpolatorCompat
-androidx.core.view.inputmethod.EditorInfoCompat$Impl30
+androidx.core.view.inputmethod.EditorInfoCompat$Api30Impl
 androidx.core.view.inputmethod.EditorInfoCompat
 androidx.core.view.inputmethod.InputConnectionCompat$1
 androidx.core.view.inputmethod.InputConnectionCompat$2
+androidx.core.view.inputmethod.InputConnectionCompat$3
 androidx.core.view.inputmethod.InputConnectionCompat$OnCommitContentListener
 androidx.core.view.inputmethod.InputConnectionCompat
 androidx.core.view.inputmethod.InputContentInfoCompat$InputContentInfoCompatApi25Impl
@@ -928,6 +1071,7 @@ androidx.core.widget.CheckedTextViewCompat$Api21Impl
 androidx.core.widget.CheckedTextViewCompat
 androidx.core.widget.CompoundButtonCompat
 androidx.core.widget.ContentLoadingProgressBar
+androidx.core.widget.EdgeEffectCompat$Api31Impl
 androidx.core.widget.EdgeEffectCompat
 androidx.core.widget.ImageViewCompat
 androidx.core.widget.ListPopupWindowCompat
@@ -939,6 +1083,8 @@ androidx.core.widget.NestedScrollView$SavedState$1
 androidx.core.widget.NestedScrollView$SavedState
 androidx.core.widget.NestedScrollView
 androidx.core.widget.PopupMenuCompat
+androidx.core.widget.PopupWindowCompat$Api19Impl
+androidx.core.widget.PopupWindowCompat$Api23Impl
 androidx.core.widget.PopupWindowCompat
 androidx.core.widget.ScrollerCompat
 androidx.core.widget.TextViewCompat$AutoSizeTextType
@@ -1312,6 +1458,9 @@ androidx.lifecycle.DefaultLifecycleObserver
 androidx.lifecycle.FullLifecycleObserverAdapter:
     void <init>(androidx.lifecycle.FullLifecycleObserver,androidx.lifecycle.LifecycleEventObserver)
 androidx.lifecycle.GenericLifecycleObserver
+androidx.lifecycle.Lifecycle$Event:
+    public static androidx.lifecycle.Lifecycle$Event downTo(androidx.lifecycle.Lifecycle$State)
+    public static androidx.lifecycle.Lifecycle$Event upTo(androidx.lifecycle.Lifecycle$State)
 androidx.lifecycle.Lifecycle:
     public abstract void addObserver(androidx.lifecycle.LifecycleObserver)
 androidx.lifecycle.LifecycleRegistry$ObserverWithState:
@@ -1319,6 +1468,7 @@ androidx.lifecycle.LifecycleRegistry$ObserverWithState:
 androidx.lifecycle.LifecycleRegistry:
     public void addObserver(androidx.lifecycle.LifecycleObserver)
     private androidx.lifecycle.Lifecycle$State calculateTargetState(androidx.lifecycle.LifecycleObserver)
+    public static androidx.lifecycle.LifecycleRegistry createUnsafe(androidx.lifecycle.LifecycleOwner)
     public int getObserverCount()
     public void markState(androidx.lifecycle.Lifecycle$State)
     public void setCurrentState(androidx.lifecycle.Lifecycle$State)
@@ -1370,7 +1520,6 @@ androidx.lifecycle.MutableLiveData
 androidx.lifecycle.Observer:
     public abstract void onChanged(java.lang.Object)
 androidx.lifecycle.OnLifecycleEvent
-androidx.lifecycle.R
 androidx.lifecycle.ReflectiveGenericLifecycleObserver:
     void <init>(java.lang.Object)
 androidx.lifecycle.ReportFragment$ActivityInitializationListener
@@ -1395,8 +1544,11 @@ androidx.lifecycle.ViewModelStore:
     java.util.Set keys()
     final void put(java.lang.String,androidx.lifecycle.ViewModel)
 androidx.lifecycle.ViewModelStoreOwner
+androidx.lifecycle.ViewTreeLifecycleOwner
 androidx.lifecycle.livedata.R
 androidx.lifecycle.livedata.core.R
+androidx.lifecycle.runtime.R$id
+androidx.lifecycle.runtime.R
 androidx.lifecycle.viewmodel.R
 androidx.loader.R$attr
 androidx.loader.R$color
@@ -1637,6 +1789,110 @@ androidx.viewpager.widget.ViewPager$SavedState
 androidx.viewpager.widget.ViewPager$SimpleOnPageChangeListener
 androidx.viewpager.widget.ViewPager$ViewPositionComparator
 androidx.viewpager.widget.ViewPager
+com.baseflow.permissionhandler.BuildConfig
+com.baseflow.permissionhandler.PermissionConstants$PermissionGroup
+com.baseflow.permissionhandler.PermissionConstants$PermissionStatus
+com.baseflow.permissionhandler.PermissionConstants$ServiceStatus
+com.baseflow.permissionhandler.PermissionConstants
+com.baseflow.permissionhandler.PermissionHandlerPlugin:
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+com.baseflow.permissionhandler.PermissionUtils:
+    static final java.lang.String SHARED_PREFERENCES_PERMISSION_WAS_DENIED_BEFORE_KEY
+    public void <init>()
+com.baseflow.permissionhandler.R$attr
+com.baseflow.permissionhandler.R$color
+com.baseflow.permissionhandler.R$dimen
+com.baseflow.permissionhandler.R$drawable
+com.baseflow.permissionhandler.R$id
+com.baseflow.permissionhandler.R$integer
+com.baseflow.permissionhandler.R$layout
+com.baseflow.permissionhandler.R$string
+com.baseflow.permissionhandler.R$style
+com.baseflow.permissionhandler.R$styleable
+com.baseflow.permissionhandler.R
+com.github.barteksc.pdfviewer.BuildConfig
+com.github.barteksc.pdfviewer.DragPinchManager:
+    void disableLongpress()
+com.github.barteksc.pdfviewer.PDFView$Configurator:
+    public com.github.barteksc.pdfviewer.PDFView$Configurator disableLongpress()
+    public com.github.barteksc.pdfviewer.PDFView$Configurator fitEachPage(boolean)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator onDraw(com.github.barteksc.pdfviewer.listener.OnDrawListener)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator onDrawAll(com.github.barteksc.pdfviewer.listener.OnDrawListener)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator onLoad(com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator onLongPress(com.github.barteksc.pdfviewer.listener.OnLongPressListener)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator onPageScroll(com.github.barteksc.pdfviewer.listener.OnPageScrollListener)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator onTap(com.github.barteksc.pdfviewer.listener.OnTapListener)
+    public varargs com.github.barteksc.pdfviewer.PDFView$Configurator pages(int[])
+    public com.github.barteksc.pdfviewer.PDFView$Configurator scrollHandle(com.github.barteksc.pdfviewer.scroll.ScrollHandle)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator spacing(int)
+com.github.barteksc.pdfviewer.PDFView:
+    public static final float DEFAULT_MAX_SCALE
+    public static final float DEFAULT_MID_SCALE
+    public static final float DEFAULT_MIN_SCALE
+    static synthetic com.github.barteksc.pdfviewer.DragPinchManager access$100(com.github.barteksc.pdfviewer.PDFView)
+    public void enableRenderDuringScale(boolean)
+    public void fitToWidth(int)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator fromAsset(java.lang.String)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator fromFile(java.io.File)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator fromSource(com.github.barteksc.pdfviewer.source.DocumentSource)
+    public com.github.barteksc.pdfviewer.PDFView$Configurator fromStream(java.io.InputStream)
+    public java.util.List getLinks(int)
+    public int getPageAtPositionOffset(float)
+    public com.shockwave.pdfium.util.SizeF getPageSize(int)
+    public boolean isAntialiasing()
+    public boolean isPageSnap()
+    public boolean isRecycled()
+    public void resetZoom()
+    public void stopFling()
+    public float toRealScale(float)
+    public void useBestQuality(boolean)
+com.github.barteksc.pdfviewer.R$attr
+com.github.barteksc.pdfviewer.R$color
+com.github.barteksc.pdfviewer.R$dimen
+com.github.barteksc.pdfviewer.R$drawable
+com.github.barteksc.pdfviewer.R$id
+com.github.barteksc.pdfviewer.R$integer
+com.github.barteksc.pdfviewer.R$layout
+com.github.barteksc.pdfviewer.R$menu
+com.github.barteksc.pdfviewer.R$string
+com.github.barteksc.pdfviewer.R$style
+com.github.barteksc.pdfviewer.R$styleable
+com.github.barteksc.pdfviewer.R
+com.github.barteksc.pdfviewer.RenderingHandler:
+    static final int MSG_RENDER_TASK
+com.github.barteksc.pdfviewer.exception.FileNotFoundException
+com.github.barteksc.pdfviewer.model.LinkTapEvent:
+    public float getDocumentX()
+    public float getDocumentY()
+    public android.graphics.RectF getMappedLinkRect()
+    public float getOriginalX()
+    public float getOriginalY()
+com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle$1
+com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
+com.github.barteksc.pdfviewer.source.AssetSource
+com.github.barteksc.pdfviewer.source.FileSource
+com.github.barteksc.pdfviewer.source.InputStreamSource
+com.github.barteksc.pdfviewer.util.ArrayUtils
+com.github.barteksc.pdfviewer.util.Constants$Cache:
+    public void <init>()
+com.github.barteksc.pdfviewer.util.Constants$Pinch:
+    public void <init>()
+com.github.barteksc.pdfviewer.util.Constants:
+    public void <init>()
+com.github.barteksc.pdfviewer.util.FileUtils
+com.github.barteksc.pdfviewer.util.MathUtils:
+    private static final double BIG_ENOUGH_CEIL
+    private static final double BIG_ENOUGH_FLOOR
+    private static final int BIG_ENOUGH_INT
+    private void <init>()
+    public static int limit(int,int,int)
+    public static int max(int,int)
+    public static int min(int,int)
+com.github.barteksc.pdfviewer.util.Util:
+    private static final int DEFAULT_BUFFER_SIZE
+    public void <init>()
+    public static byte[] toByteArray(java.io.InputStream)
+com.google.common.util.concurrent.ListenableFuture
 com.jrai.flutter_keyboard_visibility.BuildConfig
 com.jrai.flutter_keyboard_visibility.R$attr
 com.jrai.flutter_keyboard_visibility.R$color
@@ -1657,11 +1913,69 @@ com.pe.transmap_app.R$drawable
 com.pe.transmap_app.R$id
 com.pe.transmap_app.R$integer
 com.pe.transmap_app.R$layout
+com.pe.transmap_app.R$menu
 com.pe.transmap_app.R$mipmap
 com.pe.transmap_app.R$string
 com.pe.transmap_app.R$style
 com.pe.transmap_app.R$styleable
+com.pe.transmap_app.R$xml
 com.pe.transmap_app.R
+com.shockwave.pdfium.BuildConfig:
+    public static final java.lang.String BUILD_TYPE
+    public static final boolean DEBUG
+    public static final java.lang.String LIBRARY_PACKAGE_NAME
+    public static final java.lang.String VERSION_NAME
+com.shockwave.pdfium.PdfDocument$Bookmark:
+    public long getPageIdx()
+    public java.lang.String getTitle()
+    public boolean hasChildren()
+com.shockwave.pdfium.PdfDocument$Meta:
+    public java.lang.String getAuthor()
+    public java.lang.String getCreationDate()
+    public java.lang.String getCreator()
+    public java.lang.String getKeywords()
+    public java.lang.String getModDate()
+    public java.lang.String getProducer()
+    public java.lang.String getSubject()
+    public java.lang.String getTitle()
+com.shockwave.pdfium.PdfDocument:
+    public boolean hasPage(int)
+com.shockwave.pdfium.PdfPasswordException:
+    public void <init>(java.lang.String)
+com.shockwave.pdfium.PdfiumCore:
+    private static final java.lang.String FD_FIELD_NAME
+    public int getPageHeight(com.shockwave.pdfium.PdfDocument,int)
+    public int getPageHeightPoint(com.shockwave.pdfium.PdfDocument,int)
+    public int getPageWidth(com.shockwave.pdfium.PdfDocument,int)
+    public int getPageWidthPoint(com.shockwave.pdfium.PdfDocument,int)
+    private native void nativeClosePages(long[])
+    private native int nativeGetPageHeightPixel(long,int)
+    private native int nativeGetPageHeightPoint(long)
+    private native int nativeGetPageWidthPixel(long,int)
+    private native int nativeGetPageWidthPoint(long)
+    private native long[] nativeLoadPages(long,int,int)
+    private native void nativeRenderPage(long,android.view.Surface,int,int,int,int,int,boolean)
+    public com.shockwave.pdfium.PdfDocument newDocument(android.os.ParcelFileDescriptor)
+    public com.shockwave.pdfium.PdfDocument newDocument(byte[])
+    public long[] openPage(com.shockwave.pdfium.PdfDocument,int,int)
+    public void renderPage(com.shockwave.pdfium.PdfDocument,android.view.Surface,int,int,int,int,int)
+    public void renderPage(com.shockwave.pdfium.PdfDocument,android.view.Surface,int,int,int,int,int,boolean)
+    public void renderPageBitmap(com.shockwave.pdfium.PdfDocument,android.graphics.Bitmap,int,int,int,int,int)
+com.shockwave.pdfium.util.SizeF:
+    public com.shockwave.pdfium.util.Size toSize()
+io.endigo.plugins.pdfviewflutter.BuildConfig
+io.endigo.plugins.pdfviewflutter.R$attr
+io.endigo.plugins.pdfviewflutter.R$color
+io.endigo.plugins.pdfviewflutter.R$dimen
+io.endigo.plugins.pdfviewflutter.R$drawable
+io.endigo.plugins.pdfviewflutter.R$id
+io.endigo.plugins.pdfviewflutter.R$integer
+io.endigo.plugins.pdfviewflutter.R$layout
+io.endigo.plugins.pdfviewflutter.R$menu
+io.endigo.plugins.pdfviewflutter.R$string
+io.endigo.plugins.pdfviewflutter.R$style
+io.endigo.plugins.pdfviewflutter.R$styleable
+io.endigo.plugins.pdfviewflutter.R
 io.flutter.BuildConfig
 io.flutter.FlutterInjector$Builder:
     public io.flutter.FlutterInjector$Builder setDeferredComponentManager(io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager)
@@ -1784,17 +2098,13 @@ io.flutter.embedding.engine.FlutterEngineConnectionRegistry$DefaultFlutterAssets
     public java.lang.String getAssetFilePathBySubpath(java.lang.String)
     public java.lang.String getAssetFilePathBySubpath(java.lang.String,java.lang.String)
 io.flutter.embedding.engine.FlutterEngineConnectionRegistry$FlutterEngineActivityPluginBinding:
-    public void addActivityResultListener(io.flutter.plugin.common.PluginRegistry$ActivityResultListener)
     public void addOnNewIntentListener(io.flutter.plugin.common.PluginRegistry$NewIntentListener)
     public void addOnSaveStateListener(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding$OnSaveInstanceStateListener)
     public void addOnUserLeaveHintListener(io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener)
-    public void addRequestPermissionsResultListener(io.flutter.plugin.common.PluginRegistry$RequestPermissionsResultListener)
     public java.lang.Object getLifecycle()
-    public void removeActivityResultListener(io.flutter.plugin.common.PluginRegistry$ActivityResultListener)
     public void removeOnNewIntentListener(io.flutter.plugin.common.PluginRegistry$NewIntentListener)
     public void removeOnSaveStateListener(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding$OnSaveInstanceStateListener)
     public void removeOnUserLeaveHintListener(io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener)
-    public void removeRequestPermissionsResultListener(io.flutter.plugin.common.PluginRegistry$RequestPermissionsResultListener)
 io.flutter.embedding.engine.FlutterEngineConnectionRegistry$FlutterEngineBroadcastReceiverPluginBinding:
     private final android.content.BroadcastReceiver broadcastReceiver
     void <init>(android.content.BroadcastReceiver)
@@ -1970,7 +2280,6 @@ io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterAssets:
 io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding:
     public io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterAssets getFlutterAssets()
     public io.flutter.embedding.engine.FlutterEngine getFlutterEngine()
-    public io.flutter.plugin.platform.PlatformViewRegistry getPlatformViewRegistry()
     public io.flutter.view.TextureRegistry getTextureRegistry()
 io.flutter.embedding.engine.plugins.PluginRegistry:
     public abstract void add(java.util.Set)
@@ -1980,17 +2289,13 @@ io.flutter.embedding.engine.plugins.PluginRegistry:
     public abstract void remove(java.util.Set)
     public abstract void removeAll()
 io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding:
-    public abstract void addActivityResultListener(io.flutter.plugin.common.PluginRegistry$ActivityResultListener)
     public abstract void addOnNewIntentListener(io.flutter.plugin.common.PluginRegistry$NewIntentListener)
     public abstract void addOnSaveStateListener(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding$OnSaveInstanceStateListener)
     public abstract void addOnUserLeaveHintListener(io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener)
-    public abstract void addRequestPermissionsResultListener(io.flutter.plugin.common.PluginRegistry$RequestPermissionsResultListener)
     public abstract java.lang.Object getLifecycle()
-    public abstract void removeActivityResultListener(io.flutter.plugin.common.PluginRegistry$ActivityResultListener)
     public abstract void removeOnNewIntentListener(io.flutter.plugin.common.PluginRegistry$NewIntentListener)
     public abstract void removeOnSaveStateListener(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding$OnSaveInstanceStateListener)
     public abstract void removeOnUserLeaveHintListener(io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener)
-    public abstract void removeRequestPermissionsResultListener(io.flutter.plugin.common.PluginRegistry$RequestPermissionsResultListener)
 io.flutter.embedding.engine.plugins.broadcastreceiver.BroadcastReceiverControlSurface
 io.flutter.embedding.engine.plugins.broadcastreceiver.BroadcastReceiverPluginBinding:
     public abstract android.content.BroadcastReceiver getBroadcastReceiver()
@@ -2096,7 +2401,20 @@ io.flutter.plugin.common.MethodChannel:
     private static final java.lang.String TAG
     public void resizeChannelBuffer(int)
 io.flutter.plugin.common.PluginRegistry$PluginRegistrantCallback
-io.flutter.plugin.common.PluginRegistry$Registrar
+io.flutter.plugin.common.PluginRegistry$Registrar:
+    public abstract android.content.Context activeContext()
+    public abstract android.app.Activity activity()
+    public abstract io.flutter.plugin.common.PluginRegistry$Registrar addNewIntentListener(io.flutter.plugin.common.PluginRegistry$NewIntentListener)
+    public abstract io.flutter.plugin.common.PluginRegistry$Registrar addUserLeaveHintListener(io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener)
+    public abstract io.flutter.plugin.common.PluginRegistry$Registrar addViewDestroyListener(io.flutter.plugin.common.PluginRegistry$ViewDestroyListener)
+    public abstract android.content.Context context()
+    public abstract java.lang.String lookupKeyForAsset(java.lang.String)
+    public abstract java.lang.String lookupKeyForAsset(java.lang.String,java.lang.String)
+    public abstract io.flutter.plugin.common.BinaryMessenger messenger()
+    public abstract io.flutter.plugin.platform.PlatformViewRegistry platformViewRegistry()
+    public abstract io.flutter.plugin.common.PluginRegistry$Registrar publish(java.lang.Object)
+    public abstract io.flutter.view.TextureRegistry textures()
+    public abstract io.flutter.view.FlutterView view()
 io.flutter.plugin.common.PluginRegistry$ViewDestroyListener
 io.flutter.plugin.common.PluginRegistry
 io.flutter.plugin.common.StandardMessageCodec:
@@ -2156,12 +2474,6 @@ io.flutter.plugin.platform.PlatformView$-CC:
 io.flutter.plugin.platform.PlatformView:
     public void onInputConnectionLocked()
     public void onInputConnectionUnlocked()
-io.flutter.plugin.platform.PlatformViewFactory:
-    public void <init>(io.flutter.plugin.common.MessageCodec)
-io.flutter.plugin.platform.PlatformViewRegistry:
-    public abstract boolean registerViewFactory(java.lang.String,io.flutter.plugin.platform.PlatformViewFactory)
-io.flutter.plugin.platform.PlatformViewRegistryImpl:
-    public boolean registerViewFactory(java.lang.String,io.flutter.plugin.platform.PlatformViewFactory)
 io.flutter.plugin.platform.PlatformViewWrapper:
     private static final java.lang.String TAG
     public android.graphics.SurfaceTexture getTexture()
@@ -2208,6 +2520,25 @@ io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin:
     private static final java.lang.String DOUBLE_PREFIX
     private static final java.lang.String LIST_IDENTIFIER
     private static final java.lang.String SHARED_PREFERENCES_NAME
+    private static final java.lang.String TAG
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+io.flutter.plugins.urllauncher.BuildConfig
+io.flutter.plugins.urllauncher.MethodCallHandlerImpl:
+    private static final java.lang.String TAG
+io.flutter.plugins.urllauncher.R$attr
+io.flutter.plugins.urllauncher.R$color
+io.flutter.plugins.urllauncher.R$dimen
+io.flutter.plugins.urllauncher.R$drawable
+io.flutter.plugins.urllauncher.R$id
+io.flutter.plugins.urllauncher.R$integer
+io.flutter.plugins.urllauncher.R$layout
+io.flutter.plugins.urllauncher.R$string
+io.flutter.plugins.urllauncher.R$style
+io.flutter.plugins.urllauncher.R$styleable
+io.flutter.plugins.urllauncher.R
+io.flutter.plugins.urllauncher.UrlLauncher:
+    private static final java.lang.String TAG
+io.flutter.plugins.urllauncher.UrlLauncherPlugin:
     private static final java.lang.String TAG
     public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
 io.flutter.util.PathUtils:
@@ -8720,7 +9051,6 @@ io.flutter.embedding.engine.loader.ResourceExtractor:
 io.flutter.plugin.common.BinaryMessenger$-CC:
     public static io.flutter.plugin.common.BinaryMessenger$TaskQueue $default$makeBackgroundTaskQueue(io.flutter.plugin.common.BinaryMessenger,io.flutter.plugin.common.BinaryMessenger$TaskQueueOptions)
     public static void $default$setMessageHandler(io.flutter.plugin.common.BinaryMessenger,java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler,io.flutter.plugin.common.BinaryMessenger$TaskQueue)
-io.flutter.plugin.platform.PlatformView$-CC
 io.flutter.view.TextureRegistry$SurfaceTextureEntry$-CC
 kotlin.random.AbstractPlatformRandom:
     public int nextBits(int)
