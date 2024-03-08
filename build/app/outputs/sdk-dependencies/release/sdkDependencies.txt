@@ -588,7 +588,7 @@ library {
 }
 library {
   digests {
-    sha256: "\337\221\246u\024\2407\246\3204C\203\001{\004\2472#\222\356Z\260pe\362\241\322\231\032\031\371\203"
+    sha256: "\255@:\036\344}\3635\354\205/\202\246V\2242@\364\316\303J\255\f\026\236`\233\223\206MO\234"
   }
 }
 library_dependencies {
@@ -846,6 +846,7 @@ module_dependencies {
   dependency_index: 47
   dependency_index: 0
   dependency_index: 35
+  dependency_index: 44
   dependency_index: 2
   dependency_index: 48
 }
@@ -871,6 +872,16 @@ repositories {
 }
 repositories {
   maven_repo {
+    url: "https://jcenter.bintray.com/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://dl.google.com/dl/android/maven2/"
+  }
+}
+repositories {
+  maven_repo {
     url: "https://repo.maven.apache.org/maven2/"
   }
 }
@@ -892,6 +903,16 @@ repositories {
 repositories {
   maven_repo {
     url: "https://jcenter.bintray.com/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://dl.google.com/dl/android/maven2/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://repo.maven.apache.org/maven2/"
   }
 }
 repositories {

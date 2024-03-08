@@ -128,7 +128,7 @@ class PreInit extends StatelessWidget {
   SPGlobal _prefs = SPGlobal();
   @override
   Widget build(BuildContext context) {
-    return _prefs.isLogin ? ((_prefs.spInformeCloud == "1") ? GuiasElectronicasPage(): OfflineImportarExportarPage()) : LoginPage();
+    return _prefs.isLogin ? ((_prefs.spInformeCloud == "0") ? GuiasElectronicasPage(): OfflineImportarExportarPage()) : LoginPage();
     // return _prefs.isLogin ? HomePage() : LoginPage();
    // return  LoginPage();
     //return  MyHomePage();

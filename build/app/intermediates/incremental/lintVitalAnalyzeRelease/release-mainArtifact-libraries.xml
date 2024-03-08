@@ -30,6 +30,32 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\bluetooth_thermal_printer\.transforms\870918cd0896dfeeecf9cd7d1ced7d9a\transformed\out\jars\classes.jar"
+      resolved="com.peoplewareinnovations.bluetooth_thermal_printer:bluetooth_thermal_printer:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\bluetooth_thermal_printer\.transforms\870918cd0896dfeeecf9cd7d1ced7d9a\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:sqflite::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\sqflite\.transforms\46f87e370ecada6b4fd4b7168d808e15\transformed\out\jars\classes.jar"
+      resolved="com.tekartik.sqflite:sqflite:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\sqflite\.transforms\46f87e370ecada6b4fd4b7168d808e15\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_keyboard_visibility::release"
       jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\flutter_keyboard_visibility\.transforms\28c4ee5ccc8e35df420355af51892ae6\transformed\out\jars\classes.jar"
       resolved="com.jrai.flutter_keyboard_visibility:flutter_keyboard_visibility:unspecified"

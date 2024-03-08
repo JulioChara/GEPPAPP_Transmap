@@ -2786,6 +2786,160 @@ com.pe.transmap_app.R$style
 com.pe.transmap_app.R$styleable
 com.pe.transmap_app.R$xml
 com.pe.transmap_app.R
+com.peoplewareinnovations.bluetooth_thermal_printer.BluetoothThermalPrinterPlugin$setBytes$Companion:
+    public final byte[] getESC_ALIGN_CENTER()
+    public final byte[] getESC_ALIGN_LEFT()
+    public final byte[] getESC_ALIGN_RIGHT()
+    public final byte[] getESC_CANCEL_BOLD()
+    public final byte[] getESC_CANCLE_HORIZONTAL_CENTERS()
+    public final byte[] getESC_ENTER()
+    public final byte[] getESC_FONT_COLOR_DEFAULT()
+    public final byte[] getESC_HORIZONTAL_CENTERS()
+    public final byte[] getEnter()
+    public final byte[] getFEED_LINE()
+    public final byte[] getFEED_PAPER_AND_CUT()
+    public final byte[] getFS_FONT_ALIGN()
+    public final byte[] getINIT()
+    public final byte[] getPRINTE_TEST()
+    public final byte[] getPRINT_BAR_CODE_1()
+    public final byte[] getResetear_impresora()
+    public final byte[] getSELECT_BIT_IMAGE_MODE()
+    public final byte[] getSELECT_CYRILLIC_CHARACTER_CODE_TABLE()
+    public final byte[] getSELECT_FONT_A()
+    public final byte[] getSELECT_PRINT_SHEET()
+    public final byte[] getSEND_NULL_BYTE()
+    public final byte[] getSET_BAR_CODE_HEIGHT()
+    public final byte[] getSET_LINE_SPACING_24()
+    public final byte[] getSET_LINE_SPACING_30()
+    public final byte[] getTRANSMIT_DLE_ERROR_STATUS()
+    public final byte[] getTRANSMIT_DLE_OFFLINE_PRINTER_STATUS()
+    public final byte[] getTRANSMIT_DLE_PRINTER_STATUS()
+    public final byte[] getTRANSMIT_DLE_ROLL_PAPER_SENSOR_STATUS()
+    public final void setFEED_LINE(byte[])
+    public final void setFEED_PAPER_AND_CUT(byte[])
+    public final void setPRINT_BAR_CODE_1(byte[])
+    public final void setSELECT_BIT_IMAGE_MODE(byte[])
+    public final void setSELECT_CYRILLIC_CHARACTER_CODE_TABLE(byte[])
+    public final void setSELECT_FONT_A(byte[])
+    public final void setSELECT_PRINT_SHEET(byte[])
+    public final void setSEND_NULL_BYTE(byte[])
+    public final void setSET_BAR_CODE_HEIGHT(byte[])
+    public final void setSET_LINE_SPACING_24(byte[])
+    public final void setSET_LINE_SPACING_30(byte[])
+    public final void setTRANSMIT_DLE_ERROR_STATUS(byte[])
+    public final void setTRANSMIT_DLE_OFFLINE_PRINTER_STATUS(byte[])
+    public final void setTRANSMIT_DLE_PRINTER_STATUS(byte[])
+    public final void setTRANSMIT_DLE_ROLL_PAPER_SENSOR_STATUS(byte[])
+com.peoplewareinnovations.bluetooth_thermal_printer.BluetoothThermalPrinterPlugin$setBytes:
+    public static final byte CAN
+    public static final byte CLR
+    public static final byte CR
+    public static final byte DLE
+    public static final byte EOT
+    public static final byte ESC
+    public static final byte FS
+    public static final byte GS
+    public static final byte HT
+    public static final byte LF
+    public static final byte STX
+    public static final byte US
+    public void <init>()
+    public static final synthetic byte[] access$getESC_ALIGN_CENTER$cp()
+    public static final synthetic byte[] access$getESC_ALIGN_LEFT$cp()
+    public static final synthetic byte[] access$getESC_ALIGN_RIGHT$cp()
+    public static final synthetic byte[] access$getESC_CANCEL_BOLD$cp()
+    public static final synthetic byte[] access$getESC_CANCLE_HORIZONTAL_CENTERS$cp()
+    public static final synthetic byte[] access$getESC_ENTER$cp()
+    public static final synthetic byte[] access$getESC_FONT_COLOR_DEFAULT$cp()
+    public static final synthetic byte[] access$getESC_HORIZONTAL_CENTERS$cp()
+    public static final synthetic byte[] access$getEnter$cp()
+    public static final synthetic byte[] access$getFEED_LINE$cp()
+    public static final synthetic byte[] access$getFEED_PAPER_AND_CUT$cp()
+    public static final synthetic byte[] access$getFS_FONT_ALIGN$cp()
+    public static final synthetic byte[] access$getINIT$cp()
+    public static final synthetic byte[] access$getPRINTE_TEST$cp()
+    public static final synthetic byte[] access$getPRINT_BAR_CODE_1$cp()
+    public static final synthetic byte[] access$getResetear_impresora$cp()
+    public static final synthetic byte[] access$getSELECT_BIT_IMAGE_MODE$cp()
+    public static final synthetic byte[] access$getSELECT_CYRILLIC_CHARACTER_CODE_TABLE$cp()
+    public static final synthetic byte[] access$getSELECT_FONT_A$cp()
+    public static final synthetic byte[] access$getSELECT_PRINT_SHEET$cp()
+    public static final synthetic byte[] access$getSEND_NULL_BYTE$cp()
+    public static final synthetic byte[] access$getSET_BAR_CODE_HEIGHT$cp()
+    public static final synthetic byte[] access$getSET_LINE_SPACING_24$cp()
+    public static final synthetic byte[] access$getSET_LINE_SPACING_30$cp()
+    public static final synthetic byte[] access$getTRANSMIT_DLE_ERROR_STATUS$cp()
+    public static final synthetic byte[] access$getTRANSMIT_DLE_OFFLINE_PRINTER_STATUS$cp()
+    public static final synthetic byte[] access$getTRANSMIT_DLE_PRINTER_STATUS$cp()
+    public static final synthetic byte[] access$getTRANSMIT_DLE_ROLL_PAPER_SENSOR_STATUS$cp()
+    public static final synthetic void access$setFEED_LINE$cp(byte[])
+    public static final synthetic void access$setFEED_PAPER_AND_CUT$cp(byte[])
+    public static final synthetic void access$setPRINT_BAR_CODE_1$cp(byte[])
+    public static final synthetic void access$setSELECT_BIT_IMAGE_MODE$cp(byte[])
+    public static final synthetic void access$setSELECT_CYRILLIC_CHARACTER_CODE_TABLE$cp(byte[])
+    public static final synthetic void access$setSELECT_FONT_A$cp(byte[])
+    public static final synthetic void access$setSELECT_PRINT_SHEET$cp(byte[])
+    public static final synthetic void access$setSEND_NULL_BYTE$cp(byte[])
+    public static final synthetic void access$setSET_BAR_CODE_HEIGHT$cp(byte[])
+    public static final synthetic void access$setSET_LINE_SPACING_24$cp(byte[])
+    public static final synthetic void access$setSET_LINE_SPACING_30$cp(byte[])
+    public static final synthetic void access$setTRANSMIT_DLE_ERROR_STATUS$cp(byte[])
+    public static final synthetic void access$setTRANSMIT_DLE_OFFLINE_PRINTER_STATUS$cp(byte[])
+    public static final synthetic void access$setTRANSMIT_DLE_PRINTER_STATUS$cp(byte[])
+    public static final synthetic void access$setTRANSMIT_DLE_ROLL_PAPER_SENSOR_STATUS$cp(byte[])
+com.peoplewareinnovations.bluetooth_thermal_printer.BluetoothThermalPrinterPluginKt:
+    private static final java.lang.String TAG
+com.peoplewareinnovations.bluetooth_thermal_printer.BuildConfig
+com.peoplewareinnovations.bluetooth_thermal_printer.R$attr
+com.peoplewareinnovations.bluetooth_thermal_printer.R$color
+com.peoplewareinnovations.bluetooth_thermal_printer.R$dimen
+com.peoplewareinnovations.bluetooth_thermal_printer.R$drawable
+com.peoplewareinnovations.bluetooth_thermal_printer.R$id
+com.peoplewareinnovations.bluetooth_thermal_printer.R$integer
+com.peoplewareinnovations.bluetooth_thermal_printer.R$layout
+com.peoplewareinnovations.bluetooth_thermal_printer.R$string
+com.peoplewareinnovations.bluetooth_thermal_printer.R$style
+com.peoplewareinnovations.bluetooth_thermal_printer.R$styleable
+com.peoplewareinnovations.bluetooth_thermal_printer.R
+com.tekartik.sqflite.BuildConfig
+com.tekartik.sqflite.Constant
+com.tekartik.sqflite.Database:
+    public boolean enableWriteAheadLogging()
+com.tekartik.sqflite.LogLevel:
+    static final int none
+    static final int sql
+    static final int verbose
+    public void <init>()
+com.tekartik.sqflite.R$attr
+com.tekartik.sqflite.R$color
+com.tekartik.sqflite.R$dimen
+com.tekartik.sqflite.R$drawable
+com.tekartik.sqflite.R$id
+com.tekartik.sqflite.R$integer
+com.tekartik.sqflite.R$layout
+com.tekartik.sqflite.R$string
+com.tekartik.sqflite.R$style
+com.tekartik.sqflite.R$styleable
+com.tekartik.sqflite.R
+com.tekartik.sqflite.SqflitePlugin:
+    public void <init>(android.content.Context)
+    private android.content.Context getContext()
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+com.tekartik.sqflite.dev.Debug:
+    public void <init>()
+    public static void devLog(java.lang.String,java.lang.String)
+com.tekartik.sqflite.operation.BaseReadOperation:
+    protected abstract com.tekartik.sqflite.operation.OperationResult getOperationResult()
+com.tekartik.sqflite.operation.ExecuteOperation:
+    public java.lang.String getMethod()
+    protected com.tekartik.sqflite.operation.OperationResult getOperationResult()
+com.tekartik.sqflite.operation.MethodCallOperation:
+    public java.lang.String getMethod()
+com.tekartik.sqflite.operation.Operation:
+    public abstract boolean getContinueOnError()
+    public abstract java.lang.String getMethod()
+com.tekartik.sqflite.operation.SqlErrorInfo:
+    public void <init>()
 io.flutter.BuildConfig
 io.flutter.FlutterInjector$Builder:
     public io.flutter.FlutterInjector$Builder setDeferredComponentManager(io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager)
@@ -3932,7 +4086,6 @@ kotlin.collections.ArraysKt___ArraysJvmKt:
     public static final synthetic java.lang.Long minWith(long[],java.util.Comparator)
     public static final synthetic java.lang.Object minWith(java.lang.Object[],java.util.Comparator)
     public static final synthetic java.lang.Short minWith(short[],java.util.Comparator)
-    public static final byte[] plus(byte[],byte)
     public static final byte[] plus(byte[],java.util.Collection)
     public static final byte[] plus(byte[],byte[])
     public static final char[] plus(char[],char)
@@ -7339,7 +7492,6 @@ kotlin.sequences.SequencesKt___SequencesJvmKt:
     private static final java.math.BigInteger sumOfBigInteger(kotlin.sequences.Sequence,kotlin.jvm.functions.Function1)
     public static final java.util.SortedSet toSortedSet(kotlin.sequences.Sequence)
     public static final java.util.SortedSet toSortedSet(kotlin.sequences.Sequence,java.util.Comparator)
-kotlin.sequences.SequencesKt___SequencesKt$asIterable$$inlined$Iterable$1
 kotlin.sequences.SequencesKt___SequencesKt$distinct$1
 kotlin.sequences.SequencesKt___SequencesKt$elementAt$1
 kotlin.sequences.SequencesKt___SequencesKt$filterIndexed$1
@@ -7376,7 +7528,6 @@ kotlin.sequences.SequencesKt___SequencesKt:
     public static final boolean all(kotlin.sequences.Sequence,kotlin.jvm.functions.Function1)
     public static final boolean any(kotlin.sequences.Sequence)
     public static final boolean any(kotlin.sequences.Sequence,kotlin.jvm.functions.Function1)
-    public static final java.lang.Iterable asIterable(kotlin.sequences.Sequence)
     private static final kotlin.sequences.Sequence asSequence(kotlin.sequences.Sequence)
     public static final java.util.Map associate(kotlin.sequences.Sequence,kotlin.jvm.functions.Function1)
     public static final java.util.Map associateBy(kotlin.sequences.Sequence,kotlin.jvm.functions.Function1)
@@ -7625,7 +7776,13 @@ kotlin.text.CharsKt__CharKt:
     public static final boolean isSurrogate(char)
     private static final java.lang.String plus(char,java.lang.String)
     public static final java.lang.String titlecase(char)
-kotlin.text.Charsets
+kotlin.text.Charsets:
+    private static java.nio.charset.Charset utf_32
+    private static java.nio.charset.Charset utf_32be
+    private static java.nio.charset.Charset utf_32le
+    public final java.nio.charset.Charset UTF32()
+    public final java.nio.charset.Charset UTF32_BE()
+    public final java.nio.charset.Charset UTF32_LE()
 kotlin.text.CharsetsKt
 kotlin.text.DelimitedRangesSequence$iterator$1:
     public final int getCounter()
@@ -7949,11 +8106,8 @@ kotlin.text.StringsKt__StringsKt:
     private static final java.lang.String replaceRange(java.lang.String,kotlin.ranges.IntRange,java.lang.CharSequence)
     private static final java.util.List split(java.lang.CharSequence,kotlin.text.Regex,int)
     public static final java.util.List split(java.lang.CharSequence,char[],boolean,int)
-    public static final java.util.List split(java.lang.CharSequence,java.lang.String[],boolean,int)
-    private static final java.util.List split$StringsKt__StringsKt(java.lang.CharSequence,java.lang.String,boolean,int)
     static synthetic java.util.List split$default(java.lang.CharSequence,kotlin.text.Regex,int,int,java.lang.Object)
     public static synthetic java.util.List split$default(java.lang.CharSequence,char[],boolean,int,int,java.lang.Object)
-    public static synthetic java.util.List split$default(java.lang.CharSequence,java.lang.String[],boolean,int,int,java.lang.Object)
     private static final kotlin.sequences.Sequence splitToSequence(java.lang.CharSequence,kotlin.text.Regex,int)
     public static final kotlin.sequences.Sequence splitToSequence(java.lang.CharSequence,char[],boolean,int)
     static synthetic kotlin.sequences.Sequence splitToSequence$default(java.lang.CharSequence,kotlin.text.Regex,int,int,java.lang.Object)
@@ -8252,7 +8406,6 @@ kotlinx.coroutines.BuildersKt:
     public static final java.lang.Object invoke(kotlinx.coroutines.CoroutineDispatcher,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)
     public static final java.lang.Object runBlocking(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2)
     public static synthetic java.lang.Object runBlocking$default(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,int,java.lang.Object)
-    public static final java.lang.Object withContext(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)
 kotlinx.coroutines.BuildersKt__BuildersKt
 kotlinx.coroutines.BuildersKt__Builders_commonKt:
     private static final int RESUMED
@@ -8262,7 +8415,6 @@ kotlinx.coroutines.BuildersKt__Builders_commonKt:
     public static synthetic kotlinx.coroutines.Deferred async$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object)
     public static final java.lang.Object invoke(kotlinx.coroutines.CoroutineDispatcher,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)
     private static final java.lang.Object invoke$$forInline(kotlinx.coroutines.CoroutineDispatcher,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)
-    public static final java.lang.Object withContext(kotlin.coroutines.CoroutineContext,kotlin.jvm.functions.Function2,kotlin.coroutines.Continuation)
 kotlinx.coroutines.CancelFutureOnCancel
 kotlinx.coroutines.CancelFutureOnCompletion
 kotlinx.coroutines.CancellableContinuation$DefaultImpls:
@@ -8393,10 +8545,6 @@ kotlinx.coroutines.Delay
 kotlinx.coroutines.DelayKt$awaitCancellation$1
 kotlinx.coroutines.DelayKt
 kotlinx.coroutines.DelicateCoroutinesApi
-kotlinx.coroutines.DispatchedCoroutine:
-    public void <init>(kotlin.coroutines.CoroutineContext,kotlin.coroutines.Continuation)
-    public final java.lang.Object getResult()
-    private final boolean trySuspend()
 kotlinx.coroutines.DispatchedTaskKt:
     public static final int MODE_ATOMIC
     public static final int MODE_CANCELLABLE
@@ -8461,7 +8609,6 @@ kotlinx.coroutines.ExecutorsKt:
     public static final kotlinx.coroutines.ExecutorCoroutineDispatcher from(java.util.concurrent.ExecutorService)
 kotlinx.coroutines.ExperimentalCoroutinesApi
 kotlinx.coroutines.FlowPreview
-kotlinx.coroutines.GlobalScope
 kotlinx.coroutines.InternalCoroutinesApi
 kotlinx.coroutines.InterruptibleKt$runInterruptible$2
 kotlinx.coroutines.InterruptibleKt
@@ -8578,7 +8725,6 @@ kotlinx.coroutines.JobSupportKt:
     private static synthetic void getEMPTY_NEW$annotations()
     private static synthetic void getSEALED$annotations()
     private static synthetic void getTOO_LATE_TO_CANCEL$annotations()
-    public static final java.lang.Object unboxState(java.lang.Object)
 kotlinx.coroutines.LazyDeferredCoroutine
 kotlinx.coroutines.NonCancellable
 kotlinx.coroutines.ObsoleteCoroutinesApi
@@ -8610,8 +8756,6 @@ kotlinx.coroutines.TimeoutCancellationException:
 kotlinx.coroutines.TimeoutCoroutine
 kotlinx.coroutines.TimeoutKt$withTimeoutOrNull$1
 kotlinx.coroutines.TimeoutKt
-kotlinx.coroutines.UndispatchedCoroutine:
-    public void <init>(kotlin.coroutines.CoroutineContext,kotlin.coroutines.Continuation)
 kotlinx.coroutines.YieldKt
 kotlinx.coroutines.android.HandlerContext$invokeOnTimeout$$inlined$DisposableHandle$1
 kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
@@ -9613,8 +9757,6 @@ kotlinx.coroutines.internal.MissingMainCoroutineDispatcher:
     public synthetic bridge void scheduleResumeAfterDelay(long,kotlinx.coroutines.CancellableContinuation)
 kotlinx.coroutines.internal.MissingMainCoroutineDispatcherFactory
 kotlinx.coroutines.internal.ProbesSupportKt
-kotlinx.coroutines.internal.ScopeCoroutine:
-    public void <init>(kotlin.coroutines.CoroutineContext,kotlin.coroutines.Continuation)
 kotlinx.coroutines.internal.Segment
 kotlinx.coroutines.internal.SegmentOrClosed
 kotlinx.coroutines.internal.StackTraceRecoveryKt:
@@ -9647,7 +9789,6 @@ kotlinx.coroutines.intrinsics.UndispatchedKt:
     public static final void startCoroutineUnintercepted(kotlin.jvm.functions.Function1,kotlin.coroutines.Continuation)
     public static final void startCoroutineUnintercepted(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation)
     private static final void startDirect(kotlin.coroutines.Continuation,kotlin.jvm.functions.Function1)
-    public static final java.lang.Object startUndispatchedOrReturn(kotlinx.coroutines.internal.ScopeCoroutine,java.lang.Object,kotlin.jvm.functions.Function2)
     public static final java.lang.Object startUndispatchedOrReturnIgnoreTimeout(kotlinx.coroutines.internal.ScopeCoroutine,java.lang.Object,kotlin.jvm.functions.Function2)
     private static final java.lang.Object undispatchedResult(kotlinx.coroutines.internal.ScopeCoroutine,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function0)
 kotlinx.coroutines.scheduling.CoroutineScheduler$Worker:
