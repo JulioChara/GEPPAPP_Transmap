@@ -8,6 +8,7 @@ import 'package:transmap_app/src/pages/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:transmap_app/src/services/login_services.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
   bool loading = true;
-
+  SPGlobal _prefs = SPGlobal();
   LoginModel sendModel = new LoginModel();
 
   bool _isFetching = false;
@@ -149,8 +150,15 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _isFetching = false;
       });
-      Navigator.pushReplacementNamed(context, 'home', arguments: _email);
+
+      _prefs.spInformeCloud = "0";
+      setState(() {
+
+      });
+      Navigator.pushReplacementNamed(context, 'guiasElectronicasHome', arguments: _email);
     }
+
+
 
   }
 

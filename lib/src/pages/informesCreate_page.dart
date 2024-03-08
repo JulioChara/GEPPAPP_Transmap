@@ -13,6 +13,7 @@ import 'package:transmap_app/src/services/informe_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:snack/snack.dart';
 import 'package:transmap_app/src/widgets/dialog.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class InformeCreatePage extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class InformeCreatePage extends StatefulWidget {
 }
 
 class _InformeCreatePageState extends State<InformeCreatePage> {
+  SPGlobal _prefs = SPGlobal();
   bool loading = true;
   bool loadingSend = false;
 
@@ -140,7 +142,14 @@ class _InformeCreatePageState extends State<InformeCreatePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Informes Vehiculares x"),
-          backgroundColor: Colors.red,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
         body: loading
             ? Center(child: CircularProgressIndicator())

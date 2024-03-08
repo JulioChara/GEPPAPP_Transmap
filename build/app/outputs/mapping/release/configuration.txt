@@ -130,13 +130,10 @@
 # The proguard configuration file for the following section is D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
 -keep class android.app.Application { <init>(); }
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
+-keep class com.crazecoder.openfile.FileProvider { <init>(); }
 -keep class com.pe.transmap_app.MainActivity { <init>(); }
--keep class io.flutter.plugins.urllauncher.WebViewActivity { <init>(); }
 
 # End of content from D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
-# The proguard configuration file for the following section is D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\flutter_pdfview\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
--keep class com.shockwave.**
-# End of content from D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\flutter_pdfview\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\proguard.txt
 # Copyright (C) 2020 The Android Open Source Project
 #
@@ -220,7 +217,57 @@
 -dontwarn sun.misc.Signal
 
 # End of content from C:\Users\JULIO\.gradle\caches\transforms-3\6d7e7fc4556f154aaaa8c72e329cba12\transformed\rules\lib\META-INF\proguard\coroutines.pro
-# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\5e083c06c9925c2309f02468fc66e376\transformed\core-1.7.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\3db694473890d00d37184af94df24c4c\transformed\media-1.0.0\proguard.txt
+# Copyright (C) 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Prevent Parcelable objects from being removed or renamed.
+-keep class android.support.v4.media.** implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+
+# Prevent Parcelable objects from being removed or renamed.
+-keep class androidx.media.** implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\3db694473890d00d37184af94df24c4c\transformed\media-1.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\89e3d4282810b041cf3bcc0e8d2c00eb\transformed\coordinatorlayout-1.0.0\proguard.txt
+# Copyright (C) 2016 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# CoordinatorLayout resolves the behaviors of its child components with reflection.
+-keep public class * extends androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior {
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>();
+}
+
+# Make sure we keep annotations for CoordinatorLayout's DefaultBehavior and ViewPager's DecorView
+-keepattributes *Annotation*
+
+# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\89e3d4282810b041cf3bcc0e8d2c00eb\transformed\coordinatorlayout-1.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\proguard.txt
 # Never inline methods, but allow shrinking and obfuscation.
 -keepclassmembernames,allowobfuscation,allowshrinking class androidx.core.view.ViewCompat$Api* {
   <methods>;
@@ -234,19 +281,9 @@
 -keepclassmembernames,allowobfuscation,allowshrinking class androidx.core.os.UserHandleCompat$Api*Impl {
   <methods>;
 }
--keepclassmembernames,allowobfuscation,allowshrinking class androidx.core.widget.EdgeEffectCompat$Api*Impl {
-  <methods>;
-}
 
-# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\5e083c06c9925c2309f02468fc66e376\transformed\core-1.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\c6290d38a27dcf8d064fa9cefcb89071\transformed\versionedparcelable-1.1.1\proguard.txt
--keep class * implements androidx.versionedparcelable.VersionedParcelable
--keep public class android.support.**Parcelizer { *; }
--keep public class androidx.**Parcelizer { *; }
--keep public class androidx.versionedparcelable.ParcelImpl
-
-# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\c6290d38a27dcf8d064fa9cefcb89071\transformed\versionedparcelable-1.1.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\8a5514d4341f323606d890e29d4268b9\transformed\lifecycle-runtime-2.3.1\proguard.txt
+# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\025f0ebb178f72f967988fd890b9b9c6\transformed\lifecycle-runtime-2.2.0\proguard.txt
 -keepattributes *Annotation*
 
 -keepclassmembers enum androidx.lifecycle.Lifecycle$Event {
@@ -265,19 +302,8 @@
 }
 
 # this rule is need to work properly when app is compiled with api 28, see b/142778206
-# Also this rule prevents registerIn from being inlined.
 -keepclassmembers class androidx.lifecycle.ReportFragment$LifecycleCallbacks { *; }
-# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\8a5514d4341f323606d890e29d4268b9\transformed\lifecycle-runtime-2.3.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\ed9734c73cdec898947618088fbe87b0\transformed\lifecycle-viewmodel-2.1.0\proguard.txt
--keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
-    <init>();
-}
-
--keepclassmembers,allowobfuscation class * extends androidx.lifecycle.AndroidViewModel {
-    <init>(android.app.Application);
-}
-
-# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\ed9734c73cdec898947618088fbe87b0\transformed\lifecycle-viewmodel-2.1.0\proguard.txt
+# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\025f0ebb178f72f967988fd890b9b9c6\transformed\lifecycle-runtime-2.2.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\61be2594815516b1d798e8de806d8dcb\transformed\jetified-savedstate-1.0.0\proguard.txt
 # Copyright (C) 2019 The Android Open Source Project
 #
@@ -298,6 +324,23 @@
 }
 
 # End of content from C:\Users\JULIO\.gradle\caches\transforms-3\61be2594815516b1d798e8de806d8dcb\transformed\jetified-savedstate-1.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\c6290d38a27dcf8d064fa9cefcb89071\transformed\versionedparcelable-1.1.1\proguard.txt
+-keep class * implements androidx.versionedparcelable.VersionedParcelable
+-keep public class android.support.**Parcelizer { *; }
+-keep public class androidx.**Parcelizer { *; }
+-keep public class androidx.versionedparcelable.ParcelImpl
+
+# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\c6290d38a27dcf8d064fa9cefcb89071\transformed\versionedparcelable-1.1.1\proguard.txt
+# The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\ed9734c73cdec898947618088fbe87b0\transformed\lifecycle-viewmodel-2.1.0\proguard.txt
+-keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
+    <init>();
+}
+
+-keepclassmembers,allowobfuscation class * extends androidx.lifecycle.AndroidViewModel {
+    <init>(android.app.Application);
+}
+
+# End of content from C:\Users\JULIO\.gradle\caches\transforms-3\ed9734c73cdec898947618088fbe87b0\transformed\lifecycle-viewmodel-2.1.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\5ecd554e1ba613181ce693feeeabd6c9\transformed\rules\lib\META-INF\proguard\androidx-annotations.pro
 -keep,allowobfuscation @interface androidx.annotation.Keep
 -keep @androidx.annotation.Keep class * {*;}

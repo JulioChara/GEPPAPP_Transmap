@@ -9,6 +9,7 @@ import 'package:transmap_app/src/models/informes_preventivos/alertas_model.dart'
 import 'package:transmap_app/src/services/parametros_services.dart';
 import 'package:transmap_app/src/widgets/Parametros/parametros_widget.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 
 
@@ -22,6 +23,7 @@ class ParametrosPage extends StatefulWidget {
 class _ParametrosPageState extends State<ParametrosPage> {
 
   var _parametrosServices = new ParametrosServices();
+  SPGlobal _prefs = SPGlobal();
 
   List<TiposModel> informeModelList2 = [];
   List<TiposModel> informeModelList3 = [];
@@ -56,7 +58,14 @@ class _ParametrosPageState extends State<ParametrosPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Parametros Editables"),
-          backgroundColor: Colors.black,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add_circle_outline),

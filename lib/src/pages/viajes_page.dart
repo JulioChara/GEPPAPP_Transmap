@@ -25,7 +25,7 @@ class ViajePage extends StatefulWidget {
 //}
 
 class _ViajePageState extends State<ViajePage> {
-  //String idUser = "";
+
   SPGlobal _prefs = SPGlobal();
   var viaje = new ViajeService();
   var datailServices = new DetailServices();
@@ -52,7 +52,14 @@ class _ViajePageState extends State<ViajePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lista Viajes"),
-          backgroundColor: Colors.green,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
           actions: <Widget>[
             // IconButton(
             //   icon: Icon(Icons.add_circle_outline),

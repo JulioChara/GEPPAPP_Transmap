@@ -8,6 +8,7 @@
 import 'dart:io';
 
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,9 +48,13 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
 
 
 
+  SPGlobal _prefs = SPGlobal();
 
   String selDate = DateTime.now().toString().substring(0, 10);
   String origDate = DateTime.now().toString().substring(0, 10);
+
+  String selDate_tras = DateTime.now().toString().substring(0, 10);
+  String origDate_tras = DateTime.now().toString().substring(0, 10);
 
   bool loading = true;
   bool loadingSend = false;
@@ -66,9 +71,10 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
   static List<TiposModel> producto = [];
   static List<SubProductosModel> subproducto = [];
   static List<SubClientesModel> subclientes = [];
+  static List<TiposModel> tipoUnidadMedida = [];
 
-  static List<TiposModel> ubigeoPartida = [];
-  static List<TiposModel> ubigeoLlegada = [];
+  static List<ClientesUbigeoModel> ubigeoPartida = [];
+  static List<ClientesUbigeoModel> ubigeoLlegada = [];
 
   List<GuiasElectronicasDetalleModel> productoLista = [];  //was PRODUCTO
 
@@ -84,8 +90,7 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
   // GlobalKey<AutoCompleteTextFieldState<PlacaPreferencial>> keyPlacaPreferencial = new GlobalKey();
   GlobalKey<AutoCompleteTextFieldState<TiposModel>> keyTipoTipo = new GlobalKey();
 
-  GlobalKey<AutoCompleteTextFieldState<TiposModel>> keyUbigeoPartida = new GlobalKey();
-  GlobalKey<AutoCompleteTextFieldState<TiposModel>> keyUbigeoLlegada = new GlobalKey();
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -98,17 +103,20 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
   AutoCompleteTextField? searchSituacion;
   AutoCompleteTextField? searchProducto;
   AutoCompleteTextField? searchTipoTipos;
-  AutoCompleteTextField? searchUbigeoPartida;
-  AutoCompleteTextField? searchUbigeoLlegada;
+
+
 
   TextEditingController direccionOrigenEditingController = new TextEditingController();
   TextEditingController guiaremisionEditingController = new TextEditingController();
   TextEditingController descripcionEditingController = new TextEditingController();
-  TextEditingController serieEditingController = new TextEditingController();
+  // TextEditingController serieEditingController = new TextEditingController();
   TextEditingController numeroEditingController = new TextEditingController();
   TextEditingController cantidadEditingController = new TextEditingController();
   TextEditingController precioEditingController = new TextEditingController();
   TextEditingController pesoEditingController = new TextEditingController();
+
+  TextEditingController serieGuiaEditingController = new TextEditingController();
+  TextEditingController numeroGuiaEditingController = new TextEditingController();
 
   TextEditingController direccionPartidaEditingController = new TextEditingController();
   TextEditingController direccionLlegadaEditingController = new TextEditingController();
@@ -136,6 +144,9 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
 
   TiposModel? _selectedTipoProducto;
   SubProductosModel? _selectedTipoSubProducto;
+  ClientesUbigeoModel? _selectedUbigeoPartida;
+  ClientesUbigeoModel? _selectedUbigeoLlegada;
+  TiposModel? _selectedtipoUnidadMedida;
   TiposModel? _selectedTipoSituacion;
   TiposModel? _selectedTipoTipo;
   SubClientesModel? _selectedTipoSubClientes;
@@ -145,12 +156,14 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
   // List<DropdownMenuItem<TiposModel>>? _placaReferencialDropdownMenuItems;
   List<DropdownMenuItem<TiposModel>>? _productoReferencialDropdownMenuItems;
   List<DropdownMenuItem<SubProductosModel>>? _subproductoReferencialDropdownMenuItems;
+  List<DropdownMenuItem<ClientesUbigeoModel>>? _ubigeoPartidaDropdownMenuItems;
+  List<DropdownMenuItem<ClientesUbigeoModel>>? _ubigeoLlegadaDropdownMenuItems;
+  List<DropdownMenuItem<TiposModel>>? _tipoUnidadMedidaDropdownMenuItems;
   List<DropdownMenuItem<TiposModel>>? _situacionReferencialDropdownMenuItems;
   List<DropdownMenuItem<TiposModel>>? _tipoTipoReferencialDropdownMenuItems;
 
   List<DropdownMenuItem<SubClientesModel>>? _subclientesDropdownMenuItems;
-  List<DropdownMenuItem<TiposModel>>? _ubigeoPartidaDropdownMenuItems;
-  List<DropdownMenuItem<TiposModel>>? _ubigeoLlegadaDropdownMenuItems;
+
 
   void getData() async {
     try {
@@ -176,6 +189,10 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
       producto = objDetailServices.Old_cargarTipoProducto();  //sospechoso
       // tipoTipos = await objDetailServices.cargarTipoTipo();
       tipoTipos = await _guiasElectronicasServices.GuiasElectronicas_ObtenerTipoTipos();
+      tipoUnidadMedida = await _guiasElectronicasServices.GuiasElectronicas_ObtenerTipoUnidadMedida();  //para sub estantes
+      _tipoUnidadMedidaDropdownMenuItems = buildTipoUnidadMedidaDropDownMenuItems(tipoUnidadMedida);
+
+
 
       print("Part 5");
       _placaDropdownMenuItems = buildDropDownMenuItems(placas);
@@ -187,13 +204,15 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
       _tipoTipoReferencialDropdownMenuItems = buildTipoTipoReferencialDropDownMenuItems(tipoTipos);
       print("Part 7");
 
-      ubigeoPartida = await _guiaService.GuiasElectronicas_ObtenerUbigeoFinal();  //para sub estantes
-      print(ubigeoPartida.length);
-      _ubigeoPartidaDropdownMenuItems = buildUbigeoPartidaDropDownMenuItems(ubigeoPartida);
 
-      ubigeoLlegada = ubigeoPartida;//para sub estantes
-      print(ubigeoLlegada.length);
-      _ubigeoLlegadaDropdownMenuItems = buildUbigeoLlegadaDropDownMenuItems(ubigeoLlegada);
+
+      // ubigeoPartida = await _guiaService.GuiasElectronicas_ObtenerUbigeoFinal();  //para sub estantes
+      // print(ubigeoPartida.length);
+      // _ubigeoPartidaDropdownMenuItems = buildUbigeoPartidaDropDownMenuItems(ubigeoPartida);
+      //
+      // ubigeoLlegada = ubigeoPartida;//para sub estantes
+      // print(ubigeoLlegada.length);
+      // _ubigeoLlegadaDropdownMenuItems = buildUbigeoLlegadaDropDownMenuItems(ubigeoLlegada);
 
 
       setState(() {
@@ -222,6 +241,15 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
   void ActualizadoresTipo(int cate, String id) async {
     //  loading = true;
     if(cate==1){
+      ubigeoPartida =await _guiasElectronicasServices.GuiasElectronicas_ObtenerDireccionesxCliente(id);  //para sub estantes
+      ubigeoLlegada= ubigeoPartida;
+      _ubigeoPartidaDropdownMenuItems = buildUbigeoPartidaDropDownMenuItems(ubigeoPartida);
+      _ubigeoLlegadaDropdownMenuItems = buildUbigeoLlegadaDropDownMenuItems(ubigeoLlegada);
+
+      _selectedUbigeoPartida = ubigeoPartida.first;
+      _selectedUbigeoLlegada = ubigeoLlegada.first;
+
+
     }else if(cate ==2){
       print("nani");
       print("Send:" + id);
@@ -233,13 +261,16 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
       //_tipoSubEstanteDropdownMenuItems = buildDropDownMenuTiposSubEstante(listTipoSubEstante);
       //  subpro
       _selectedTipoSubProducto = subproducto.first;
+
+      SetearDescripcion(id);
+
       //   _savemodel.tipoSubEstanteFk = listTipoSubEstante.first.tipoId;
     }
-
     setState(() {
       //loading =false;
-      SetearDescripcion(id);
+
     });
+
   }
 
 
@@ -276,41 +307,7 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
       //SetearDescripcion(id);
     });
   }
-  //
-  // void obtenerUbigeoPartida(String term) async {
-  //   //loading = true;
-  //
-  //   ubigeoPartida = [];
-  //   ubigeoPartida = await _guiaService.GuiasElectronicas_ObtenerUbigeoFinalPost(term);  //para sub estantes
-  //   print(ubigeoPartida.length);
-  //   _ubigeoPartidaDropdownMenuItems = buildUbigeoPartidaDropDownMenuItems(ubigeoPartida);
-  //   print("aaaaaaaaaa");
-  //
-  //   //_selectedTipoSubProducto = subproducto.first;
-  //
-  //
-  //   setState(() {
-  //    // loading = false;
-  //
-  //   });
-  // }
 
-
-
-  // void ActualizadoresTipo(int cate, String id) async {
-  //   loading = true;
-  //   if(cate==1){
-  //   }else if(cate ==2){
-  //     // listTipoSubEstante = await _productosServices.getTipos_SubEstantes(_selectedTipoEstante!.tipoDescripcion!);  ///para sub estantes
-  //     listTipoSubEstante = await _productosServices.getTipos_SubEstantes(id);  ///para sub estantes
-  //     _tipoSubEstanteDropdownMenuItems = buildDropDownMenuTiposSubEstante(listTipoSubEstante);
-  //     _selectedTipoSubEstante = listTipoSubEstante.first;
-  //     _savemodel.tipoSubEstanteFk = listTipoSubEstante.first.tipoId;
-  //   }
-  //   setState(() {
-  //     loading =false;
-  //   });
-  // }
 
   List<DropdownMenuItem<TiposModel>> buildConductoresDropDownMenuItems(List Model) {
 
@@ -405,6 +402,28 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
     return items;
   }
 
+  List<DropdownMenuItem<ClientesUbigeoModel>> buildUbigeoPartidaDropDownMenuItems(List lista) {
+    List<DropdownMenuItem<ClientesUbigeoModel>> items = [];
+    for (ClientesUbigeoModel p  in lista) {
+      items.add(DropdownMenuItem( value: p , child: Text(p .clubDireccionPartida!),));
+    }
+    return items;
+  }
+  List<DropdownMenuItem<ClientesUbigeoModel>> buildUbigeoLlegadaDropDownMenuItems(List lista) {
+    List<DropdownMenuItem<ClientesUbigeoModel>> items = [];
+    for (ClientesUbigeoModel p  in lista) {
+      items.add(DropdownMenuItem( value: p , child: Text(p .clubDireccionLlegada!),));
+    }
+    return items;
+  }
+  List<DropdownMenuItem<TiposModel>> buildTipoUnidadMedidaDropDownMenuItems(List lista) {
+    List<DropdownMenuItem<TiposModel>> items = [];
+    for (TiposModel p  in lista) {
+      items.add(DropdownMenuItem( value: p , child: Text(p .tipoDescripcion!),));
+    }
+    return items;
+  }
+
   List<DropdownMenuItem<TiposModel>> buildTipoTipoReferencialDropDownMenuItems(List lista) {
     List<DropdownMenuItem<TiposModel>> items = [];
     for (TiposModel p  in lista) {
@@ -420,21 +439,7 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
     }
     return items;
   }
-  List<DropdownMenuItem<TiposModel>> buildUbigeoPartidaDropDownMenuItems(List lista) {
-    List<DropdownMenuItem<TiposModel>> items = [];
-    for (TiposModel p  in lista) {
-      items.add(DropdownMenuItem( value: p , child: Text(p .tipoDescripcion!),));
-    }
-    return items;
-  }
 
-  List<DropdownMenuItem<TiposModel>> buildUbigeoLlegadaDropDownMenuItems(List lista) {
-    List<DropdownMenuItem<TiposModel>> items = [];
-    for (TiposModel p  in lista) {
-      items.add(DropdownMenuItem( value: p , child: Text(p .tipoDescripcion!),));
-    }
-    return items;
-  }
 
 
 
@@ -451,8 +456,8 @@ class _GuiasElectronicasCreatePageState extends State<GuiasElectronicasCreatePag
           mensajeToast("Debe ingresar una placa Principal de manera inicial", Colors.red, Colors.white);
           return;
         }
-        serieEditingController.text = selectedPlaca!.tipoDescripcionCorta!;
-        guiaModel.gutrSerie = selectedPlaca.tipoDescripcionCorta;
+        // serieEditingController.text = selectedPlaca!.tipoDescripcionCorta!;
+        // guiaModel.gutrSerie = selectedPlaca.tipoDescripcionCorta;
         colorcito = Colors.green;
         esPrincipal = true;
       }else {
@@ -548,8 +553,26 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
       print(_selectedTipoSubProducto!.tipoDescripcion);
       SetearDescripcion(_selectedTipoSubProducto!.tipoId!);
     });
-
   }
+  onUbigeoPartidaChangeDropdownItem(ClientesUbigeoModel? selected) {
+    setState(() {
+      _selectedUbigeoPartida = selected;
+      print(_selectedUbigeoPartida!.clubDireccionPartida);
+    });
+  }
+  onUbigeoLlegadaChangeDropdownItem(ClientesUbigeoModel? selected) {
+    setState(() {
+      _selectedUbigeoLlegada = selected;
+      print(_selectedUbigeoLlegada!.clubDireccionLlegada);
+    });
+  }
+  onTipoUnidadMedidaChangeDropdownItem(TiposModel? selected) {
+    setState(() {
+      _selectedtipoUnidadMedida = selected;
+      print(_selectedtipoUnidadMedida!.tipoDescripcion);
+    });
+  }
+
 
   onTipoSituacionChangeDropdownItem(TiposModel? selected) {
     guiaModel.tipoEstadoSituacionFk = selected!.tipoId;
@@ -617,87 +640,16 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
     return Scaffold(
         appBar: AppBar(
           title: Text("Crear Guia Electronica"),
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
-            floatingActionButton: FloatingActionButton(
-            backgroundColor: const Color.fromRGBO(82, 170, 94, 1.0),
-            tooltip: 'Increment',
-            onPressed: (){
-              print("Que riko aprietas kata");
-              // print(_selectedTipoSubClientes!.scId);
 
-              guiaModel.gutrPuntoPartida = direccionPartidaEditingController.text;
-              guiaModel.gutrPuntoLlegada = direccionLlegadaEditingController.text;
-
-
-              GuiasElectronicasDetalleModel test = new GuiasElectronicasDetalleModel();
-              guiaDetalleModel.add(test);
-
-              if(_chipListConductores.length ==0){
-                mensajeToast("No hay conductores", Colors.redAccent,Colors.white);
-                return;
-              }else{
-                _chipListConductores.forEach((element){
-                 GuiasElectronicasConductoresModel mod = new GuiasElectronicasConductoresModel();
-                 mod.conductoresFk = element.id;
-                 mod.conductoresFkDesc = element.name;
-                 guiaConductoresModel.add(mod);
-                });
-              }
-
-              if(_chipList.length ==0){
-                mensajeToast("No hay placas", Colors.redAccent,Colors.white);
-                return;
-              }else{
-                _chipList.forEach((element){
-                  GuiasElectronicasPlacasModel mod = new GuiasElectronicasPlacasModel();
-                  if(element.tipo =="VEHICULO"){
-                    mod.vehiculosFk = element.id;
-                  }else{
-                    mod.placasFk = element.id;
-                  }
-                  guiaPlacasModel.add(mod);
-                });
-              }
-
-              print("Camtidad DEtalles: "+productoLista.length.toString() ) ;
-              productoLista.forEach((element){
-                GuiasElectronicasDetalleModel mod = new GuiasElectronicasDetalleModel();
-                mod.productosFk = element.productosFk;
-                mod.gudePrecioUnitario = element.gudePrecioUnitario;
-                mod.gudePesoUnitario = element.gudePesoUnitario;
-                mod.gudeMontoTotal= element.gudeMontoTotal;
-
-                guiaDetalleModel.add(mod);
-              });
-
-              guiaModel.detalle = guiaDetalleModel;
-              guiaModel.detalleConductores = guiaConductoresModel;
-              guiaModel.detallePlacas = guiaPlacasModel;
-
-             // print(guiaModel.toJson().toString());
-
-
-
-
-              String s = guiaModel.toJson().toString();
-              debugPrint(" =======> " + s, wrapWidth: 1024);
-
-
-              // String json = guiaModel.toString();
-              // int length = json.length;
-              //
-              //
-              // for(int i=0; i<length; i+=1024)
-              // {
-              //   if(i+1024<length)
-              //     log.d("JSON OUTPUT", json.substring(i, i+1024));
-              //   else
-              //     Log.d("JSON OUTPUT", json.substring(i, length));
-              // }
-
-            },
-          child: const Icon(Icons.add, color: Colors.white, size: 28),
-        ),
         body: loading
             ? Center(child: CircularProgressIndicator())
             : Stack(
@@ -731,40 +683,65 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                       SizedBox(
                         height: 20.0,
                       ),
-                      searchRemitente = fieldRemitente(),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      searchUbigeoPartida = fieldUbigeoPartida(),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        readOnly: false,
-                        enableInteractiveSelection: true,
-                        controller: direccionPartidaEditingController,
+
+                      DropdownButtonFormField(
                         decoration: InputDecoration(
-                          hintText: "Direccion PArtida",
                           labelText: "Direccion Partida",
                           prefixIcon: Container(
                             width: 20,
                             height: 40,
                             padding: EdgeInsets.all(10),
                             child: SvgPicture.asset(
-                                "assets/icons/send.svg"),
+                              "assets/icons/service.svg", color: Colors.black54,),
                           ),
+                          contentPadding: EdgeInsets.all(10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
                         ),
-                        keyboardType: TextInputType.emailAddress,
-                        keyboardAppearance: Brightness.light,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (String text) {},
-                        onChanged: (value) {
-                          setState(() {});
-                        },
+                        isExpanded: true,
+                        value: _selectedUbigeoPartida,
+                        items: _ubigeoPartidaDropdownMenuItems,
+                        onChanged: onUbigeoPartidaChangeDropdownItem,
+                        elevation: 2,
+                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                        isDense: true,
+                        iconSize: 40.0,
                       ),
 
+                      SizedBox(
+                        height: 20.0,
+                      ),
+
+                      DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          labelText: "Direccion Llegada",
+                          prefixIcon: Container(
+                            width: 20,
+                            height: 40,
+                            padding: EdgeInsets.all(10),
+                            child: SvgPicture.asset(
+                              "assets/icons/service.svg", color: Colors.black54,),
+                          ),
+                          contentPadding: EdgeInsets.all(10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        isExpanded: true,
+                        value: _selectedUbigeoLlegada,
+                        items: _ubigeoLlegadaDropdownMenuItems,
+                        onChanged: onUbigeoLlegadaChangeDropdownItem,
+                        elevation: 2,
+                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                        isDense: true,
+                        iconSize: 40.0,
+                      ),
+
+                      SizedBox(
+                        height: 20.0,
+                      ),
+
+
+                      searchRemitente = fieldRemitente(),
                       SizedBox(
                         height: 20.0,
                       ),
@@ -795,41 +772,62 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                         isDense: true,
                         iconSize: 40.0,
                       ),
-                      SizedBox(height: 20.0,),
-                      searchUbigeoLlegada = fieldUbigeoLlegada(),
+                  //    SizedBox(height: 20.0,),
+
+                      // Text("Fecha Emision",
+                      //     style: TextStyle(
+                      //         color: Colors.black,
+                      //         fontWeight: FontWeight.bold,
+                      //         fontSize: 18)),
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //       color: Colors.black,
+                      //       borderRadius: BorderRadius.circular(10),
+                      //       boxShadow: [
+                      //         BoxShadow(
+                      //             color: Colors.white,
+                      //             blurRadius: 3)
+                      //       ]),
+                      //   child: CupertinoButton(
+                      //     padding: EdgeInsets.zero,
+                      //     child: Row(
+                      //       mainAxisAlignment: MainAxisAlignment.center,
+                      //       children: <Widget>[
+                      //         Icon(
+                      //           Icons.date_range,
+                      //           color: Colors.white,
+                      //         ),
+                      //         SizedBox(
+                      //           width: 7.0,
+                      //         ),
+                      //         Text(
+                      //           selDate,
+                      //           style: TextStyle(
+                      //               color: Colors.white, fontSize: 18),
+                      //         )
+                      //       ],
+                      //     ),
+                      //     onPressed: () {
+                      //       _selectSelDate(context);
+                      //     },
+                      //   ),
+                      // ),
+                      ///todo: Serie y N umero
+
+                  SizedBox(
+                    height: 20.0,
+                  ),
+
+
+
 
                       SizedBox(height: 20.0,),
-                      TextFormField(
-                        readOnly: false,
-                        enableInteractiveSelection: true,
-                        controller: direccionLlegadaEditingController,
-                        decoration: InputDecoration(
-                          hintText: "Direccion Llegada",
-                          labelText: "Direccion Llegada",
-                          prefixIcon: Container(
-                            width: 20,
-                            height: 40,
-                            padding: EdgeInsets.all(10),
-                            child: SvgPicture.asset(
-                                "assets/icons/send.svg"),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                        keyboardAppearance: Brightness.light,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (String text) {},
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
 
-
-
+                      Text("Fecha Traslado",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18)),
                       Container(
                         decoration: BoxDecoration(
                             color: Colors.black,
@@ -852,21 +850,90 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                                 width: 7.0,
                               ),
                               Text(
-                                selDate,
+                                selDate_tras,
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18),
                               )
                             ],
                           ),
                           onPressed: () {
-                            _selectSelDate(context);
+                            _selectSelDate_tras(context);
                           },
                         ),
                       ),
                       SizedBox(
                         height: 20.0,
                       ),
+                      Text("Guia Remision Remitente",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18)),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: TextFormField(
+                              controller: serieGuiaEditingController,
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: InputDecoration(
+                                hintText: "Serie",
+                                labelText: "Serie",
+                                prefixIcon: Container(
+                                  width: 20,
+                                  height: 40,
+                                  padding: EdgeInsets.all(10),
+                                  child: SvgPicture.asset(
+                                      "assets/icons/document.svg"),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.circular(10)),
+                              ),
+                              keyboardAppearance: Brightness.light,
+                              textInputAction: TextInputAction.next,
+                              onFieldSubmitted: (String text) {},
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            width: 7.0,
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              controller: numeroGuiaEditingController,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                hintText: "Numero",
+                                labelText: "Numero",
+                                prefixIcon: Container(
+                                  width: 20,
+                                  height: 40,
+                                  padding: EdgeInsets.all(10),
+                                  child: SvgPicture.asset(
+                                    "assets/icons/document.svg",
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.circular(10)),
+                              ),
+                              keyboardAppearance: Brightness.light,
+                              textInputAction: TextInputAction.next,
+                              onFieldSubmitted: (String text) {},
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
 
+                      SizedBox(
+                        height: 20.0,
+                      ),
                       DropdownButtonFormField(
                         decoration: InputDecoration(
                           labelText: "Conductores",
@@ -968,8 +1035,8 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                               deleteChips(chip.id);
                             }else if(_chipList.length ==1 && chip.esPrincipal==true){
                               deleteChips(chip.id);
-                              serieEditingController.text = "";
-                              guiaModel.gutrSerie = "";
+                          //    serieEditingController.text = "";
+                           //   guiaModel.gutrSerie = "";
                             }
                               else{
                               mensajeToast("No puede eliminarse la placa principal, mientras existan otras placas", Colors.redAccent, Colors.white);
@@ -1014,31 +1081,31 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                       ),
 
 
-                      TextFormField(
-                        readOnly: true,
-                        enableInteractiveSelection: true,
-                        controller: serieEditingController,
-                        decoration: InputDecoration(
-                          hintText: "Serie",
-                          labelText: "Serie",
-                          prefixIcon: Container(
-                            width: 20,
-                            height: 40,
-                            padding: EdgeInsets.all(10),
-                            child: SvgPicture.asset(
-                                "assets/icons/send.svg"),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                        keyboardAppearance: Brightness.light,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (String text) {},
-                        onChanged: (value) {
-                          setState(() {});
-                        },
-                      ),
+                      // TextFormField(
+                      //   readOnly: true,
+                      //   enableInteractiveSelection: true,
+                      //   controller: serieEditingController,
+                      //   decoration: InputDecoration(
+                      //     hintText: "Serie",
+                      //     labelText: "Serie",
+                      //     prefixIcon: Container(
+                      //       width: 20,
+                      //       height: 40,
+                      //       padding: EdgeInsets.all(10),
+                      //       child: SvgPicture.asset(
+                      //           "assets/icons/send.svg"),
+                      //     ),
+                      //     border: OutlineInputBorder(
+                      //         borderRadius: BorderRadius.circular(10)),
+                      //   ),
+                      //   keyboardType: TextInputType.emailAddress,
+                      //   keyboardAppearance: Brightness.light,
+                      //   textInputAction: TextInputAction.next,
+                      //   onFieldSubmitted: (String text) {},
+                      //   onChanged: (value) {
+                      //     setState(() {});
+                      //   },
+                      // ),
 
                       SizedBox(
                         height: 20.0,
@@ -1173,6 +1240,33 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                       SizedBox(
                         height: 20.0,
                       ),
+                      DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          labelText: "Unidad de Medida",
+                          prefixIcon: Container(
+                            width: 20,
+                            height: 40,
+                            padding: EdgeInsets.all(10),
+                            child: SvgPicture.asset(
+                              "assets/icons/service.svg", color: Colors.black54,),
+                          ),
+                          contentPadding: EdgeInsets.all(10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        isExpanded: true,
+                        value: _selectedtipoUnidadMedida,
+                        items: _tipoUnidadMedidaDropdownMenuItems,
+                        onChanged: onTipoUnidadMedidaChangeDropdownItem,
+                        elevation: 2,
+                        style: TextStyle(color: Colors.black54, fontSize: 16),
+                        isDense: true,
+                        iconSize: 40.0,
+                      ),
+
+                      SizedBox(
+                        height: 20.0,
+                      ),
                       TextFormField(
                         controller: descripcionEditingController,
                         decoration: InputDecoration(
@@ -1263,34 +1357,34 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                           SizedBox(
                             width: 7.0,
                           ),
-                          Expanded(
-                            child: TextFormField(
-                              controller: pesoEditingController,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                hintText: "Peso",
-                                labelText: "Peso",
-                                prefixIcon: Container(
-                                  width: 20,
-                                  height: 40,
-                                  padding: EdgeInsets.all(10),
-                                  child: SvgPicture.asset(
-                                    "assets/icons/gear.svg",
-                                    color: Colors.black54,
-                                  ),
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius:
-                                    BorderRadius.circular(10)),
-                              ),
-                              keyboardAppearance: Brightness.light,
-                              textInputAction: TextInputAction.next,
-                              onFieldSubmitted: (String text) {},
-                              onChanged: (value) {
-                                setState(() {});
-                              },
-                            ),
-                          ),
+                      //     Expanded(
+                      //       child: TextFormField(
+                      //         controller: pesoEditingController,
+                      //         keyboardType: TextInputType.number,
+                      //         decoration: InputDecoration(
+                      //           hintText: "Peso",
+                      //           labelText: "Peso",
+                      //           prefixIcon: Container(
+                      //             width: 20,
+                      //             height: 40,
+                      //             padding: EdgeInsets.all(10),
+                      //             child: SvgPicture.asset(
+                      //               "assets/icons/gear.svg",
+                      //               color: Colors.black54,
+                      //             ),
+                      //           ),
+                      //           border: OutlineInputBorder(
+                      //               borderRadius:
+                      //               BorderRadius.circular(10)),
+                      //         ),
+                      //         keyboardAppearance: Brightness.light,
+                      //         textInputAction: TextInputAction.next,
+                      //         onFieldSubmitted: (String text) {},
+                      //         onChanged: (value) {
+                      //           setState(() {});
+                      //         },
+                      //       ),
+                      //     ),
                         ],
                       ),
                       SizedBox(
@@ -1317,8 +1411,8 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                             0 &&
                             cantidadEditingController.text.length >
                                 0 &&
-                            precioEditingController.text.length > 0 &&
-                            pesoEditingController.text.length > 0
+                            precioEditingController.text.length > 0
+                          // &&  pesoEditingController.text.length > 0
                             ? () {
                           var prod = new GuiasElectronicasDetalleModel(
                             // tipoProductoFk: _selectedTipoTipo!.tipoId,
@@ -1326,25 +1420,29 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                               productosFk: _selectedTipoProducto!.tipoId,
                               productosFkDesc:
                               descripcionEditingController.text,
+                              tipoProductoUnidadMedidaFk: _selectedtipoUnidadMedida!.tipoId,
+                              tipoProductoUnidadMedidaFkDesc: _selectedtipoUnidadMedida!.tipoDescripcion,
                               gudeCantidad:
                               cantidadEditingController.text,
                               gudePrecioUnitario:
                               precioEditingController.text,
-                              gudePesoUnitario:
-                              pesoEditingController.text,
+                              // gudePesoUnitario:
+                              // pesoEditingController.text,
+
                               gudeMontoTotal: _total(
                                   cantidadEditingController
                                       .text,
                                   precioEditingController.text)
                                   .toString(),
-                              subProductoFk: _selectedTipoSubProducto!.tipoId
+                              subProductoFk: _selectedTipoSubProducto!.tipoId,
+                            gudeProductoDescripcion: descripcionEditingController.text
                           );
 
                           addItemProducto(prod);
 
                           descripcionEditingController.clear();
                           precioEditingController.clear();
-                          pesoEditingController.clear();
+                          // pesoEditingController.clear();
                           cantidadEditingController.clear();
                         }
                             : null,
@@ -1377,7 +1475,7 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                                           color: Colors.black54),
                                     ),
                                     subtitle: Text(
-                                      "Cant.: ${productoLista[index].gudeCantidad} | Precio: S/. ${productoLista[index].gudePrecioUnitario}| Peso:  ${productoLista[index].gudePesoUnitario} | Total: ${_total(productoLista[index].gudePrecioUnitario!, productoLista[index].gudeCantidad!)}",
+                                      "Cant.: ${productoLista[index].gudeCantidad} | Precio: S/. ${productoLista[index].gudePrecioUnitario}| Total: ${_total(productoLista[index].gudePrecioUnitario!, productoLista[index].gudeCantidad!)}",
                                       style:
                                       TextStyle(fontSize: 13.0),
                                     ),
@@ -1435,52 +1533,38 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                         ),
                         color: Colors.lightBlueAccent,
                         onPressed: () {
-                          showDialog(
+                          String validar = validado();
+                          if (validar.length > 0) {
+                            print("Pre");
+                            showMessajeAW(DialogType.ERROR, "Validacion", validar,0);
+                            print("Pos");
+                            // print(validar);
+                            return;
+                          }
+                          else
+                          {
+                            AwesomeDialog(
+                              dismissOnTouchOutside: false,
                               context: context,
-                              barrierDismissible: true,
-                              builder: (context) {
-                                return AlertDialog(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(20.0)),
-                                  title: Text("Atención"),
-                                  content: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                          "Generar y enviar Guia de Remisión"),
-                                      SizedBox(
-                                        height: 10.0,
-                                      ),
-//                                      Icon(Icons.warning, size: 45.0, color: Colors.yellow,)
-                                    ],
-                                  ),
-                                  actions: <Widget>[
-                                    FlatButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text("Cancelar"),
-                                    ),
-                                    FlatButton(
-                                      onPressed: () {
-                                      //  _sendData();
-                                        setState(() {
+                              dialogType: DialogType.QUESTION,
+                              headerAnimationLoop: false,
+                              animType: AnimType.TOPSLIDE,
+                              showCloseIcon: true,
+                              closeIcon: const Icon(Icons.close_fullscreen_outlined),
+                              title: "Confirmacion",
+                              descTextStyle: TextStyle(fontSize: 18),
+                              desc: "¿Desea Guardar la Guia Electronica?",
+                              btnCancelOnPress: () {},
+                              onDissmissCallback: (type) {
+                                debugPrint('Dialog Dissmiss from callback $type');
+                              },
+                              btnOkOnPress: () {
+                                 _sendData();
+                              },
+                            ).show();
 
-                                        });
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text("Enviar"),
-                                    )
-                                  ],
-                                );
-                              });
+                          }
 
-//                          _sendData();
-//
-//                          setState(() {
-//                            loadingSend = true;
-//                          });
                         },
                       ),
                       SizedBox(
@@ -1517,6 +1601,97 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
   //       textColor: colorText,
   //       fontSize: 16.0);
   // }
+
+
+  showMessajeAW(DialogType type, String titulo, String desc, int accion){
+    AwesomeDialog(
+      dismissOnTouchOutside: false,
+      context: context,
+      dialogType: type,
+      headerAnimationLoop: false,
+      animType: AnimType.TOPSLIDE,
+      showCloseIcon: true,
+      closeIcon: const Icon(Icons.close_fullscreen_outlined),
+      title: titulo,
+      descTextStyle: TextStyle(fontSize: 18),
+      desc: desc,
+      //  btnCancelOnPress: () {},
+      onDissmissCallback: (type) {
+        debugPrint('Dialog Dissmiss from callback $type');
+      },
+      btnOkOnPress: () {
+        switch(accion) {
+          case 0: {
+            // nada
+          }
+          break;
+          case 1: { //Cuando se genera la nota de entrada
+            Navigator.pushReplacementNamed(context, 'guiasElectronicasHome',);
+          }
+          break;
+        }
+      },
+    ).show();
+  }
+
+
+  String validado() {
+    String errores = "";
+
+    guiaModel.gutrSerie = serieGuiaEditingController.text;
+    guiaModel.gutrNumero = numeroGuiaEditingController.text;
+
+
+    if (guiaModel.clientesFk == null){
+      errores = errores + "♦Seleccione un Cliente";
+    }
+    if (_selectedUbigeoPartida ==null){
+      errores = errores + "\n♦Sin Punto de Partida";
+    }else{
+      if (_selectedUbigeoPartida!.clubId == "0" || _selectedUbigeoPartida!.clubId == null){
+        errores = errores + "\n♦Punto de Partida no Valido";
+      }
+    }
+    if (_selectedUbigeoLlegada ==null){
+      errores = errores + "\n♦Sin Punto de Llegada";
+    }else{
+      if (_selectedUbigeoLlegada!.clubId == "0" || _selectedUbigeoLlegada!.clubId == null){
+        errores = errores + "\n♦Punto de Llegada no Valido";
+      }
+    }
+    if (guiaModel.clienteRemitenteFk == null){
+      errores = errores + "\n♦Seleccione un Remitente";
+    }
+    if (guiaModel.clienteDestinatarioFk == null){
+      errores = errores + "\n♦Seleccione un Destinatario";
+    }
+
+    if (guiaModel.gutrSerie != null && guiaModel.gutrSerie != "null" && guiaModel.gutrSerie != "") {
+      if (guiaModel.gutrNumero == null || guiaModel.gutrNumero == "") {
+        errores = errores + "\n♦Numero no Valido";
+      }
+    }
+    if (guiaModel.gutrNumero != null && guiaModel.gutrNumero != "null" && guiaModel.gutrNumero != "") {
+      if (guiaModel.gutrSerie == null || guiaModel.gutrSerie == "") {
+        errores = errores + "\n♦Serie no Valida";
+      }
+    }
+
+
+    if(_chipListConductores.length ==0){
+      errores = errores + "\n♦No se selecciono ningun conductor";
+    }
+    if(_chipList.length ==0){
+      errores = errores + "\n♦No se selecciono ninguna placa";
+    }
+    if (productoLista.length == 0) {
+      errores = errores + "\n♦Agrege Productos";
+    }
+
+    return errores;
+  }
+
+
 
   // _sendData() async {
   //   GuiaService service = new GuiaService();
@@ -1604,6 +1779,111 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
   //
   //
   // }
+
+  _sendData() async {
+    guiaDetalleModel = [];
+    guiaConductoresModel = [];
+    guiaPlacasModel = [];
+
+    guiaModel.gutrUsrCreacion = _prefs.idUser;
+
+    guiaModel.gutrFechaEmision = selDate;
+    guiaModel.gutrFechaTraslado = selDate_tras;
+
+
+    guiaModel.gutrPuntoPartidaUbigeo = _selectedUbigeoPartida!.clubId;
+    guiaModel.gutrPuntoLlegadaUbigeo = _selectedUbigeoLlegada!.clubId;
+    guiaModel.gutrPuntoPartida = _selectedUbigeoPartida!.clubDireccionPartida;
+    guiaModel.gutrPuntoLlegada = _selectedUbigeoLlegada!.clubDireccionLlegada;
+
+    guiaModel.unidadMedidaFk = _selectedtipoUnidadMedida!.tipoId;
+    guiaModel.unidadMedidaFkDesc = _selectedtipoUnidadMedida!.tipoDescripcion;
+
+
+    //
+    // GuiasElectronicasDetalleModel test = new GuiasElectronicasDetalleModel();
+    // guiaDetalleModel.add(test);
+
+    if(_chipListConductores.length ==0){
+      mensajeToast("No hay conductores", Colors.redAccent,Colors.white);
+      return;
+    }else{
+      _chipListConductores.forEach((element){
+        GuiasElectronicasConductoresModel mod = new GuiasElectronicasConductoresModel();
+        if (element.esPrincipal ==true){
+          mod.coreEstado = "1";
+        }
+        mod.conductoresFk = element.id;
+        mod.conductoresFkDesc = element.name;
+        guiaConductoresModel.add(mod);
+      });
+    }
+
+    if(_chipList.length ==0){
+      mensajeToast("No hay placas", Colors.redAccent,Colors.white);
+      return;
+    }else{
+      _chipList.forEach((element){
+        GuiasElectronicasPlacasModel mod = new GuiasElectronicasPlacasModel();
+        if(element.tipo =="VEHICULO"){
+          mod.vehiculosFk = element.id;
+          if (element.esPrincipal ==true){
+            mod.plreEstado = "1";
+          }
+        }else{
+          mod.placasFk = element.id;
+        }
+        guiaPlacasModel.add(mod);
+      });
+    }
+
+
+    print("Camtidad DEtalles: "+productoLista.length.toString() ) ;
+    productoLista.forEach((element){
+      GuiasElectronicasDetalleModel mod = new GuiasElectronicasDetalleModel();
+      mod.productosFk = element.productosFk;
+      mod.tipoProductoUnidadMedidaFk = element.tipoProductoUnidadMedidaFk;
+      mod.tipoProductoUnidadMedidaFkDesc = element.tipoProductoUnidadMedidaFkDesc;
+      mod.gudeCantidad = element.gudeCantidad;
+      mod.gudePrecioUnitario = element.gudePrecioUnitario;
+     // mod.gudePesoUnitario = element.gudePesoUnitario;
+      mod.gudeMontoTotal= element.gudeMontoTotal;
+      mod.subProductoFk= element.subProductoFk;
+      mod.gudeProductoDescripcion= element.gudeProductoDescripcion;
+
+      guiaDetalleModel.add(mod);
+    });
+
+    guiaModel.detalle = guiaDetalleModel;
+    guiaModel.detalleConductores = guiaConductoresModel;
+    guiaModel.detallePlacas = guiaPlacasModel;
+
+    String s = guiaModel.toJson().toString();
+    debugPrint(" =======> " + s, wrapWidth: 1024);
+
+    setState(() {
+      loadingSend = true;
+    });
+
+
+    String res =
+    await _guiasElectronicasServices.GuiasElectronicas_GrabarGuiaElectronica(guiaModel);
+
+    print(res);
+    if (res == "1") {
+      // ShowMessage("Pedido generado correctamente.", 1);
+      showMessajeAW(DialogType.SUCCES, "Confirmacion",
+          "Pedido generado correctamente.", 1);
+      // Navigator.pushReplacementNamed(context, 'home',);
+    } else {
+      // ShowMessage("Ocurrio un error al generar el pedido, revise la informacion.", 0);
+      showMessajeAW(DialogType.ERROR, "Error",
+          "Ocurrio un error al generar la guia electronica, revise la informacion.", 0);
+    }
+    loadingSend = false;
+    setState(() {});
+  }
+
 
   Widget listProductos() {
     return ListView.builder(
@@ -1713,6 +1993,8 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
           obtenerSubClientes(item.tipoId!);  //12/12/2023
           print("Enviando: "+ item.tipoId!);
 
+
+          ActualizadoresTipo(1, item.tipoId!); //13/02/2024
           //guiaModel.dirPartida = item.direccion;
           //direccionOrigenEditingController.text = item.direccion;
         });
@@ -2327,175 +2609,6 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
 
 
 
-  AutoCompleteTextField<TiposModel> fieldUbigeoPartida() {
-
-    return AutoCompleteTextField<TiposModel>(
-      key: keyUbigeoPartida,
-      clearOnSubmit: false,
-      suggestions: ubigeoPartida,
-      // textChanged: (item) {
-      //   obtenerUbigeoPartida(item);
-      //   // print("Cambiando...." + item);
-      // },
-      style: TextStyle(color: Colors.black54, fontSize: 16.0),
-
-      decoration: InputDecoration(
-        hintText: "Ubigeo Partida",
-        labelText: "Ubigeo Partida",
-        hintStyle: TextStyle(color: Colors.black54),
-
-        prefixIcon: Container(
-          padding: EdgeInsets.all(10),
-          width: 17.0,
-          height: 17.0,
-          child: SvgPicture.asset(
-            "assets/icons/frame.svg",
-            color: Colors.black87.withOpacity(0.6),
-          ),
-        ),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-      ),
-      itemFilter: (item, query) {
-        return item.tipoDescripcion!.toLowerCase().contains(query.toLowerCase());
-      },
-      itemSorter: (a, b) {
-        return a.tipoDescripcion!.compareTo(b.tipoDescripcion!);
-      },
-      itemSubmitted: (item) {
-        setState(() {
-          searchUbigeoPartida!.textField!.controller!.text = item.tipoDescripcion!;
-          guiaModel.gutrPuntoPartidaUbigeo = item.tipoId;
-        });
-      },
-      itemBuilder: (context, item) {
-        // ui for the autocompelete row
-        return rowUbigeoPartida(item);
-      },
-
-
-    );
-  }
-
-  Widget rowUbigeoPartida(TiposModel ubigeoPartida) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Flexible(
-            child: Text(
-              ubigeoPartida.tipoDescripcion!,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.black54,
-              ),
-            ),
-          ),
-          // SizedBox(
-          //   width: 10.0,
-          // ),
-          // Flexible(
-          //   child: Text(
-          //     ubigeoPartida.idTipoGeneralFkDesc!,
-          //     style: TextStyle(
-          //       fontSize: 16.0,
-          //       color: Colors.black54,
-          //     ),
-          //     overflow: TextOverflow.ellipsis,
-          //   ),
-          // ),
-        ],
-      ),
-    );
-  }
-
-
-
-  AutoCompleteTextField<TiposModel> fieldUbigeoLlegada() {
-
-    return AutoCompleteTextField<TiposModel>(
-      key: keyUbigeoLlegada,
-      clearOnSubmit: false,
-      suggestions: ubigeoLlegada,
-      // textChanged: (item) {
-      //   obtenerUbigeoPartida(item);
-      //   // print("Cambiando...." + item);
-      // },
-      style: TextStyle(color: Colors.black54, fontSize: 16.0),
-
-      decoration: InputDecoration(
-        hintText: "Ubigeo Llegada",
-        labelText: "Ubigeo Llegada",
-        hintStyle: TextStyle(color: Colors.black54),
-
-        prefixIcon: Container(
-          padding: EdgeInsets.all(10),
-          width: 17.0,
-          height: 17.0,
-          child: SvgPicture.asset(
-            "assets/icons/frame.svg",
-            color: Colors.black87.withOpacity(0.6),
-          ),
-        ),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-      ),
-      itemFilter: (item, query) {
-        return item.tipoDescripcion!.toLowerCase().contains(query.toLowerCase());
-      },
-      itemSorter: (a, b) {
-        return a.tipoDescripcion!.compareTo(b.tipoDescripcion!);
-      },
-      itemSubmitted: (item) {
-        setState(() {
-          searchUbigeoLlegada!.textField!.controller!.text = item.tipoDescripcion!;
-          guiaModel.gutrPuntoLlegadaUbigeo = item.tipoId;
-        });
-      },
-      itemBuilder: (context, item) {
-        // ui for the autocompelete row
-        return rowUbigeoLlegada(item);
-      },
-
-
-    );
-  }
-
-  Widget rowUbigeoLlegada(TiposModel ubigeoLlegada) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Flexible(
-            child: Text(
-              ubigeoLlegada.tipoDescripcion!,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.black54,
-              ),
-            ),
-          ),
-          // SizedBox(
-          //   width: 10.0,
-          // ),
-          // Flexible(
-          //   child: Text(
-          //     ubigeoPartida.idTipoGeneralFkDesc!,
-          //     style: TextStyle(
-          //       fontSize: 16.0,
-          //       color: Colors.black54,
-          //     ),
-          //     overflow: TextOverflow.ellipsis,
-          //   ),
-          // ),
-        ],
-      ),
-    );
-  }
-
-
 
 
   Future<Null> _selectSelDate(BuildContext context) async {
@@ -2503,13 +2616,28 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
         context: context,
         locale: Locale('es', 'ES'),
         initialDate: DateTime.parse(selDate),
-        firstDate: DateTime.parse(origDate).add(const Duration(days: -3)),
+        firstDate: DateTime.parse(origDate).add(const Duration(days: 0)),
         lastDate: DateTime.parse(origDate));
 
     if (picked != null)
       setState(() {
         selDate = picked.toString().substring(0, 10);
         print(selDate);
+        //  _listViaje(context, viaje);
+      });
+  }
+ Future<Null> _selectSelDate_tras(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        locale: Locale('es', 'ES'),
+        initialDate: DateTime.parse(selDate_tras),
+        firstDate: DateTime.parse(origDate_tras),
+        lastDate: DateTime.parse(origDate_tras).add(const Duration(days: 30)));
+
+    if (picked != null)
+      setState(() {
+        selDate_tras = picked.toString().substring(0, 10);
+        print(selDate_tras);
         //  _listViaje(context, viaje);
       });
   }

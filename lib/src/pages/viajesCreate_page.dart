@@ -12,6 +12,7 @@ import 'package:transmap_app/src/services/viaje_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:snack/snack.dart';
 import 'package:transmap_app/src/widgets/dialog.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class ViajeCreatePage extends StatefulWidget {
   @override
@@ -19,6 +20,7 @@ class ViajeCreatePage extends StatefulWidget {
 }
 
 class _ViajeCreatePageState extends State<ViajeCreatePage> {
+  SPGlobal _prefs = SPGlobal();
   bool loading = true;
   bool loadingSend = false;
 
@@ -104,7 +106,14 @@ class _ViajeCreatePageState extends State<ViajeCreatePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Viajes Conductores"),
-          backgroundColor: Colors.green,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
         body: loading
             ? Center(child: CircularProgressIndicator())

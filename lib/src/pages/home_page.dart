@@ -7,6 +7,7 @@ import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/src/services/guia_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+  SPGlobal _prefs = SPGlobal();
 
   var guia = new GuiaService();
   var datailServices = new DetailServices();
@@ -136,8 +137,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lista Guias Transportistas"),
-          backgroundColor: Colors.blue,
-
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add_circle_outline),

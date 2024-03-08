@@ -10,6 +10,7 @@ import 'package:transmap_app/src/services/viaje_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:snack/snack.dart';
 import 'package:transmap_app/src/widgets/dialog.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class viajeFinalizarPage extends StatefulWidget {
   @override
@@ -17,6 +18,8 @@ class viajeFinalizarPage extends StatefulWidget {
 }
 
 class _viajeFinalizarPageState extends State<viajeFinalizarPage> {
+
+  SPGlobal _prefs = SPGlobal();
   bool loading = true;
   bool loadingSend = false;
 
@@ -60,7 +63,14 @@ class _viajeFinalizarPageState extends State<viajeFinalizarPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Finalizar Viaje"),
-          backgroundColor: Colors.red,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
         body: loading
             ? Center(child: CircularProgressIndicator())

@@ -9,6 +9,7 @@ import 'package:transmap_app/src/widgets/Alertas/alertas_finalizarAlerta_widget.
 import 'package:transmap_app/src/widgets/Alertas/alertas_mantenimiento_widget.dart';
 import 'package:transmap_app/src/widgets/Alertas/alertas_renovarDocumento_widget.dart';
 import 'package:transmap_app/src/widgets/Alertas/alertas_renovarMantenimiento_widget.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class AlertasPage extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class AlertasPage extends StatefulWidget {
 }
 
 class _AlertasPageState extends State<AlertasPage> {
+  SPGlobal _prefs = SPGlobal();
   var alertas = new InformePreventivoService();
   bool isLoading = true;
   String idVehiculo = "";
@@ -92,6 +94,14 @@ class _AlertasPageState extends State<AlertasPage> {
           "Listado de Alertas",
           maxLines: 2,
           // style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[_prefs.colorA, _prefs.colorB])),
         ),
         backgroundColor: Colors.teal,
         actions: <Widget>[

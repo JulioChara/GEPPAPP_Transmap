@@ -14,6 +14,7 @@ import 'package:transmap_app/src/widgets/Planillas/planilla_peajes_widget.dart';
 import 'package:transmap_app/src/widgets/Planillas/planilla_servicios_widget.dart';
 import 'package:transmap_app/src/widgets/Planillas/planilla_show_widget.dart';
 import 'package:transmap_app/src/widgets/planilla_documentos_widget.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class PlanillaGastosPage extends StatefulWidget {
   String? saldoInicial;
@@ -27,6 +28,7 @@ class PlanillaGastosPage extends StatefulWidget {
 }
 
 class _PlanillaGastosPageState extends State<PlanillaGastosPage> {
+  SPGlobal _prefs = SPGlobal();
   var planilla = new PlanillaGastosServices();
   bool isLoading = true;
   String idViaje = "";
@@ -104,7 +106,14 @@ class _PlanillaGastosPageState extends State<PlanillaGastosPage> {
           "Planilla de Gastos",
           maxLines: 2,
         ),
-        backgroundColor: Colors.purple,
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[_prefs.colorA, _prefs.colorB])),
+        ),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (choice) => choiceAction(choice, context),

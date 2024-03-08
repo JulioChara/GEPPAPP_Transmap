@@ -6,6 +6,7 @@ import 'package:transmap_app/src/services/consumos_services.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/src/services/informe_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class ConsumoPage extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class ConsumoPage extends StatefulWidget {
 
 class _ConsumoPageState extends State<ConsumoPage> {
 
-  //String idUser = "";
+  SPGlobal _prefs = SPGlobal();
   var consumo = new ConsumoService();
   String usr="";
   String idconsumoSeleccionada = "";
@@ -33,7 +34,14 @@ class _ConsumoPageState extends State<ConsumoPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lista Documentos Vinculados"),
-          backgroundColor: Colors.red,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
         //drawer: MenuWidget(),
         body: Column(

@@ -84,6 +84,7 @@ class TiposModel {
     this.extraDescripcion,
     this.mensaje,
     this.resultado,
+    this.tipoOffline,
   });
   String? idAccion;
   String? tipoDescripcionCorta;
@@ -96,6 +97,7 @@ class TiposModel {
   String? extraDescripcion;
   String? mensaje;
   String? resultado;
+  String? tipoOffline;
 
   factory TiposModel.fromJson(Map<String, dynamic> json) => TiposModel(
     idAccion: json["idAccion"],
@@ -109,6 +111,7 @@ class TiposModel {
     extraDescripcion: json["extraDescripcion"],
     mensaje: json["mensaje"],
     resultado: json["resultado"],
+    tipoOffline: json["tipoOffline"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -123,6 +126,7 @@ class TiposModel {
     "extraDescripcion": extraDescripcion,
     "mensaje": mensaje,
     "resultado": resultado,
+    "tipoOffline": tipoOffline,
   };
 }
 
@@ -239,33 +243,33 @@ class AlertasMantenimientosModel {
 
 
 class SubProductosModel {
+  String? tipoId;
   String? tipoDescripcion;
   String? tipoDescripcionCorta;
   String? tipoEstado;
-  String? tipoId;
   String? tiposGeneralFk;
 
   SubProductosModel({
+    this.tipoId,
     this.tipoDescripcion,
     this.tipoDescripcionCorta,
     this.tipoEstado,
-    this.tipoId,
     this.tiposGeneralFk,
   });
 
   factory SubProductosModel.fromJson(Map<String, dynamic> json) => SubProductosModel(
+    tipoId: json["TipoId"],
     tipoDescripcion: json["TipoDescripcion"],
     tipoDescripcionCorta: json["TipoDescripcionCorta"],
     tipoEstado: json["TipoEstado"],
-    tipoId: json["TipoId"],
     tiposGeneralFk: json["TiposGeneralFk"],
   );
 
   Map<String, dynamic> toJson() => {
+    "TipoId": tipoId,
     "TipoDescripcion": tipoDescripcion,
     "TipoDescripcionCorta": tipoDescripcionCorta,
     "TipoEstado": tipoEstado,
-    "TipoId": tipoId,
     "TiposGeneralFk": tiposGeneralFk,
   };
 }

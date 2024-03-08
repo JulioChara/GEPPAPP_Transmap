@@ -122,16 +122,13 @@ class DetailServices {
             'Content-type': 'application/json',
             'Accept': 'application/json'
           });
-
       var decodeData = json.decode(resp.body);
 
       final List<PlacaPreferencial> placaPreferenciales = [];
-
       decodeData["PlacasReferencial"].forEach((item) {
         final placaTemp = PlacaPreferencial.fromJson(item);
         placaPreferenciales.add(placaTemp);
       });
-
       return placaPreferenciales;
     } catch (e) {
       print(e);

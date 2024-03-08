@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pe.transmap_app"
-    android:versionCode="19"
-    android:versionName="1.0.19" >
+    android:versionCode="21"
+    android:versionName="1.0.21" >
 
     <uses-sdk
         android:minSdkVersion="22"
@@ -15,6 +15,8 @@
          FlutterApplication and put your custom class here.
     -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="android.app.Application"
@@ -44,10 +46,15 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
-        <activity
-            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+        <provider
+            android:name="com.crazecoder.openfile.FileProvider"
+            android:authorities="com.pe.transmap_app.fileProvider.com.crazecoder.openfile"
             android:exported="false"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
 
         <uses-library
             android:name="androidx.window.extensions"

@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.pe.transmap_app"
-4    android:versionCode="19"
-5    android:versionName="1.0.19" >
+4    android:versionCode="21"
+5    android:versionName="1.0.21" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="22"
@@ -20,67 +20,73 @@
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 16-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-80
 16-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-77
-17
-18    <application
-19        android:name="android.app.Application"
-20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.6.0] C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-21        android:debuggable="true"
-22        android:icon="@mipmap/ic_launcher"
-23        android:label="TransMAP - Guias"
-24        android:networkSecurityConfig="@xml/network_security_config" >
-25        <activity
-26            android:name="com.pe.transmap_app.MainActivity"
-27            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-28            android:exported="true"
-29            android:hardwareAccelerated="true"
-30            android:launchMode="singleTop"
-31            android:theme="@style/LaunchTheme"
-32            android:windowSoftInputMode="adjustResize" > <!-- NUEVO XD -->
-33            <intent-filter>
-34                <action android:name="android.intent.action.MAIN" />
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-37            </intent-filter>
-38        </activity>
-39        <!--
-40             Don't delete the meta-data below.
-41             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-42        -->
-43        <meta-data
-44            android:name="flutterEmbedding"
-45            android:value="2" />
-46
-47        <provider
-47-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-22:20
-48            android:name="com.crazecoder.openfile.FileProvider"
-48-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-64
-49            android:authorities="com.pe.transmap_app.fileProvider.com.crazecoder.openfile"
-49-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-88
-50            android:exported="false"
-50-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
-51            android:grantUriPermissions="true" >
-51-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-47
-52            <meta-data
-52-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-21:53
-53                android:name="android.support.FILE_PROVIDER_PATHS"
-53-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-67
-54                android:resource="@xml/filepaths" />
-54-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:21:17-50
-55        </provider>
-56
-57        <uses-library
-57-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-58            android:name="androidx.window.extensions"
-58-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-59            android:required="false" />
-59-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-60        <uses-library
-60-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-61            android:name="androidx.window.sidecar"
-61-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-62            android:required="false" />
-62-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-63    </application>
-64
-65</manifest>
+17    <uses-permission android:name="android.permission.BLUETOOTH" />
+17-->[:bluetooth_thermal_printer] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\bluetooth_thermal_printer\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-68
+17-->[:bluetooth_thermal_printer] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\bluetooth_thermal_printer\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-65
+18    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+18-->[:bluetooth_thermal_printer] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\bluetooth_thermal_printer\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-74
+18-->[:bluetooth_thermal_printer] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\bluetooth_thermal_printer\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-71
+19
+20    <application
+21        android:name="android.app.Application"
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.6.0] C:\Users\JULIO\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+23        android:debuggable="true"
+24        android:icon="@mipmap/ic_launcher"
+25        android:label="TransMAP - Guias"
+26        android:networkSecurityConfig="@xml/network_security_config" >
+27        <activity
+28            android:name="com.pe.transmap_app.MainActivity"
+29            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+30            android:exported="true"
+31            android:hardwareAccelerated="true"
+32            android:launchMode="singleTop"
+33            android:theme="@style/LaunchTheme"
+34            android:windowSoftInputMode="adjustResize" > <!-- NUEVO XD -->
+35            <intent-filter>
+36                <action android:name="android.intent.action.MAIN" />
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+39            </intent-filter>
+40        </activity>
+41        <!--
+42             Don't delete the meta-data below.
+43             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+44        -->
+45        <meta-data
+46            android:name="flutterEmbedding"
+47            android:value="2" />
+48
+49        <provider
+49-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-22:20
+50            android:name="com.crazecoder.openfile.FileProvider"
+50-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-64
+51            android:authorities="com.pe.transmap_app.fileProvider.com.crazecoder.openfile"
+51-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-88
+52            android:exported="false"
+52-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
+53            android:grantUriPermissions="true" >
+53-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-47
+54            <meta-data
+54-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-21:53
+55                android:name="android.support.FILE_PROVIDER_PATHS"
+55-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:20:17-67
+56                android:resource="@xml/filepaths" />
+56-->[:open_filex] D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\intermediates\merged_manifest\debug\AndroidManifest.xml:21:17-50
+57        </provider>
+58
+59        <uses-library
+59-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+60            android:name="androidx.window.extensions"
+60-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+61            android:required="false" />
+61-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+62        <uses-library
+62-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+63            android:name="androidx.window.sidecar"
+63-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+64            android:required="false" />
+64-->[androidx.window:window:1.0.0-beta04] C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+65    </application>
+66
+67</manifest>

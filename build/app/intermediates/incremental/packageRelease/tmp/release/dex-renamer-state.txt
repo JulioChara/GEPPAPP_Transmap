@@ -1,4 +1,4 @@
-#Wed Feb 07 10:36:41 COT 2024
+#Mon Mar 04 09:58:11 COT 2024
 base.0=D\:\\JULIO CHARA\\SISTEMAS\\ANDROID\\transmap_app\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

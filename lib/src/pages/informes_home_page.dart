@@ -4,6 +4,7 @@ import 'package:transmap_app/src/pages/checkList/checkList_page.dart';
 import 'package:transmap_app/src/pages/informes_page_admin.dart';
 import 'package:transmap_app/src/pages/informes_preventivos/vehiculos_page.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class InformesHomePage extends StatefulWidget {
   String rolcito = "";
@@ -13,6 +14,7 @@ class InformesHomePage extends StatefulWidget {
 
 class _InformesHomePageState extends State<InformesHomePage> {
 
+  SPGlobal _prefs = SPGlobal();
 
   Future<String> getIdRol() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -41,6 +43,14 @@ class _InformesHomePageState extends State<InformesHomePage> {
       drawer: MenuWidget(),
       appBar: AppBar(
         title: Text("INFORMES"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[_prefs.colorA, _prefs.colorB])),
+        ),
       ),
       // body: ListView(
       //   children: [

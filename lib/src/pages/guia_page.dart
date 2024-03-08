@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:transmap_app/src/pages/detalle_page.dart';
 import 'package:transmap_app/src/pages/general_page.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class GuiaPage extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class GuiaPage extends StatefulWidget {
 }
 
 class _GuiaPageState extends State<GuiaPage> {
-
+  SPGlobal _prefs = SPGlobal();
   int currentIndex = 0;
 
 
@@ -19,6 +20,14 @@ class _GuiaPageState extends State<GuiaPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Guia de Remisión"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[_prefs.colorA, _prefs.colorB])),
+        ),
       ),
       body: _callPage(currentIndex),
       bottomNavigationBar: _crearBottonNavigationBar(),

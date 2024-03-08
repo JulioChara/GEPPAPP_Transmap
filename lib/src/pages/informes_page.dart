@@ -5,6 +5,7 @@ import 'package:transmap_app/src/models/informes_model.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/src/services/informe_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class InformePage extends StatefulWidget {
 
@@ -25,6 +26,8 @@ class _InformePageState extends State<InformePage> {
 
   //String idUser = "";
 
+
+  SPGlobal _prefs = SPGlobal();
 
 
   var informe = new InformeService();
@@ -53,7 +56,14 @@ class _InformePageState extends State<InformePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lista Informes Unidades"),
-          backgroundColor: Colors.red,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add_circle_outline),

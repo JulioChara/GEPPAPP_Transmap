@@ -43,12 +43,21 @@ class LoginServices {
         _prefs.usIdPlacaDesc = IdPlacaDesc;
         _prefs.usIdPlacaRef = IdPlacaRef;
         _prefs.usIdPlacaRefDesc = IdPlacaRefDesc;
+        ///todo: 06/03/2024
+        _prefs.spImpEmpEmpresa ="TRANSPORTES MAP TONITO EIRL";
+        _prefs.spImpEmpRuc ="20454442793";
+        _prefs.spImpEmpDireccion ="Avenida 19 de Diciembre SN Mz 34 Lt5A LA AGUADITA/Chala";
+        _prefs.spImpEmpTelefono = "+51 959179740";
+        ///todo: 08/03/2024
+        _prefs.spInformeCloud == "0";
+
 
         await prefs.setBool("wasLogin", true);
         await prefs.setString("idUser", decodeData["id"]);
         await prefs.setString("nameUser", user);
         await prefs.setString("rol", decodeData["rol"]);
         await prefs.setString("rolId", decodeData["rolid"]);
+
 
 
         return decodeData["id"];

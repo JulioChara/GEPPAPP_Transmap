@@ -10,6 +10,7 @@ import 'package:transmap_app/src/widgets/mostrar_estado_detalle.dart';
 import 'package:transmap_app/src/widgets/observacion_dialog_widget.dart';
 
 import 'package:transmap_app/src/widgets/observacion_aq_dialog_widget.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class InformeDetallePage extends StatefulWidget {
   String? id;
@@ -25,6 +26,8 @@ class InformeDetallePage extends StatefulWidget {
 }
 
 class _InformeDetallePageState extends State<InformeDetallePage> {
+
+  SPGlobal _prefs = SPGlobal();
   InformeDetalleService _informeDetalleService = InformeDetalleService();
   List<InformeDetalleModel> informeDetalleList = [];
   ProcesoInformeModel? _procesoInformeModel;
@@ -93,7 +96,14 @@ class _InformeDetallePageState extends State<InformeDetallePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[_prefs.colorA, _prefs.colorB])),
+        ),
        // title: Text("Informe Detalle: ${widget.id} "),
        // title: Text("Informe Detalle: ${widget.placa} " + "-"+ widget.conductor),
         title: RichText(

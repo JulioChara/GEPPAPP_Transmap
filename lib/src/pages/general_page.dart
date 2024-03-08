@@ -20,6 +20,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:transmap_app/src/services/guia_services.dart';
 import 'package:snack/snack.dart';
 import 'package:transmap_app/src/widgets/dialog.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class GeneralPage extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class GeneralPage extends StatefulWidget {
 }
 
 class _GeneralPageState extends State<GeneralPage> {
-
+  SPGlobal _prefs = SPGlobal();
   String selDate = DateTime.now().toString().substring(0, 10);
   String origDate = DateTime.now().toString().substring(0, 10);
 
@@ -391,6 +392,14 @@ class _GeneralPageState extends State<GeneralPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Crear Guia de remision"),
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
     //     floatingActionButton: FloatingActionButton(
     //     backgroundColor: const Color.fromRGBO(82, 170, 94, 1.0),

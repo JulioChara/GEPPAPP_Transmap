@@ -6,12 +6,13 @@ import 'package:transmap_app/src/models/informes_preventivos/vehiculos_model.dar
 import 'package:transmap_app/src/pages/informes_preventivos/alertas_page.dart';
 import 'package:transmap_app/src/services/informes_preventivos_services.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class VehiculosPage extends StatefulWidget {
   @override
   State<VehiculosPage> createState() => _VehiculosPageState();
 }
-
+SPGlobal _prefs = SPGlobal();
 // class _VehiculosPageState extends State<VehiculosPage> {
 //   @override
 //   Widget build(BuildContext context) {
@@ -105,8 +106,17 @@ class _VehiculosPageState extends State<VehiculosPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lista Vehiculos"),
-          backgroundColor: Colors.black,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
         ),
+
+
         drawer: MenuWidget(),
         body: Column(
           children: <Widget>[

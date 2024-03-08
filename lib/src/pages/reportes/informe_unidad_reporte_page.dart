@@ -15,6 +15,7 @@ import 'package:transmap_app/src/models/placa_model.dart';
 import 'package:transmap_app/src/models/reportes/informe_unidad_reporte_model.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:transmap_app/src/services/reportes_services.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class InformeUnidadReportePage extends StatefulWidget {
   @override
@@ -26,6 +27,7 @@ class _InformeUnidadReportePageState extends State<InformeUnidadReportePage> {
   List<InformeUnidadReporteModel> informeList = [];
 
   ReporteServices reporteServices = ReporteServices();
+  SPGlobal _prefs = SPGlobal();
 
   var objDetailServices = new DetailServices();
   static List<Placa> placas = [];
@@ -640,6 +642,14 @@ class _InformeUnidadReportePageState extends State<InformeUnidadReportePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Informe de Unidades - Reporte"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[_prefs.colorA, _prefs.colorB])),
+        ),
       ),
       body: loading
           ? Center(child: CircularProgressIndicator())

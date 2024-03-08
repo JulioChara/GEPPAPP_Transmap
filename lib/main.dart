@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:transmap_app/src/models/impresion/impresion_guiaElectronica_model.dart';
 import 'package:transmap_app/src/pages/TEST/pdf_test_page.dart';
 import 'package:transmap_app/src/pages/checkList/checkList_create_page.dart';
 import 'package:transmap_app/src/pages/checkList/checkList_page.dart';
@@ -9,7 +10,12 @@ import 'package:transmap_app/src/pages/guia_page.dart';
 import 'package:transmap_app/src/pages/guiasElectronicas/guiasElectronicas_create.dart';
 import 'package:transmap_app/src/pages/guiasElectronicas/guiasElectronicas_page.dart';
 import 'package:transmap_app/src/pages/home_page.dart';
+import 'package:transmap_app/src/pages/impresion/impresion_guiasElectronicas_page.dart';
+import 'package:transmap_app/src/pages/impresion/offline/offline_impresion_guiasElectronicas_page.dart';
 import 'package:transmap_app/src/pages/login_page.dart';
+import 'package:transmap_app/src/pages/offline/offlineGuiasElectronicas_create_page.dart';
+import 'package:transmap_app/src/pages/offline/offlineGuiasElectronicas_page.dart';
+import 'package:transmap_app/src/pages/offline/offline_importar_exportar_page.dart';
 import 'package:transmap_app/src/pages/parametros/parametros_page.dart';
 import 'package:transmap_app/src/pages/reportes/home_reporte_page.dart';
 import 'package:transmap_app/src/pages/viajes_page.dart';
@@ -89,6 +95,16 @@ class MyApp extends StatelessWidget {
           'guiasElectronicasHome':  (BuildContext context) => GuiasElectronicasPage(),
           'guiasElectronicasCreate':  (BuildContext context) => GuiasElectronicasCreatePage(),
 
+          ///todo: OFFLINE
+          'offlineData':  (BuildContext context) => OfflineImportarExportarPage(),
+          'offlineGuiasElectronicasHome':  (BuildContext context) => OfflineGuiasElectronicasPage(),
+          'offlineGuiasElectronicasCreate':  (BuildContext context) => OfflineGuiasElectronicasCreatePage(),
+
+
+          ///TODO: IMPRESIONES
+          'impresionGuiasElectronicas':  (BuildContext context) => ImpresionGuiasElectronicasPage(),
+          'offlineImpresionGuiasElectronicas':  (BuildContext context) => OfflineImpresionGuiasElectronicasPage(),
+
 
           'tests':  (BuildContext context) => MyHomePage(),
 
@@ -112,9 +128,9 @@ class PreInit extends StatelessWidget {
   SPGlobal _prefs = SPGlobal();
   @override
   Widget build(BuildContext context) {
-    // return _prefs.isLogin ? ((_prefs.rolId == "1"|| _prefs.rolId == "13" )? HomePage(): OfflinePedidosEntregasPage()) : LoginPage();
+    return _prefs.isLogin ? ((_prefs.spInformeCloud == "1") ? GuiasElectronicasPage(): OfflineImportarExportarPage()) : LoginPage();
     // return _prefs.isLogin ? HomePage() : LoginPage();
-    return  LoginPage();
+   // return  LoginPage();
     //return  MyHomePage();
  //    return CarpetasPage();
   }

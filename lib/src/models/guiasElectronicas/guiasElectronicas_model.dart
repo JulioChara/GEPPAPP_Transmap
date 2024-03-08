@@ -415,3 +415,82 @@ class GuiasElectronicasPlacasModel {
     "PreUsrModificacion": preUsrModificacion,
   };
 }
+
+
+
+class ClientesUbigeoModel {
+  String? clientesFk;
+  String? clientesFkDesc;
+  String? clubDireccionLlegada;
+  String? clubDireccionPartida;
+  String? clubEstado;
+  String? clubFecCreacion;
+  String? clubFecModificacion;
+  String? clubId;
+  String? clubUsrCreacion;
+  String? clubUsrModificacion;
+  String? ubigeoLlegadaFk;
+  String? ubigeoLlegadaFkDesc;
+  String? ubigeoPartidaFk;
+  String? ubigeoPartidaFkDesc;
+
+  ClientesUbigeoModel({
+    this.clientesFk,
+    this.clientesFkDesc,
+    this.clubDireccionLlegada,
+    this.clubDireccionPartida,
+    this.clubEstado,
+    this.clubFecCreacion,
+    this.clubFecModificacion,
+    this.clubId,
+    this.clubUsrCreacion,
+    this.clubUsrModificacion,
+    this.ubigeoLlegadaFk,
+    this.ubigeoLlegadaFkDesc,
+    this.ubigeoPartidaFk,
+    this.ubigeoPartidaFkDesc,
+  });
+
+  factory ClientesUbigeoModel.fromJson(Map<String, dynamic> json) => ClientesUbigeoModel(
+    clientesFk: json["ClientesFk"],
+    clientesFkDesc: json["ClientesFkDesc"],
+    clubDireccionLlegada: json["ClubDireccionLlegada"],
+    clubDireccionPartida: json["ClubDireccionPartida"],
+    clubEstado: json["ClubEstado"],
+    clubFecCreacion: json["ClubFecCreacion"],
+    clubFecModificacion: json["ClubFecModificacion"],
+    clubId: json["ClubId"],
+    clubUsrCreacion: json["ClubUsrCreacion"],
+    clubUsrModificacion: json["ClubUsrModificacion"],
+    ubigeoLlegadaFk: json["UbigeoLlegadaFk"],
+    ubigeoLlegadaFkDesc: json["UbigeoLlegadaFkDesc"],
+    ubigeoPartidaFk: json["UbigeoPartidaFk"],
+    ubigeoPartidaFkDesc: json["UbigeoPartidaFkDesc"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "ClientesFk": clientesFk,
+    "ClientesFkDesc": clientesFkDesc,
+    "ClubDireccionLlegada": clubDireccionLlegada,
+    "ClubDireccionPartida": clubDireccionPartida,
+    "ClubEstado": clubEstado,
+    "ClubFecCreacion": clubFecCreacion,
+    "ClubFecModificacion": clubFecModificacion,
+    "ClubId": clubId,
+    "ClubUsrCreacion": clubUsrCreacion,
+    "ClubUsrModificacion": clubUsrModificacion,
+    "UbigeoLlegadaFk": ubigeoLlegadaFk,
+    "UbigeoLlegadaFkDesc": ubigeoLlegadaFkDesc,
+    "UbigeoPartidaFk": ubigeoPartidaFk,
+    "UbigeoPartidaFkDesc": ubigeoPartidaFkDesc,
+  };
+}
+
+
+
+
+
+
+
+
+

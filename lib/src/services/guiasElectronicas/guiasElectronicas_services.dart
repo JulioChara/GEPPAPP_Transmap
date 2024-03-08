@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:transmap_app/src/constants/constants.dart';
 import 'package:transmap_app/src/models/guia_model.dart';
 import 'package:transmap_app/src/models/guiasElectronicas/guiasElectronicas_model.dart';
+import 'package:transmap_app/src/models/impresion/impresion_guiaElectronica_model.dart';
 import 'package:transmap_app/src/models/informes_preventivos/alertas_model.dart';
 import 'package:transmap_app/utils/sp_global.dart';
 
@@ -369,6 +370,129 @@ class GuiasElectronicasServices {
     //   return filePath;
     // }
     //
+
+  Future<List<ClientesUbigeoModel>> GuiasElectronicas_ObtenerDireccionesxCliente(String Id) async {
+    try {
+      List<ClientesUbigeoModel> tiposList = [];
+      String url = kUrl + "/GuiasElectronicas_ObtenerDireccionesxCliente";
+      http.Response resp = await http.post(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: jsonEncode({'Id': Id,}));
+
+      if (resp.statusCode == 200) {
+        List list = jsonDecode(resp.body);
+        tiposList = list.map((e) => ClientesUbigeoModel.fromJson(e)).toList();
+        return tiposList;
+      }
+      return tiposList;
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }
+
+
+
+  Future<List<TiposModel>> GuiasElectronicas_ObtenerTipoUnidadMedida() async {
+    try {
+      List<TiposModel> tiposList = [];
+      String url = kUrl + "/GuiasElectronicas_ObtenerTipoUnidadMedida";
+      http.Response resp = await http.get(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+          });
+      if (resp.statusCode == 200) {
+        List list = jsonDecode(resp.body);
+        tiposList = list.map((e) => TiposModel.fromJson(e)).toList();
+        return tiposList;
+      }
+      return tiposList;
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }
+
+  Future<String> GuiasElectronicas_GrabarGuiaElectronica(GuiasElectronicasModel model) async {
+    try {
+      String url = kUrl + "/GuiasElectronicas_GuardarGuiaElectronica_XD";
+      http.Response response = await http.post(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: jsonEncode(model.toJson()));
+      print(jsonEncode(model.toJson()));
+      var decodeData = json.decode(response.body);
+
+      print(decodeData["resultado"]);
+
+      return decodeData["resultado"];
+    } catch (e) {
+      print(e);
+      return "0";
+    }
+  }
+
+
+
+
+  Future<String> GuiasElectronicas_EnviarSunat(String Id) async {
+    try {
+      //    print(model.toJson());
+
+      String url = kUrl + "/GuiasElectronicas_EnviarSunat";
+      http.Response response = await http.post(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: jsonEncode({'Id': Id}));
+      //print(jsonEncode(model.toJson()));
+      var decodeData = json.decode(response.body);
+
+      print(decodeData["resultado"]);
+
+      return decodeData["resultado"];
+    } catch (e) {
+      print(e);
+      return "0";
+    }
+  }
+
+
+///todo: IMPREISON
+///
+///
+  Future<ImpresionOnlineGuiaElectronicaModel> GuiasElectronicas_ImpresionOnline(String Id) async {
+    try {
+
+      ImpresionOnlineGuiaElectronicaModel model = new ImpresionOnlineGuiaElectronicaModel();
+
+      String url = kUrl + "/GuiasElectronicas_ImpresionOnline";
+      http.Response resp = await http.post(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: jsonEncode({'Id': Id,}));
+
+      if (resp.statusCode == 200) {
+        var data = jsonDecode(resp.body);
+        model = ImpresionOnlineGuiaElectronicaModel.fromJson(data);
+        return model;
+      }
+      return model;
+    } catch (e) {
+      print(e);
+      ImpresionOnlineGuiaElectronicaModel model = new ImpresionOnlineGuiaElectronicaModel();
+      return model;
+    }
+  }
 
 
 

@@ -6,6 +6,7 @@ import 'package:transmap_app/src/pages/informes_detalle_page.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/src/services/informe_services.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
+import 'package:transmap_app/utils/sp_global.dart';
 
 class InformeAdmPage extends StatefulWidget {
   @override
@@ -20,7 +21,8 @@ class InformeAdmPage extends StatefulWidget {
 //}
 
 class _InformeAdmPageState extends State<InformeAdmPage> {
-  //String idUser = "";
+
+  SPGlobal _prefs = SPGlobal();
   static List<InformelistaModel> inFiltro =[];
   static List<InformelistaModel> inFiltroMinimal = [];
 
@@ -95,7 +97,14 @@ class _InformeAdmPageState extends State<InformeAdmPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Lista Informes Unidades"),
-          backgroundColor: Colors.black,
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[_prefs.colorA, _prefs.colorB])),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add_circle_outline),
