@@ -29,6 +29,8 @@ class InformeDetalleModel {
     this.idUsuarioCreacionDesc,
     this.mensaje,
     this.resultado,
+    this.tipoEstadoIncidenciaFk,
+    this.tipoEstadoIncidenciaFkDesc,
   });
 
   String? comentarioAnulado;
@@ -59,6 +61,8 @@ class InformeDetalleModel {
   String? idUsuarioCreacionDesc;
   String? mensaje;
   String? resultado;
+  String? tipoEstadoIncidenciaFk;
+  String? tipoEstadoIncidenciaFkDesc;
 
   factory InformeDetalleModel.fromJson(Map<String, dynamic> json) => InformeDetalleModel(
     comentarioAnulado: json["ComentarioAnulado"],
@@ -89,6 +93,8 @@ class InformeDetalleModel {
     idUsuarioCreacionDesc: json["IdUsuarioCreacionDesc"],
     mensaje: json["mensaje"],
     resultado: json["resultado"],
+    tipoEstadoIncidenciaFk: json["TipoEstadoIncidenciaFk"],
+    tipoEstadoIncidenciaFkDesc: json["TipoEstadoIncidenciaFkDesc"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -119,6 +125,59 @@ class InformeDetalleModel {
     "IdUsuarioCreacion": idUsuarioCreacion,
     "IdUsuarioCreacionDesc": idUsuarioCreacionDesc,
     "mensaje": mensaje,
-    "resultado": resultado,
+    "TipoEstadoIncidenciaFk": tipoEstadoIncidenciaFk,
+    "TipoEstadoIncidenciaFkDesc": tipoEstadoIncidenciaFkDesc,
+  };
+}
+
+
+
+
+
+class InformeUnidadFacturasModel {
+  String? comprasFk;
+  String? documento;
+  String? fecha;
+  String? fechaCreacion;
+  String? id;
+  String? informeUnidadFk;
+  String? monto;
+  String? proveedor;
+  String? usuarioCreacion;
+
+  InformeUnidadFacturasModel({
+    this.comprasFk,
+    this.documento,
+    this.fecha,
+    this.fechaCreacion,
+    this.id,
+    this.informeUnidadFk,
+    this.monto,
+    this.proveedor,
+    this.usuarioCreacion,
+  });
+
+  factory InformeUnidadFacturasModel.fromJson(Map<String, dynamic> json) => InformeUnidadFacturasModel(
+    comprasFk: json["ComprasFk"],
+    documento: json["Documento"],
+    fecha: json["Fecha"],
+    fechaCreacion: json["FechaCreacion"],
+    id: json["Id"],
+    informeUnidadFk: json["InformeUnidadFk"],
+    monto: json["Monto"],
+    proveedor: json["Proveedor"],
+    usuarioCreacion: json["UsuarioCreacion"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "ComprasFk": comprasFk,
+    "Documento": documento,
+    "Fecha": fecha,
+    "FechaCreacion": fechaCreacion,
+    "Id": id,
+    "InformeUnidadFk": informeUnidadFk,
+    "Monto": monto,
+    "Proveedor": proveedor,
+    "UsuarioCreacion": usuarioCreacion,
   };
 }

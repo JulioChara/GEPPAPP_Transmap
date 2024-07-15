@@ -147,15 +147,15 @@ class _MenuWidgetState extends State<MenuWidget> {
             title: Text("LOGISTICA"),
             initiallyExpanded: true,
             children: [
-              ListTile(
-                leading: Icon(
-                  Icons.devices_other,
-                  color: Colors.blueAccent,
-                ),
-                title: Text("Guias Transportistas"),
-                onTap: () => Navigator.pushReplacementNamed(context, 'home'),
-                // Navigator.pushReplacementNamed(context, 'home', arguments: _email);
-              ),
+              // ListTile(
+              //   leading: Icon(
+              //     Icons.devices_other,
+              //     color: Colors.blueAccent,
+              //   ),
+              //   title: Text("Guias Transportistas"),
+              //   onTap: () => Navigator.pushReplacementNamed(context, 'home'),
+              //   // Navigator.pushReplacementNamed(context, 'home', arguments: _email);
+              // ),
               ListTile(
                 leading: Icon(
                   Icons.devices_other,
@@ -252,26 +252,26 @@ class _MenuWidgetState extends State<MenuWidget> {
             title: Text("GENERAL"),
             initiallyExpanded: true,
             children: [
-              ListTile(
-                leading: Icon(
-                  Icons.devices_other,
-                  color: Colors.blueAccent,
-                ),
-                title: Text("Parametros"),
-                onTap: () {
-                  if (widget.rolcito == "1" || widget.rolcito == "8") {
-                    Navigator.pushReplacementNamed(context, 'parametros');
-                  } else {
-                    MensajeWidget(
-                      mensaje: "Menu de uso administrativo",
-                      pop: 1,
-                    );
-                  }
-                },
-
-                //  onTap: () => Navigator.pushReplacementNamed(context, 'parametros'),
-                // Navigator.pushReplacementNamed(context, 'home', arguments: _email);
-              ),
+              // ListTile(
+              //   leading: Icon(
+              //     Icons.devices_other,
+              //     color: Colors.blueAccent,
+              //   ),
+              //   title: Text("Parametros"),
+              //   onTap: () {
+              //     if (widget.rolcito == "1" || widget.rolcito == "8") {
+              //       Navigator.pushReplacementNamed(context, 'parametros');
+              //     } else {
+              //       MensajeWidget(
+              //         mensaje: "Menu de uso administrativo",
+              //         pop: 1,
+              //       );
+              //     }
+              //   },
+              //
+              //   //  onTap: () => Navigator.pushReplacementNamed(context, 'parametros'),
+              //   // Navigator.pushReplacementNamed(context, 'home', arguments: _email);
+              // ),
             ],
           ),
 

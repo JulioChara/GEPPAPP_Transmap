@@ -75,6 +75,21 @@ class SPGlobal {
     _prefs.setString("spGuiaOffline", value);
   }
 
+  //todo: CHECK LIST
+  String get spTipoCheckList => _prefs.getString("spTipoCheckList") ?? "";  //1 DESCARGDO // 0 SUBIDO REGRESA
+  set spTipoCheckList(String value){
+    _prefs.setString("spTipoCheckList", value);
+  }
+  String get spIdCheckList => _prefs.getString("spIdCheckList") ?? "";  //1 DESCARGDO // 0 SUBIDO REGRESA
+  set spIdCheckList(String value){
+    _prefs.setString("spIdCheckList", value);
+  }
+
+  String get spAlternarPlaca => _prefs.getString("spAlternarPlaca") ?? "1";  ///TODO: Nueva 17/06/2024
+  set spAlternarPlaca(String value){
+    _prefs.setString("spAlternarPlaca", value);
+  }
+
   //PARA VALORES DE IMPRESION XD//
 
   String get spImpEmpEmpresa => _prefs.getString("spImpEmpEmpresa") ?? "";
@@ -111,6 +126,12 @@ class SPGlobal {
   Color get colorB => Color(_prefs.getInt('colorB') ?? Colors.deepPurple.value);
   set colorB(Color value) {
     _prefs.setInt('colorB', value.value);
+  }
+
+  ///todo: APP INFO
+  String get spAppInfoID => _prefs.getString("spAppInfoID") ?? "com.pe.transmap_app";
+  set spAppInfoID(String value){
+    _prefs.setString("spAppInfoID", value);
   }
 
 

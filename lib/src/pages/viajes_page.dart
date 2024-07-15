@@ -460,7 +460,7 @@ class _ViajePageState extends State<ViajePage> {
 
   }
 
-  showMessajeAWYesNo(DialogType type, String titulo, String desc, int accion) {
+  showMessajeAWYesNo(DialogType type, String titulo, String desc, int accion, usarPlaca) {
     AwesomeDialog(
       dismissOnTouchOutside: false,
       context: context,
@@ -479,6 +479,13 @@ class _ViajePageState extends State<ViajePage> {
         debugPrint('Dialog Dissmiss from callback $type');
       },
       btnOkOnPress: () {
+
+        if(usarPlaca == 1){
+          _prefs.spAlternarPlaca = "1";
+        }else if(usarPlaca == 2) {
+          _prefs.spAlternarPlaca = "2";
+        }
+
         switch (accion) {
           case 0:
             {
@@ -487,6 +494,17 @@ class _ViajePageState extends State<ViajePage> {
             break;
           case 1:
             {
+              _prefs.spTipoCheckList = "D";
+              Navigator.pushReplacementNamed(
+                context,
+                'checkListHome',
+                // 'checkListCreate',
+              );
+            }
+            break;
+            case 2:
+            {
+              _prefs.spTipoCheckList = "S";
               Navigator.pushReplacementNamed(
                 context,
                 'checkListHome',
@@ -542,18 +560,88 @@ class _ViajePageState extends State<ViajePage> {
  //   existeCheckList();
 
     var _checkServices = new CheckListServices();
-    String existTurn = await _checkServices.CheckList_ConsultaExistenciaxUsuario(_prefs.idUser);
+    String existTurn = await _checkServices.CheckList_ConsultaExistenciaxUsuario(_prefs.usIdPlaca);
+    String existTurnSem = await _checkServices.CheckList_ConsultaExistenciaSemanal(_prefs.usIdPlaca);
 
-    if(existTurn == "1"){ //cuando existe si podremos crear
-      if (choice == 1) {
-        //CREAR VIAJE
-        Navigator.pushNamed(context, 'viajesCreate');
-      } else if (choice == 2) {
-        //CREAR DOCUMENTOS
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> ViajesDocumentos()));
+    String existTurnSec = "1";
+    String existTurnSemSec = "1";
+    if (_prefs.usIdPlacaRef != "null" && _prefs.usIdPlacaRef != "" && _prefs.usIdPlacaRef != "0") {
+      existTurnSec = await _checkServices.CheckList_ConsultaExistenciaxUsuario(
+          _prefs.usIdPlacaRef);
+      existTurnSemSec =
+      await _checkServices.CheckList_ConsultaExistenciaSemanal(
+          _prefs.usIdPlacaRef);
+    }
+      print("Rol Actual: " + _prefs.rolId);
+      print("Resp Turn: " + existTurn);
+      if (_prefs.rolId == "11") {
+        // if(existTurnSem == "1" ){ //cuando existe si podremos crear
+        //   if(existTurn == "1"){ //cuando existe si podremos crear
+        //     if (choice == 1) {
+        //       Navigator.pushNamed(context, 'viajesCreate');
+        //     } else if (choice == 2) {
+        //       Navigator.push(context, MaterialPageRoute(builder: (context)=> ViajesDocumentos()));
+        //     }
+        //   }else if(existTurn =="0"){
+        //     showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO","No hay registro de checklist para la placa: "+_prefs.usIdPlacaDesc+" el dia de hoy, ¿Desea ingresarlo?", 1);
+        //   }
+        //   //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+        // }else if(existTurnSem =="0"){
+        //   showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL","No hay registro de checklist Semanal para la placa: "+_prefs.usIdPlacaDesc+", ¿Desea ingresarlo?", 2);
+        // }
+        if (existTurnSem == "1") { //cuando existe si podremos crear
+          if (existTurn == "1") { //cuando existe si podremos crear
+            //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+          } else if (existTurn == "0") {
+            showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO",
+                "No hay registro de checklist para la placa: " +
+                    _prefs.usIdPlacaDesc + " el dia de hoy, ¿Desea ingresarlo?",
+                1, 1);
+            return;
+          }
+          //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+        } else if (existTurnSem == "0") {
+          showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL",
+              "No hay registro de checklist Semanal para la placa: " +
+                  _prefs.usIdPlacaDesc + ", ¿Desea ingresarlo?", 2, 1);
+          return;
+        }
+
+        if (existTurnSemSec == "1") { //cuando existe si podremos crear
+          if (existTurnSec == "1") { //cuando existe si podremos crear
+            //   Navigator.pushNamed(context, 'guiasElectronicasCreate');
+          } else if (existTurnSec == "0") {
+            showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO",
+                "No hay registro de checklist para la placa Secundaria: " +
+                    _prefs.usIdPlacaRefDesc +
+                    " el dia de hoy, ¿Desea ingresarlo?", 1, 2);
+            return;
+          }
+          //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+        } else if (existTurnSemSec == "0") {
+          showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL",
+              "No hay registro de checklist Semanal para la placa Secundaria: " +
+                  _prefs.usIdPlacaRefDesc + ", ¿Desea ingresarlo?", 2, 2);
+          return;
+        }
+
+        if (existTurnSem == "1" && existTurn == "1" && existTurnSemSec == "1" &&
+            existTurnSec == "1") {
+          if (choice == 1) {
+            Navigator.pushNamed(context, 'viajesCreate');
+          } else if (choice == 2) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ViajesDocumentos()));
+          }
+        }
+      } else {
+        if (choice == 1) {
+          Navigator.pushNamed(context, 'viajesCreate');
+        } else if (choice == 2) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ViajesDocumentos()));
+        }
       }
-    }else if(existTurn =="0"){
-      showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST","No hay registro de checklist para el dia de hoy, ¿Desea ingresarlo?", 1);
     }
 
 
@@ -564,9 +652,10 @@ class _ViajePageState extends State<ViajePage> {
     //   //CREAR DOCUMENTOS
     //   Navigator.push(context, MaterialPageRoute(builder: (context)=> ViajesDocumentos()));
     // }
-  }
+
 
   void choiceActionDoc(int choice, BuildContext context) {
+    print("choiceActionDoc");
     print(choice);
 
     showDialog(

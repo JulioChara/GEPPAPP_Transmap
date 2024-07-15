@@ -95,7 +95,7 @@ class _OfflineImpresionGuiasElectronicasPageState extends State<OfflineImpresion
 
 
     _modelConductor.where((item) => item.coreEstado =="1" ).forEach((item) async {
-      NroDocConductor = await DBAdmin().getCampoPorId(item.conductoresFk.toString(),"conductores", "tipoDescripcion");
+      NroDocConductor = await DBAdmin().getCampoPorId(item.conductoresFk.toString(),"conductores", "extraNumero");
     });
     _modelPlacas.where((item) => item.plreEstado =="1").forEach((item)async {
       NroPlacaPrimaria = await DBAdmin().getCampoPorId(item.vehiculosFk.toString(),"vehiculos", "tipoDescripcion");
@@ -243,7 +243,8 @@ class _OfflineImpresionGuiasElectronicasPageState extends State<OfflineImpresion
           String nameDevice =
           availableBluetoothDevices[index].split("#")[0];
           String mac = availableBluetoothDevices[index].split("#")[1];
-          if (nameDevice.startsWith("MTP")) {
+
+          if (nameDevice.contains("MTP")|| nameDevice.contains("Printer")|| nameDevice.contains("PRINTER")) {
             return ListTile(
               onTap: () {
                 setConnect(mac);

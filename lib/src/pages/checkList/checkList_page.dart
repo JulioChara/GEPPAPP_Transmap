@@ -1,18 +1,22 @@
 
-
-
-
-
-
-
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:line_icons/line_icon.dart';
+import 'package:pdf/pdf.dart';
+import 'package:printing/printing.dart';
 import 'package:transmap_app/src/models/checkList/checkList_model.dart';
 import 'package:transmap_app/src/services/checkList/checkList_service.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/utils/sp_global.dart';
+
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
+
+
 
 class CheckListPage extends StatefulWidget {
 
@@ -45,6 +49,8 @@ class _CheckListPageState extends State<CheckListPage> {
   String idInformeSeleccionada = "";
 
    List<CheckListModel> listaModel = [];
+   List<CheckListModel> listaModelNoNeu = [];
+   List<CheckListModel> listaModelSiNeu = [];
   // List<PlanInventarioModel> informeModelList3 = [];
   //
   // List<PlanInventarioDetalleModel> pendientesList = [];
@@ -67,6 +73,7 @@ class _CheckListPageState extends State<CheckListPage> {
     isLoading = true;
     _dataServices.postCheckList_ObtenerListaGeneral("0", initDate, endDate).then((value) {
       listaModel = value;
+
    //   informeModelList3.addAll(informeModelList2);
       Accion = 0;
       setState(() {
@@ -77,7 +84,7 @@ class _CheckListPageState extends State<CheckListPage> {
 
   existeCheckList() async{
     if(_prefs.usIdPlaca != "0" && _prefs.usIdPlaca != ""){ //cuando existe si podremos crear
-      Navigator.pushNamed(context, 'checkListCreate');
+      Navigator.pushReplacementNamed(context, 'checkListCreate');
     }else {
       showMessajeAWYesNo(DialogType.ERROR, "SIN PLACA","No se selecciono ninguna PLACA, ¿Desea Ingresarlo?", 1);
     }
@@ -206,14 +213,14 @@ class _CheckListPageState extends State<CheckListPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                     Text(
-                      listaModel[i].placaFkDesc! ,
+                      listaModel[i].tipoCheckList =="S" ? "SEMANAL" : "DIARIO",
                       //   "RESTANTES?",
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.blueAccent),
-                    ) , Text(
+                    ),Text(
                         // "${double.parse(informeModelList2[i].usuarioCreacionDesc!).toStringAsFixed(2)}",
                         listaModel[i].fechaCreacion!,
                         overflow: TextOverflow.ellipsis,
@@ -244,11 +251,21 @@ class _CheckListPageState extends State<CheckListPage> {
                   ),
 
 
+                  // leading: IconButton(
+                  //   icon: Icon(Icons.paste, color: Colors.red, size: 30,),
+                  //   onPressed: () {
+                  //     Navigator.pushNamed(context, 'impresionCheckList');
+                  //     _prefs.spIdCheckList = listaModel[i].chId.toString();
+                  //     print("Enviando a Imprimir el ID: "+ _prefs.spIdCheckList);
+                  //   },
+                  // ),
                   leading: IconButton(
-                    icon: Icon(Icons.paste, color: Colors.red, size: 30,),
+                    icon: Icon(Icons.picture_as_pdf, color: Colors.red, size: 30,),
                     onPressed: () {
-                      // showDetalle(informeModelList2[i].descripcion != null ? informeModelList2[i].descripcion!: "-");
-                      // print(informeModelList2[i].idPedido);
+                      Navigator.pushNamed(context, 'impresionCheckList');
+                      _prefs.spIdCheckList = listaModel[i].chId.toString();
+                      print("Enviando a Imprimir el ID: "+ _prefs.spIdCheckList);
+                      ImpresionPDF();
                     },
                   ),
 
@@ -640,6 +657,199 @@ class _CheckListPageState extends State<CheckListPage> {
       });
   }
 
+
+
+  void ImpresionPDF() async {
+    // String NroDocCliente = "";
+    // String NroDocRemitente = "";
+    // String NroDocDestinatario = "";
+    ImpresionCheckListModel _model = new ImpresionCheckListModel();
+    ImpresionCheckListModel _modelNoNeu = new ImpresionCheckListModel();
+    ImpresionCheckListModel _modelSiNeu = new ImpresionCheckListModel();
+    print("Fecha a imprimir :" + DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now()));
+
+    CheckListServices _Services = new CheckListServices();
+
+
+    await _Services.CheckList_Impresion_Directa(_prefs.spIdCheckList).then((value) async{
+      _model = value; //nomas porque es lista xd
+      _modelSiNeu.detalle = _model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk == "10790").toList();
+      _modelNoNeu.detalle = _model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790").toList();
+
+      // print(jsonEncode(_model));
+      print("Hola");
+      print(_model.toJson());
+      setState(() {
+        isLoading = false;
+      });
+    });
+
+    // print("valor Placa Primaria " + NroPlacaPrimaria);
+    // print(NroPlacaSecundaria);
+
+    pw.Document pdf = pw.Document();
+
+    pdf.addPage(
+      pw.MultiPage(
+        maxPages: 40,
+        pageFormat: PdfPageFormat.a4,
+        //  pw.Page(
+        build: (pw.Context context) => [
+          pw.Column(
+            children: [
+              pw.Text(' '),
+              pw.Align(
+                alignment: pw.Alignment.center,
+                child: pw.Text(
+                    "TRANSPORTES MAP TOÑITO E.I.R.L.",
+                  style: pw.TextStyle(
+                      fontSize: 20, fontWeight: pw.FontWeight.bold),
+                ),
+              ),
+              pw.Align(
+                alignment: pw.Alignment.center,
+                child: pw.Text(
+                  _prefs.spImpEmpDireccion,
+                  style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Align(
+                alignment: pw.Alignment.center,
+                child: pw.Text(
+                  _prefs.spImpEmpRuc,
+                  style: pw.TextStyle(
+                      fontSize: 12, fontWeight: pw.FontWeight.bold),
+                ),
+              ),
+              pw.Text(' '),
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text(
+                  DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now()),
+                  style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Divider(),
+              pw.Align(
+                alignment: pw.Alignment.center,
+                child: pw.Text(
+                  _model.tipoCheckList =="S" ? "CHECKLIST SEMANAL" : "CHECKLIST DIARIO",
+                  style: pw.TextStyle(
+                      fontSize: 12, fontWeight: pw.FontWeight.bold),
+                ),
+              ),
+        /// /////////////////////////////////////////
+        /// //////// Todo: CUERPO  RESUMEN //////////
+        /// /////////////////////////////////////////
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text("CHECK LIST (" +_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790").length.toString() +")",
+                  style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text("TOTAL:  B:" +_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="BUENO").length.toString() +" R:"+_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="REGULAR").length.toString()+" M:"+_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="MALO").length.toString()+ " O:"+_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="OTROS").length.toString(),
+                  style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Divider(),
+              /// /////////////////////////////////////////
+              /// //////// Todo: CUERPO  CABECERA //////////
+              /// /////////////////////////////////////////
+              ///
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text("FECHA: "+ _model.fechaCreacion!,
+                  style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text("VEHICULO: "+ _model.vehiculoFkDesc!,
+                  style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Divider(),
+              /// /////////////////////////////////////////
+              /// //////// Todo: CUERPO  CATEGORIAS ////////
+              /// /////////////////////////////////////////
+
+              ...List.generate(_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" ).length, (index) => pw.Column(
+                children: [
+                  pw.Align(
+                    alignment: pw.Alignment.centerLeft,
+                    child: pw.Text(_model.detalle![index].tipoCategoriaFkDesc!, style: pw.TextStyle(fontSize: 11, fontWeight: pw.FontWeight.bold)),
+                  ),
+                  pw.Align(
+                    alignment: pw.Alignment.centerLeft,
+                    child:  pw.Text(_model.detalle![index].tipoOpcionFkDesc!, style: pw.TextStyle(fontSize: 11)),
+                  ),
+
+                ],
+              )),
+
+              /// ///////////////////////////////////////////////////
+              /// //////// Todo: CUERPO NEUMATICOS RESUMEN //////////
+              /// ///////////////////////////////////////////////////
+              pw.Divider(),
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text("CHECK LIST NEUMATICOS (" +_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk == "10790").length.toString() +")",
+                style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Align(
+                alignment: pw.Alignment.centerLeft,
+                child: pw.Text("TOTAL:  B:" +_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk == "10790" && itemsito.tipoOpcionFkDesc =="BUENO").length.toString() +" R:"+_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="REGULAR").length.toString()+" M:"+_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="MALO").length.toString()+ " O:"+_model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" && itemsito.tipoOpcionFkDesc =="OTROS").length.toString(),
+                style: pw.TextStyle(fontSize: 12),
+                ),
+              ),
+              pw.Divider(),
+              /// /////////////////////////////// ////////
+              /// //////// Todo: CUERPO  DETALLE  ////////
+              /// /////////////////////////////////////////
+              pw.Table(
+                children: List<pw.TableRow>.generate(
+                  _model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk == "10790").length,
+                      (index) => pw.TableRow(
+                    children: [
+                      pw.Text( _modelSiNeu.detalle![index].subTiposDetalle!, style: pw.TextStyle(fontSize: 11, fontWeight: pw.FontWeight.bold)),
+                      pw.Text(_modelSiNeu.detalle![index].tipoOpcionFkDesc!, style: pw.TextStyle(fontSize: 11)),
+                    ],
+                  ),
+                ),
+              )
+
+            // _model.detalle!.where((itemsito) => itemsito.tipoCategoriaFk != "10790" ).forEach((itemsito) {
+            //   pw.Align(
+            //     alignment: pw.Alignment.centerLeft,
+            //     child: pw.Text(itemsito.tipoCategoriaFkDesc!,
+            //       style: pw.TextStyle(fontSize: 12),
+            //     ),
+            //   );
+            //   pw.Align(
+            //     alignment: pw.Alignment.centerLeft,
+            //     child: pw.Text(itemsito.tipoOpcionFkDesc!,
+            //       style: pw.TextStyle(fontSize: 12),
+            //     ),
+            //   );
+            // }),
+
+
+
+
+            ],
+          ),
+        ],
+      ),
+      // ),
+    );
+
+    Printing.layoutPdf(
+      onLayout: (PdfPageFormat format) async => pdf.save(),
+    );
+  }
 
 
 

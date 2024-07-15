@@ -6,6 +6,7 @@ import 'package:transmap_app/src/models/informe_detalle_model.dart';
 import 'package:transmap_app/src/models/proceso_informe_model.dart';
 import 'package:transmap_app/src/services/empleado_services.dart';
 import 'package:transmap_app/src/services/informe_detalle_services.dart';
+import 'package:transmap_app/src/widgets/adjuntar_facturas_informeUnidad_widget.dart';
 import 'package:transmap_app/src/widgets/mostrar_estado_detalle.dart';
 import 'package:transmap_app/src/widgets/observacion_dialog_widget.dart';
 
@@ -71,6 +72,18 @@ class _InformeDetallePageState extends State<InformeDetallePage> {
           idAccion: idAccion,
           idDetalle: idDetalle,
           incidenciaGen: incidenciaGen,
+        );
+      },
+    );
+  }
+
+  showFacturas() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AdjuntarFacturasInformeUnidadWidget(
+          idDetalle: idDetalle
         );
       },
     );
@@ -150,7 +163,14 @@ class _InformeDetallePageState extends State<InformeDetallePage> {
 
           return ListTile(
             tileColor: miColor,
-            leading: Icon(Icons.insert_drive_file),
+            leading: Column(
+              children: [
+                Icon(Icons.insert_drive_file),
+                Text(informeDetalleList[index].tipoEstadoIncidenciaFkDesc!, style: TextStyle(
+                  fontSize: 11.0, // Cambia esto al tamaño que desees
+                ),)
+              ],
+            ),
             title: Text(informeDetalleList[index].descripcion!.toUpperCase()),
             subtitle: Text(
                 "Tipo: ${informeDetalleList[index].idTipoIncidenciaDesc} | ${informeDetalleList[index].idTipoEstadoAtencionDesc!.toUpperCase()}"),
@@ -177,6 +197,9 @@ class _InformeDetallePageState extends State<InformeDetallePage> {
                       }else if(value == "Solucionar"){
                         idAccion = 2;
                       }
+                      else if(value == "Adjuntar"){
+                        idAccion = 4;
+                      }
 
                       idCabezera = informeDetalleList[index].idCabezera!;
                       idDetalle = informeDetalleList[index].idDetalle!;
@@ -184,14 +207,20 @@ class _InformeDetallePageState extends State<InformeDetallePage> {
                       idAccion = idAccion;
 
 
-                      print("Envio m:" +incidenciaGen);
+                      print("Envio incidenciaGen :" +incidenciaGen);
 
                       print("idAccion:" + idAccion.toString());
                       print("idCabezera:" + idCabezera.toString());
                       print("idDetalle:" + idDetalle.toString());
 
+//AQUI VER UN SWITCH PARA CAMBIAR SEGUN LA ACCION
+                      if (idAccion == 4){
+                        showFacturas();
+                      } else {
+                        showObservacion();
+                      }
 
-                      showObservacion();
+
                     },
                     itemBuilder: (BuildContext context) {
                     return [
@@ -206,6 +235,10 @@ class _InformeDetallePageState extends State<InformeDetallePage> {
                       if (id != "10537") PopupMenuItem<String>(
                         child: Text("Solucionar"),
                         value: "Solucionar",
+                      ),
+                      if (id != "10537") PopupMenuItem<String>(
+                        child: Text("Adjuntar Facturas"),
+                        value: "Adjuntar",
                       ),
 
                     // itemBuilder: (BuildContext context) {

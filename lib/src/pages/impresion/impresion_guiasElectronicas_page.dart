@@ -36,7 +36,7 @@ class _ImpresionGuiasElectronicasPageState extends State<ImpresionGuiasElectroni
 
 
   SPGlobal _prefs = SPGlobal();
-
+  bool loading = true;
   // String NroDocCliente="";
   // String NroDocRemitente="";
   // String NroDocDestinatario="";
@@ -76,8 +76,10 @@ class _ImpresionGuiasElectronicasPageState extends State<ImpresionGuiasElectroni
     await _Services.GuiasElectronicas_ImpresionOnline(_prefs.spGuiaOffline).then((value) async{
       _model = value; //nomas porque es lista xd
         // print(jsonEncode(_model));
+        print("Hola");
         print(_model.toJson());
       setState(() {
+        loading = false;
       });
     });
 
@@ -243,14 +245,15 @@ class _ImpresionGuiasElectronicasPageState extends State<ImpresionGuiasElectroni
                   colors: <Color>[_prefs.colorA, _prefs.colorB])),
         ),
       ),
-      body: availableBluetoothDevices.isNotEmpty
+      body:  loading
+          ? Center(child: CircularProgressIndicator()) : availableBluetoothDevices.isNotEmpty
           ? ListView.builder(
         itemCount: availableBluetoothDevices.length,
         itemBuilder: (context, index) {
           String nameDevice =
           availableBluetoothDevices[index].split("#")[0];
           String mac = availableBluetoothDevices[index].split("#")[1];
-          if (nameDevice.startsWith("MTP")) {
+          if (nameDevice.contains("MTP")|| nameDevice.contains("Printer")|| nameDevice.contains("PRINTER")) {
             return ListTile(
               onTap: () {
                 setConnect(mac);

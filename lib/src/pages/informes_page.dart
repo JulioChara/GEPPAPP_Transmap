@@ -199,10 +199,16 @@ class _InformePageState extends State<InformePage> {
                             color: Colors.black54),
                       ),
                       subtitle: Text(
-                          "${informeModel[i].correlativo} | ${informeModel[i].tipoprioridad} | ${informeModel[i].tipoestado} | ${informeModel[i].fechacreacion} "),
-                      leading: Icon(
-                        Icons.content_paste,
-                        color: Colors.redAccent,
+                          "${informeModel[i].correlativo} | ${informeModel[i].tipoprioridad} | ${informeModel[i].tipoestado} | ${informeModel[i].fechacreacion }  ${informeModel[i].concepto!.length >2 ? " | Check: "+ informeModel[i].concepto!.substring(informeModel[i].concepto!.length -3): "-"} "),
+                      leading: Column(
+                        children: [
+                          Icon(
+                            Icons.content_paste,
+                            color: Colors.blue,
+                          ),
+                          // Text("${informeModel[i].concepto}"),
+                          Text("xd"),
+                        ],
                       ),
                       trailing: Container(
                         child: PopupMenuButton<String>(

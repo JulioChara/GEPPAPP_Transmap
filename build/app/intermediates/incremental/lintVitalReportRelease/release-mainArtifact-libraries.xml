@@ -4,10 +4,10 @@
       jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar"
       resolved="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified"/>
   <library
-      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release"
-      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\.transforms\29eb07b2efea96871af1642f708d43d6\transformed\out\jars\classes.jar"
-      resolved="com.crazecoder.openfile:open_filex:unspecified"
-      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\.transforms\29eb07b2efea96871af1642f708d43d6\transformed\out"
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\shared_preferences_android\.transforms\049614dafe0aa9d19354b030ad95ee62\transformed\out\jars\classes.jar"
+      resolved="io.flutter.plugins.sharedpreferences:shared_preferences_android:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\shared_preferences_android\.transforms\049614dafe0aa9d19354b030ad95ee62\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -17,10 +17,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release"
-      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\shared_preferences_android\.transforms\049614dafe0aa9d19354b030ad95ee62\transformed\out\jars\classes.jar"
-      resolved="io.flutter.plugins.sharedpreferences:shared_preferences_android:unspecified"
-      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\shared_preferences_android\.transforms\049614dafe0aa9d19354b030ad95ee62\transformed\out"
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\.transforms\29eb07b2efea96871af1642f708d43d6\transformed\out\jars\classes.jar"
+      resolved="com.crazecoder.openfile:open_filex:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\open_filex\.transforms\29eb07b2efea96871af1642f708d43d6\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -82,10 +82,49 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:url_launcher_android::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\url_launcher_android\.transforms\96a163d83e2c44a31197acc3b75c4b9a\transformed\out\jars\classes.jar"
+      resolved="io.flutter.plugins.urllauncher:url_launcher_android:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\url_launcher_android\.transforms\96a163d83e2c44a31197acc3b75c4b9a\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release"
       jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\path_provider_android\.transforms\387baf38a6d3857f579eaf3a0259e4f5\transformed\out\jars\classes.jar"
       resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
       folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\path_provider_android\.transforms\387baf38a6d3857f579eaf3a0259e4f5\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:package_info::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\package_info\.transforms\6ad1e04470175e1360e51d5672da2447\transformed\out\jars\classes.jar"
+      resolved="io.flutter.plugins.packageinfo:package_info:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\package_info\.transforms\6ad1e04470175e1360e51d5672da2447\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:printing::release"
+      jars="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\printing\.transforms\67aef2c21f37217dea7389ad805bcc23\transformed\out\jars\classes.jar"
+      resolved="net.nfet.flutter.printing:printing:unspecified"
+      folder="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\printing\.transforms\67aef2c21f37217dea7389ad805bcc23\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -152,6 +191,10 @@
       name="io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar"
       jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\io.flutter\x86_64_release\1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187\3f8298dbbd697153f25d0ccc78d3948f630cec2e\x86_64_release-1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187.jar"
       resolved="io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187"/>
+  <library
+      name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"
+      jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common-java8\2.2.0\cd3478503da69b1a7e0319bd2d1389943db9b364\lifecycle-common-java8-2.2.0.jar"
+      resolved="androidx.lifecycle:lifecycle-common-java8:2.2.0"/>
   <library
       name="androidx.fragment:fragment:1.1.0@aar"
       jars="C:\Users\JULIO\.gradle\caches\transforms-3\0e0e1a382b52c0572988a1c50e96d2f7\transformed\fragment-1.1.0\jars\classes.jar"
@@ -230,10 +273,6 @@
       symbolFile="R.txt"
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
-  <library
-      name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"
-      jars="C:\Users\JULIO\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common-java8\2.2.0\cd3478503da69b1a7e0319bd2d1389943db9b364\lifecycle-common-java8-2.2.0.jar"
-      resolved="androidx.lifecycle:lifecycle-common-java8:2.2.0"/>
   <library
       name="androidx.lifecycle:lifecycle-runtime:2.2.0@aar"
       jars="C:\Users\JULIO\.gradle\caches\transforms-3\025f0ebb178f72f967988fd890b9b9c6\transformed\lifecycle-runtime-2.2.0\jars\classes.jar"

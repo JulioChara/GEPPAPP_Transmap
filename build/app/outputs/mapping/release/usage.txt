@@ -1,3 +1,5 @@
+android.print.PdfConvert:
+    public void <init>()
 android.support.v4.app.INotificationSideChannel$Default
 android.support.v4.app.INotificationSideChannel$Stub$Proxy
 android.support.v4.app.INotificationSideChannel$Stub
@@ -3439,6 +3441,20 @@ io.flutter.plugin.platform.PlatformViewWrapper:
     public android.graphics.SurfaceTexture getTexture()
 io.flutter.plugin.platform.PlatformViewsController:
     private static final java.lang.String TAG
+io.flutter.plugins.packageinfo.BuildConfig
+io.flutter.plugins.packageinfo.PackageInfoPlugin:
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+io.flutter.plugins.packageinfo.R$attr
+io.flutter.plugins.packageinfo.R$color
+io.flutter.plugins.packageinfo.R$dimen
+io.flutter.plugins.packageinfo.R$drawable
+io.flutter.plugins.packageinfo.R$id
+io.flutter.plugins.packageinfo.R$integer
+io.flutter.plugins.packageinfo.R$layout
+io.flutter.plugins.packageinfo.R$string
+io.flutter.plugins.packageinfo.R$style
+io.flutter.plugins.packageinfo.R$styleable
+io.flutter.plugins.packageinfo.R
 io.flutter.plugins.pathprovider.BuildConfig
 io.flutter.plugins.pathprovider.Messages$FlutterError:
     public void <init>(java.lang.String,java.lang.String,java.lang.Object)
@@ -3480,6 +3496,25 @@ io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin:
     private static final java.lang.String DOUBLE_PREFIX
     private static final java.lang.String LIST_IDENTIFIER
     private static final java.lang.String SHARED_PREFERENCES_NAME
+    private static final java.lang.String TAG
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+io.flutter.plugins.urllauncher.BuildConfig
+io.flutter.plugins.urllauncher.MethodCallHandlerImpl:
+    private static final java.lang.String TAG
+io.flutter.plugins.urllauncher.R$attr
+io.flutter.plugins.urllauncher.R$color
+io.flutter.plugins.urllauncher.R$dimen
+io.flutter.plugins.urllauncher.R$drawable
+io.flutter.plugins.urllauncher.R$id
+io.flutter.plugins.urllauncher.R$integer
+io.flutter.plugins.urllauncher.R$layout
+io.flutter.plugins.urllauncher.R$string
+io.flutter.plugins.urllauncher.R$style
+io.flutter.plugins.urllauncher.R$styleable
+io.flutter.plugins.urllauncher.R
+io.flutter.plugins.urllauncher.UrlLauncher:
+    private static final java.lang.String TAG
+io.flutter.plugins.urllauncher.UrlLauncherPlugin:
     private static final java.lang.String TAG
     public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
 io.flutter.util.PathUtils:
@@ -9898,6 +9933,21 @@ kotlinx.coroutines.test.TestCoroutineContext$special$$inlined$CoroutineException
 kotlinx.coroutines.test.TestCoroutineContext
 kotlinx.coroutines.test.TestCoroutineContextKt
 kotlinx.coroutines.test.TimedRunnableObsolete
+net.nfet.flutter.printing.BuildConfig
+net.nfet.flutter.printing.PrintingPlugin:
+    public static void registerWith(io.flutter.plugin.common.PluginRegistry$Registrar)
+net.nfet.flutter.printing.R$attr
+net.nfet.flutter.printing.R$color
+net.nfet.flutter.printing.R$dimen
+net.nfet.flutter.printing.R$drawable
+net.nfet.flutter.printing.R$id
+net.nfet.flutter.printing.R$integer
+net.nfet.flutter.printing.R$layout
+net.nfet.flutter.printing.R$string
+net.nfet.flutter.printing.R$style
+net.nfet.flutter.printing.R$styleable
+net.nfet.flutter.printing.R$xml
+net.nfet.flutter.printing.R
 org.intellij.lang.annotations.Flow
 org.intellij.lang.annotations.Identifier
 org.intellij.lang.annotations.JdkConstants$AdjustableOrientation
@@ -10024,3 +10074,7 @@ kotlinx.coroutines.internal.LockFreeLinkedListNode$PrepareOp:
 kotlinx.coroutines.scheduling.ExperimentalCoroutineDispatcher:
     public void close()
     public java.lang.String toString()
+net.nfet.flutter.printing.PrintingHandler:
+    static final synthetic boolean $assertionsDisabled
+net.nfet.flutter.printing.PrintingJob:
+    static final synthetic boolean $assertionsDisabled

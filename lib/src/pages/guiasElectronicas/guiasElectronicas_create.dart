@@ -1290,7 +1290,7 @@ mensajeToast(String mensaje, Color colorFondo, Color colorText) {
                         onChanged: (value) {
                           setState(() {});
                         },
-                        readOnly: true,
+                        readOnly: false,
                       ),
                       SizedBox(
                         height: 20.0,

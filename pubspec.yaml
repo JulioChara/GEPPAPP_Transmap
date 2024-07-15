@@ -44,6 +44,7 @@ dependencies:
   shared_preferences: any
 #  marquee_flutter: ^0.1.3
   pdf: ^3.8.2
+  printing: 5.9.3
   path_provider: ^2.0.11
   awesome_dialog: 2.2.1
 #  sqflite: ^2.0.3+1
@@ -59,7 +60,9 @@ dependencies:
   sqflite: ^2.0.3+1
   bluetooth_thermal_printer: ^0.0.6
   esc_pos_utils: ^1.1.0
-
+#  qr: 3.0.1
+  url_launcher: ^6.0.12
+  package_info: ^2.0.0
 
 
 #   3.0.3 # SE QUITA DESDE LA VERSION 1.0.12 POR USO DE INSTALADOR DE PAQUETES

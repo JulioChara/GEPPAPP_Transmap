@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:transmap_app/src/constants/constants.dart';
+import 'package:transmap_app/src/models/general_model.dart';
 import 'package:transmap_app/src/models/offline/offlineGuiasElectronicas_model.dart';
 // import 'package:transmap_app/src/models/guia_model.dart';
 // import 'package:transmap_app/src/models/guiasElectronicas/guiasElectronicas_model.dart';
@@ -270,11 +271,11 @@ class OfflineServices {
   /// ////////// todo: SUBIR DATA ///////////////
   /// ///////////////////////////////////////////
 
-  Future<String> Offline_GuiasElectronicas_SubirInformacion(
+  Future<TestClassModel> Offline_GuiasElectronicas_SubirInformacion(
       List<GuiasElectronicasModel> guias, List<GuiasElectronicasDetalleModel> detalle,List<GuiasElectronicasConductoresModel> conductores, List<GuiasElectronicasPlacasModel> placas ) async {
     try {
       // print(detalle.toJson());
-
+      TestClassModel model = new TestClassModel();
       var guiasJson = jsonEncode(guias.map((e) => e.toJson()).toList());
       var detallesJson = jsonEncode(detalle.map((e) => e.toJson()).toList());
       var conductoresJson = jsonEncode(conductores.map((e) => e.toJson()).toList());
@@ -298,15 +299,20 @@ class OfflineServices {
       //  print(jsonEncode(detalle.toJson()));
       // print(jsonEncode(body));
       var decodeData = json.decode(response.body);
-
-      // print(decodeData["resultado"]);
-
-      return decodeData["resultado"];
+      model = TestClassModel.fromJson(decodeData);
+      return model;
+     // return decodeData["resultado"];
     } catch (e) {
       print(e);
-      return "0";
+      TestClassModel model = new TestClassModel();
+      model.resultado ="0";
+      model.id ="0";
+      model.mensaje ="Error en Future";
+      return model;
     }
   }
+
+
 
 
 }

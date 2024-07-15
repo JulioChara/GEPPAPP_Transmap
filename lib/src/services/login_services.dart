@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transmap_app/src/constants/constants.dart';
+import 'package:transmap_app/src/models/general_model.dart';
 import 'package:transmap_app/utils/sp_global.dart';
 
 
@@ -72,4 +73,68 @@ class LoginServices {
       return "0";
     }
   }
+
+
+
+
+
+
+
+  Future<TestClassModel> ExisteVisor() async {
+    try {
+
+      TestClassModel model = new TestClassModel();
+
+      String url = kUrl + "/Extras_PermitirDespliegue";
+      http.Response resp = await http.get(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+          });
+
+      if (resp.statusCode == 200) {
+        var data = jsonDecode(resp.body);
+        print("Data a imprimir");
+        print(data);
+        print("end data a imprimir");
+        model = TestClassModel.fromJson(data);
+        return model;
+      }else{
+        print(resp.statusCode);
+      }
+      return model;
+    } catch (e) {
+      print(e);
+      TestClassModel model = new TestClassModel();
+      return model;
+    }
+  }
+
+
+  Future<List<CronogramaModel>> Cronograma_diasLibres() async {
+    List<CronogramaModel> modelList = [];
+    String url = kUrl + "/Cronograma_diasLibres";
+
+    print(_prefs.idUser);
+    http.Response response = await http.get(Uri.parse(url),
+        headers: {
+          'Content-type': 'application/json',
+          'Accept': 'application/json'
+        });
+
+    print(response.statusCode);
+    print(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      List list = jsonDecode(response.body);
+      modelList = list.map((e) => CronogramaModel.fromJson(e)).toList();
+      return modelList;
+    }
+    return modelList;
+  }
+
+
+
+
+
+
 }

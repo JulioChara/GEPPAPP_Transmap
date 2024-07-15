@@ -1,14 +1,14 @@
 <dependencies>
   <compile
-      roots="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:sqflite::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_keyboard_visibility::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:fluttertoast::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release,io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.window:window-java:1.0.0-beta04@aar,androidx.window:window:1.0.0-beta04@aar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.30@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0@jar,io.flutter:armeabi_v7a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:arm64_v8a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.fragment:fragment:1.1.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.loader:loader:1.0.0@aar,androidx.activity:activity:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.core:core:1.6.0@aar,androidx.core:core:1.6.0@aar,androidx.lifecycle:lifecycle-common-java8:2.2.0@jar,androidx.lifecycle:lifecycle-runtime:2.2.0@aar,androidx.savedstate:savedstate:1.0.0@aar,androidx.lifecycle:lifecycle-livedata:2.0.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar,androidx.lifecycle:lifecycle-common:2.2.0@jar,androidx.arch.core:core-runtime:2.0.0@aar,androidx.arch.core:core-common:2.1.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar,androidx.annotation:annotation:1.5.0@jar,org.jetbrains.kotlin:kotlin-stdlib:1.7.10@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10@jar,org.jetbrains:annotations:13.0@jar,androidx.annotation:annotation-experimental:1.1.0@aar,androidx.tracing:tracing:1.0.0@aar">
+      roots="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:sqflite::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_keyboard_visibility::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:fluttertoast::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:url_launcher_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:package_info::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:printing::release,io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.window:window-java:1.0.0-beta04@aar,androidx.window:window:1.0.0-beta04@aar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.30@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0@jar,io.flutter:armeabi_v7a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:arm64_v8a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.lifecycle:lifecycle-common-java8:2.2.0@jar,androidx.fragment:fragment:1.1.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.loader:loader:1.0.0@aar,androidx.activity:activity:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.core:core:1.6.0@aar,androidx.core:core:1.6.0@aar,androidx.lifecycle:lifecycle-runtime:2.2.0@aar,androidx.savedstate:savedstate:1.0.0@aar,androidx.lifecycle:lifecycle-livedata:2.0.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar,androidx.lifecycle:lifecycle-common:2.2.0@jar,androidx.arch.core:core-runtime:2.0.0@aar,androidx.arch.core:core-common:2.1.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar,androidx.annotation:annotation:1.5.0@jar,org.jetbrains.kotlin:kotlin-stdlib:1.7.10@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10@jar,org.jetbrains:annotations:13.0@jar,androidx.annotation:annotation-experimental:1.1.0@aar,androidx.tracing:tracing:1.0.0@aar">
     <dependency
         name="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar"/>
     <dependency
-        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release"
-        simpleName="com.crazecoder.openfile:open_filex"/>
-    <dependency
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release"
         simpleName="io.flutter.plugins.sharedpreferences:shared_preferences_android"/>
+    <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release"
+        simpleName="com.crazecoder.openfile:open_filex"/>
     <dependency
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release"
         simpleName="com.peoplewareinnovations.bluetooth_thermal_printer:bluetooth_thermal_printer"/>
@@ -22,8 +22,17 @@
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:fluttertoast::release"
         simpleName="com.example.FlutterToast:fluttertoast"/>
     <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:url_launcher_android::release"
+        simpleName="io.flutter.plugins.urllauncher:url_launcher_android"/>
+    <dependency
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release"
         simpleName="io.flutter.plugins.pathprovider:path_provider_android"/>
+    <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:package_info::release"
+        simpleName="io.flutter.plugins.packageinfo:package_info"/>
+    <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:printing::release"
+        simpleName="net.nfet.flutter.printing:printing"/>
     <dependency
         name="io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar"/>
     <dependency
@@ -45,6 +54,8 @@
     <dependency
         name="io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar"/>
     <dependency
+        name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"/>
+    <dependency
         name="androidx.fragment:fragment:1.1.0@aar"/>
     <dependency
         name="androidx.viewpager:viewpager:1.0.0@aar"/>
@@ -56,8 +67,6 @@
         name="androidx.customview:customview:1.0.0@aar"/>
     <dependency
         name="androidx.core:core:1.6.0@aar"/>
-    <dependency
-        name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"/>
     <dependency
         name="androidx.lifecycle:lifecycle-runtime:2.2.0@aar"/>
     <dependency
@@ -92,15 +101,15 @@
         name="androidx.tracing:tracing:1.0.0@aar"/>
   </compile>
   <package
-      roots="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:sqflite::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_keyboard_visibility::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:fluttertoast::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release,io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.window:window-java:1.0.0-beta04@aar,androidx.window:window:1.0.0-beta04@aar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.30@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0@jar,io.flutter:armeabi_v7a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:arm64_v8a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.legacy:legacy-support-v4:1.0.0@aar,androidx.media:media:1.0.0@aar,androidx.legacy:legacy-support-core-ui:1.0.0@aar,androidx.legacy:legacy-support-core-utils:1.0.0@aar,androidx.fragment:fragment:1.1.0@aar,androidx.loader:loader:1.0.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar,androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar,androidx.activity:activity:1.0.0@aar,androidx.core:core:1.6.0@aar,androidx.core:core:1.6.0@aar,androidx.lifecycle:lifecycle-common-java8:2.2.0@jar,androidx.lifecycle:lifecycle-runtime:2.2.0@aar,androidx.savedstate:savedstate:1.0.0@aar,androidx.lifecycle:lifecycle-livedata:2.0.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar,androidx.lifecycle:lifecycle-common:2.2.0@jar,androidx.tracing:tracing:1.0.0@aar,androidx.documentfile:documentfile:1.0.0@aar,androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar,androidx.print:print:1.0.0@aar,androidx.interpolator:interpolator:1.0.0@aar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.arch.core:core-runtime:2.0.0@aar,androidx.arch.core:core-common:2.1.0@jar,androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar,androidx.annotation:annotation:1.5.0@jar,org.jetbrains.kotlin:kotlin-stdlib:1.7.10@jar,androidx.annotation:annotation-experimental:1.1.0@aar,org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10@jar,org.jetbrains:annotations:13.0@jar">
+      roots="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:sqflite::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:flutter_keyboard_visibility::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:fluttertoast::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:url_launcher_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:package_info::release,D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:printing::release,io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.window:window-java:1.0.0-beta04@aar,androidx.window:window:1.0.0-beta04@aar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.30@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0@jar,io.flutter:armeabi_v7a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:arm64_v8a_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar,androidx.legacy:legacy-support-v4:1.0.0@aar,androidx.lifecycle:lifecycle-common-java8:2.2.0@jar,androidx.fragment:fragment:1.1.0@aar,androidx.media:media:1.0.0@aar,androidx.legacy:legacy-support-core-ui:1.0.0@aar,androidx.legacy:legacy-support-core-utils:1.0.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.loader:loader:1.0.0@aar,androidx.activity:activity:1.0.0@aar,androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar,androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar,androidx.core:core:1.6.0@aar,androidx.core:core:1.6.0@aar,androidx.lifecycle:lifecycle-runtime:2.2.0@aar,androidx.savedstate:savedstate:1.0.0@aar,androidx.lifecycle:lifecycle-livedata:2.0.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar,androidx.lifecycle:lifecycle-common:2.2.0@jar,androidx.tracing:tracing:1.0.0@aar,androidx.arch.core:core-runtime:2.0.0@aar,androidx.arch.core:core-common:2.1.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.documentfile:documentfile:1.0.0@aar,androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar,androidx.print:print:1.0.0@aar,androidx.interpolator:interpolator:1.0.0@aar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar,androidx.annotation:annotation:1.5.0@jar,org.jetbrains.kotlin:kotlin-stdlib:1.7.10@jar,androidx.annotation:annotation-experimental:1.1.0@aar,org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10@jar,org.jetbrains:annotations:13.0@jar">
     <dependency
         name="__local_aars__:D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar"/>
     <dependency
-        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release"
-        simpleName="com.crazecoder.openfile:open_filex"/>
-    <dependency
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:shared_preferences_android::release"
         simpleName="io.flutter.plugins.sharedpreferences:shared_preferences_android"/>
+    <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:open_filex::release"
+        simpleName="com.crazecoder.openfile:open_filex"/>
     <dependency
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:bluetooth_thermal_printer::release"
         simpleName="com.peoplewareinnovations.bluetooth_thermal_printer:bluetooth_thermal_printer"/>
@@ -114,8 +123,17 @@
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:fluttertoast::release"
         simpleName="com.example.FlutterToast:fluttertoast"/>
     <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:url_launcher_android::release"
+        simpleName="io.flutter.plugins.urllauncher:url_launcher_android"/>
+    <dependency
         name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:path_provider_android::release"
         simpleName="io.flutter.plugins.pathprovider:path_provider_android"/>
+    <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:package_info::release"
+        simpleName="io.flutter.plugins.packageinfo:package_info"/>
+    <dependency
+        name="D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\android@@:printing::release"
+        simpleName="net.nfet.flutter.printing:printing"/>
     <dependency
         name="io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar"/>
     <dependency
@@ -139,17 +157,21 @@
     <dependency
         name="androidx.legacy:legacy-support-v4:1.0.0@aar"/>
     <dependency
+        name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"/>
+    <dependency
+        name="androidx.fragment:fragment:1.1.0@aar"/>
+    <dependency
         name="androidx.media:media:1.0.0@aar"/>
     <dependency
         name="androidx.legacy:legacy-support-core-ui:1.0.0@aar"/>
     <dependency
         name="androidx.legacy:legacy-support-core-utils:1.0.0@aar"/>
     <dependency
-        name="androidx.fragment:fragment:1.1.0@aar"/>
+        name="androidx.viewpager:viewpager:1.0.0@aar"/>
     <dependency
         name="androidx.loader:loader:1.0.0@aar"/>
     <dependency
-        name="androidx.viewpager:viewpager:1.0.0@aar"/>
+        name="androidx.activity:activity:1.0.0@aar"/>
     <dependency
         name="androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar"/>
     <dependency
@@ -163,11 +185,7 @@
     <dependency
         name="androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar"/>
     <dependency
-        name="androidx.activity:activity:1.0.0@aar"/>
-    <dependency
         name="androidx.core:core:1.6.0@aar"/>
-    <dependency
-        name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"/>
     <dependency
         name="androidx.lifecycle:lifecycle-runtime:2.2.0@aar"/>
     <dependency
@@ -181,6 +199,14 @@
     <dependency
         name="androidx.tracing:tracing:1.0.0@aar"/>
     <dependency
+        name="androidx.arch.core:core-runtime:2.0.0@aar"/>
+    <dependency
+        name="androidx.arch.core:core-common:2.1.0@jar"/>
+    <dependency
+        name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"/>
+    <dependency
+        name="androidx.collection:collection:1.1.0@jar"/>
+    <dependency
         name="androidx.documentfile:documentfile:1.0.0@aar"/>
     <dependency
         name="androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar"/>
@@ -190,14 +216,6 @@
         name="androidx.interpolator:interpolator:1.0.0@aar"/>
     <dependency
         name="androidx.cursoradapter:cursoradapter:1.0.0@aar"/>
-    <dependency
-        name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"/>
-    <dependency
-        name="androidx.collection:collection:1.1.0@jar"/>
-    <dependency
-        name="androidx.arch.core:core-runtime:2.0.0@aar"/>
-    <dependency
-        name="androidx.arch.core:core-common:2.1.0@jar"/>
     <dependency
         name="androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar"/>
     <dependency

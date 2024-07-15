@@ -419,7 +419,7 @@ class GuiasElectronicasServices {
 
   Future<String> GuiasElectronicas_GrabarGuiaElectronica(GuiasElectronicasModel model) async {
     try {
-      String url = kUrl + "/GuiasElectronicas_GuardarGuiaElectronica_XD";
+      String url = kUrl + "/GuiasElectronicas_GuardarGuiaElectronica";
       http.Response response = await http.post(Uri.parse(url),
           headers: {
             'Content-type': 'application/json',
@@ -483,8 +483,13 @@ class GuiasElectronicasServices {
 
       if (resp.statusCode == 200) {
         var data = jsonDecode(resp.body);
+        print("Data a imprimir");
+        print(data);
+        print("end data a imprimir");
         model = ImpresionOnlineGuiaElectronicaModel.fromJson(data);
         return model;
+      }else{
+        print(resp.statusCode);
       }
       return model;
     } catch (e) {

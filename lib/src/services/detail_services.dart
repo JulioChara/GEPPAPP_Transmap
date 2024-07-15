@@ -4,6 +4,7 @@ import 'package:transmap_app/src/models/cliente_model.dart';
 import 'package:transmap_app/src/models/conductor_model.dart';
 import 'package:transmap_app/src/constants/constants.dart';
 import 'package:transmap_app/src/models/extra_model.dart';
+import 'package:transmap_app/src/models/general_model.dart';
 import 'package:transmap_app/src/models/informes_preventivos/alertas_model.dart';
 import 'package:transmap_app/src/models/login_model.dart';
 import 'package:transmap_app/src/models/placa_model.dart';
@@ -342,7 +343,8 @@ class DetailServices {
   Future<List<LoginTiposModel>> Login_ObtenerPlacas() async {
     try {
       List<LoginTiposModel> tiposList = [];
-      String url = kUrl + "/Login_ObtenerPlacas";
+      // String url = kUrl + "/Login_ObtenerPlacas";
+      String url = kUrl + "/Login_ObtenerPlacas_Login";
       http.Response resp = await http.get(Uri.parse(url),
           headers: {
             'Content-type': 'application/json',
@@ -373,7 +375,8 @@ class DetailServices {
   Future<List<LoginTiposModel>> Login_ObtenerSubPlacas() async {
     try {
       List<LoginTiposModel> tiposList = [];
-      String url = kUrl + "/Login_ObtenerSubPlacas";
+      // String url = kUrl + "/Login_ObtenerSubPlacas";
+      String url = kUrl + "/Login_ObtenerSubPlacas_Login";
       http.Response resp = await http.get(Uri.parse(url),
           headers: {
             'Content-type': 'application/json',
@@ -396,8 +399,30 @@ class DetailServices {
 
 
 
+  Future<TestClassModel> AppInfo_ObtenerInfoApp() async {
+    try {
+      TestClassModel model = new TestClassModel();
 
+      String url = kUrl + "/AppInfo_ObtenerInfoApp";
+      http.Response resp = await http.get(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+          });
 
+      var decodeData = json.decode(resp.body);
+
+      // Aquí debes llenar tu modelo con los datos decodificados.
+      // Esto es solo un ejemplo, debes ajustarlo a la estructura de tu modelo y los datos que recibes.
+      model.mensaje = decodeData['mensaje'];
+
+      return model;
+    } catch (e) {
+      print(e);
+      TestClassModel model = new TestClassModel();
+      return model;  // Es mejor devolver null en caso de error en lugar de un string.
+    }
+  }
 
 
 

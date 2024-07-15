@@ -39,13 +39,7 @@ class InformeDetalleService {
 
   Future<List<SubIncidenciasModel>> getIncidenciasDetalles(String id) async {
     List<SubIncidenciasModel> subIncidenciasList = [];
-    // String url = kUrl + "/SubIncidencias";
-    // http.Response response = await http.post(
-    //   url,
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //     'Accept': 'application/json'
-    //   },
+
     String url = kUrl + "/SubIncidencias";
     http.Response resp = await http.post(Uri.parse(url),
       headers: {
@@ -97,6 +91,100 @@ class InformeDetalleService {
   }
 
 
+  Future<List<InformeUnidadFacturasModel>> InformeUnidad_GetFacturas() async {
+    try {
+      List<InformeUnidadFacturasModel> tiposList = [];
+      String url = kUrl + "/InformeUnidad_ObtenerFacturasCompras";
+      http.Response resp = await http.get(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+          });
+
+      if (resp.statusCode == 200) {
+        List list = jsonDecode(resp.body);
+        tiposList = list.map((e) => InformeUnidadFacturasModel.fromJson(e)).toList();
+        return tiposList;
+      }
+      return tiposList;
+
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }
+
+  Future<List<InformeUnidadFacturasModel>> InformeUnidad_ObtenerFacturasComprasxId(String id) async {
+    List<InformeUnidadFacturasModel> InformeDetalleList = [];
+
+    String url = kUrl + "/InformeUnidad_ObtenerFacturasComprasxId";
+    http.Response response = await http.post(Uri.parse(url),
+      headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: jsonEncode({
+        "Id": id,
+      }),
+    );
+    if(response.statusCode == 200){
+      List list = jsonDecode(response.body);
+      InformeDetalleList = list.map((e) => InformeUnidadFacturasModel.fromJson(e)).toList();
+      return InformeDetalleList;
+    }
+
+    return InformeDetalleList;
+  }
+
+
+
+
+  Future<String> InformeUnidadDetalle_GrabarFacturas(List<InformeUnidadFacturasModel> model) async {
+    try {
+      String url = kUrl + "/InformeUnidadDetalle_GrabarFacturas";
+      http.Response response = await http.post(Uri.parse(url),
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: jsonEncode(model.map((item) => item.toJson()).toList()));
+      print(jsonEncode(model.map((item) => item.toJson()).toList()));
+      var decodeData = json.decode(response.body);
+
+      print(decodeData["resultado"]);
+
+      return decodeData["resultado"];
+    } catch (e) {
+      print(e);
+      return "0";
+    }
+  }
+
+
+
+//
+  // Future<String> InformeUnidadDetalle_GrabarFacturas(List<InformeUnidadFacturasModel> model) async {
+  //   try {
+  //     //    print(model.toJson());
+  //
+  //     String url = kUrl + "/InformeUnidadDetalle_GrabarFacturas";
+  //     http.Response response = await http.post(Uri.parse(url),
+  //         headers: {
+  //           'Content-type': 'application/json',
+  //           'Accept': 'application/json'
+  //         },
+  //         body: jsonEncode(model.toJson()));
+  //     print(jsonEncode(model.toJson()));
+  //     var decodeData = json.decode(response.body);
+  //
+  //     print(decodeData["resultado"]);
+  //
+  //     return decodeData["resultado"];
+  //   } catch (e) {
+  //     print(e);
+  //     return "0";
+  //   }
+  // }
 
 
 

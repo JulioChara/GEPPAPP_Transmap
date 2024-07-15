@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transmap_app/db/db_admin.dart';
+import 'package:transmap_app/src/models/general_model.dart';
 import 'package:transmap_app/src/models/offline/offlineGuiasElectronicas_model.dart';
 import 'package:transmap_app/src/services/offline/offlineGuiasElectronicas_services.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
@@ -112,8 +113,7 @@ class _OfflineImportarExportarPageState
 
              subirInformacionOffline();
 
-            _prefs.colorA = Colors.green;
-            _prefs.colorB = Colors.green;
+
             mensajeToast("Procesando...", Colors.black, Colors.white);
           }
           if (Accion == "3") {
@@ -234,7 +234,7 @@ class _OfflineImportarExportarPageState
                   showMensajeriaAW(
                       DialogType.QUESTION,
                       "SUBIR INFORMACION?",
-                      "Se las Guias Realizadas",
+                      "Se subiran las Guias Realizadas en el modo Offline",
                       "2");
                 } else {
                 //  _prefs.spInformeCloud = "1";
@@ -431,24 +431,27 @@ class _OfflineImportarExportarPageState
   }
 
   subirInformacionOffline() async {
+    Loading =true;
     List<GuiasElectronicasModel> _guias = await DBAdmin().upload_DBOffline_GuiasElectronicas();
     List<GuiasElectronicasDetalleModel> _detalles = await DBAdmin().upload_DBOffline_GuiasElectronicasDetalle();
     List<GuiasElectronicasConductoresModel> _conductores = await DBAdmin().upload_DBOffline_GuiasElectronicasConductores();
     List<GuiasElectronicasPlacasModel> _placas = await DBAdmin().upload_DBOffline_GuiasElectronicasPlacas();
 
-    String res =
+    TestClassModel res =
     await _offlineServices.Offline_GuiasElectronicas_SubirInformacion(_guias, _detalles, _conductores, _placas);
 
-    if (res == "1") {
+    if (res.resultado == "1") {
+      Loading =false;
       showMensajeriaBasic(
-          DialogType.SUCCES, "EXITO", "Se subio la informacion");
+          DialogType.SUCCES, "EXITO", res.mensaje!);
       _prefs.spInformeCloud = "0";
       _prefs.colorA = Colors.green;
       _prefs.colorB = Colors.green;
 
     } else {
+      Loading =false;
       showMensajeriaBasic(
-          DialogType.ERROR, "ERROR", "No se subio la informacion");
+          DialogType.ERROR, "ERROR", res.mensaje!);
     }
     setState(() {
 

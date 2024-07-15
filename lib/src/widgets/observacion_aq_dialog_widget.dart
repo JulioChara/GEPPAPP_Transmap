@@ -78,7 +78,6 @@ class _ObservacionAqDialogWidgetState extends State<ObservacionAqDialogWidget> {
     try {
       empleado = await objDetailServices.getEmpleadosList();
       subIncidencias = await objInformeDetalleServices.getIncidenciasDetalles(widget.incidenciaGen!);
-
       idIncidencia = subIncidencias[0].tipoId!;  // para que la lista no empieze en nada
 
       print("ahhh");

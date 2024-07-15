@@ -132,6 +132,8 @@
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class com.crazecoder.openfile.FileProvider { <init>(); }
 -keep class com.pe.transmap_app.MainActivity { <init>(); }
+-keep class io.flutter.plugins.urllauncher.WebViewActivity { <init>(); }
+-keep class net.nfet.flutter.printing.PrintFileProvider { <init>(); }
 
 # End of content from D:\JULIO CHARA\SISTEMAS\ANDROID\transmap_app\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
 # The proguard configuration file for the following section is C:\Users\JULIO\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\proguard.txt

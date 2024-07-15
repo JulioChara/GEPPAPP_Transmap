@@ -7,6 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.iml" filepath="$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/863479932/android.bluetooth_thermal_printer.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1396382490/android.flutter_keyboard_visibility.iml" filepath="$PROJECT_DIR$/.idea/modules/-1396382490/android.flutter_keyboard_visibility.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1396382490/android.flutter_keyboard_visibility.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1396382490/android.flutter_keyboard_visibility.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1396382490/android.flutter_keyboard_visibility.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1396382490/android.flutter_keyboard_visibility.main.iml" />
@@ -23,6 +27,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1816822009/android.open_filex.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1816822009/android.open_filex.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1816822009/android.open_filex.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1816822009/android.open_filex.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1816822009/android.open_filex.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1816822009/android.open_filex.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/75270084/android.package_info.iml" filepath="$PROJECT_DIR$/.idea/modules/75270084/android.package_info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/75270084/android.package_info.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/75270084/android.package_info.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/75270084/android.package_info.main.iml" filepath="$PROJECT_DIR$/.idea/modules/75270084/android.package_info.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/75270084/android.package_info.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/75270084/android.package_info.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/1662792562/android.path_provider.iml" filepath="$PROJECT_DIR$/.idea/modules/1662792562/android.path_provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-294000541/android.path_provider_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-294000541/android.path_provider_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-294000541/android.path_provider_android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-294000541/android.path_provider_android.androidTest.iml" />
@@ -30,6 +38,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-294000541/android.path_provider_android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-294000541/android.path_provider_android.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/1177237221/android.path_provider_foundation.iml" filepath="$PROJECT_DIR$/.idea/modules/1177237221/android.path_provider_foundation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/376356855/android.path_provider_linux.iml" filepath="$PROJECT_DIR$/.idea/modules/376356855/android.path_provider_linux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.iml" filepath="$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1772089185/android.printing.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/273862363/android.shared_preferences.iml" filepath="$PROJECT_DIR$/.idea/modules/273862363/android.shared_preferences.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1576037106/android.shared_preferences_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1576037106/android.shared_preferences_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1576037106/android.shared_preferences_android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1576037106/android.shared_preferences_android.androidTest.iml" />
@@ -39,6 +51,20 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/294685136/android.shared_preferences_linux.iml" filepath="$PROJECT_DIR$/.idea/modules/294685136/android.shared_preferences_linux.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1544689233/android.shared_preferences_web.iml" filepath="$PROJECT_DIR$/.idea/modules/-1544689233/android.shared_preferences_web.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/1465992415/android.shared_preferences_windows.iml" filepath="$PROJECT_DIR$/.idea/modules/1465992415/android.shared_preferences_windows.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.iml" filepath="$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-444454602/android.sqflite.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/808006623/android.url_launcher.iml" filepath="$PROJECT_DIR$/.idea/modules/808006623/android.url_launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.main.iml" filepath="$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/74807413/android.url_launcher_android.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1724114310/android.url_launcher_ios.iml" filepath="$PROJECT_DIR$/.idea/modules/-1724114310/android.url_launcher_ios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1102764890/android.url_launcher_linux.iml" filepath="$PROJECT_DIR$/.idea/modules/-1102764890/android.url_launcher_linux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-446716699/android.url_launcher_macos.iml" filepath="$PROJECT_DIR$/.idea/modules/-446716699/android.url_launcher_macos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2015097899/android.url_launcher_web.iml" filepath="$PROJECT_DIR$/.idea/modules/-2015097899/android.url_launcher_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2107514314/android.url_launcher_windows.iml" filepath="$PROJECT_DIR$/.idea/modules/-2107514314/android.url_launcher_windows.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1423633875/path_provider_windows-2.0.7.android.path_provider_windows.iml" filepath="$PROJECT_DIR$/.idea/modules/-1423633875/path_provider_windows-2.0.7.android.path_provider_windows.iml" />
     </modules>
   </component>

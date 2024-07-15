@@ -468,23 +468,60 @@ class DBAdmin {
       db.transaction((txn) async {
         int IdGuiaLocal = 0;
         for (var element in _model) {
-          element.estadoSunatFk ="53";
-          IdGuiaLocal = await txn.insert("GuiasElectronicas", element.toJson()).catchError((error) => print("ERRORES GE NO CONTROLADOS"));
+          element.estadoSunatFk = "53";
+          IdGuiaLocal =
+          await txn.insert("GuiasElectronicas", element.toJson()).catchError((
+              error) => print("ERRORES GE NO CONTROLADOS"));
           print('El último ID insertado en GuiasElectronicas es: $IdGuiaLocal');
 
           _modelDetalle.forEach((element) async {
             element.guiaTransportistasElectronicaFk = IdGuiaLocal.toString();
-            await txn.insert("GuiasElectronicasDetalle", element.toJson()).catchError((error) => print("ERRORES GED NO CONTROLADOS"));
+            await txn.insert("GuiasElectronicasDetalle", element.toJson())
+                .catchError((error) => print("ERRORES GED NO CONTROLADOS"));
           });
           _modelConductores.forEach((element) async {
             element.guiaTransportistaElectronicaFk = IdGuiaLocal.toString();
-            await txn.insert("GuiasElectronicasConductores", element.toJson()).catchError((error) => print("ERRORES GEC NO CONTROLADOS"));
+            await txn.insert("GuiasElectronicasConductores", element.toJson())
+                .catchError((error) => print("ERRORES GEC NO CONTROLADOS"));
           });
+          String idVehiculo = ""; //new
           _modelPlacas.forEach((element) async {
+            if (element.vehiculosFk != null && element.vehiculosFk != "null" &&
+                element.plreEstado == "1") {
+              idVehiculo = element.vehiculosFk!;
+            }
+
+
             element.guiaTransportistasElectronicaFk = IdGuiaLocal.toString();
-            await txn.insert("GuiasElectronicasPlacas", element.toJson()).catchError((error) => print("ERRORES GEP NO CONTROLADOS"));
+
+            await txn.insert("GuiasElectronicasPlacas", element.toJson())
+                .catchError((error) => print("ERRORES GEP NO CONTROLADOS"));
           });
+
+
+          db.transaction((txn) async {
+            txn.execute("UPDATE Tipos SET extraNumero = extraNumero + 1 WHERE tipoId = '${idVehiculo}' AND tipoOffline = 'vehiculos'");
+          }).whenComplete(() {
+            print("Correlativo + 1");
+          });
+
+          // List<Map> result = await db.rawQuery(
+          //     "SELECT extraNumero FROM Tipos WHERE tipoId = '$idVehiculo'");
+          // if (result.isNotEmpty) {
+          //   int currentExtraNumero = int.parse(result.first['extraNumero']);
+          //   // Incrementa extraNumero en 1
+          //   int newExtraNumero = currentExtraNumero + 1;
+          //   // Actualiza el valor en la base de datos
+          //   await db.rawUpdate(
+          //     "UPDATE Tipos SET extraNumero = '${newExtraNumero}' WHERE tipoId = '${idVehiculo}' AND tipoOffline = 'vehiculos'",
+          //   );
+          // }
+
+
+
         }
+
+
       }).whenComplete(() {
         print("Insertados: " + _model.length.toString() + " Guias Electronicas");
         print("Insertados: " + _modelDetalle.length.toString() + " Guias Electronicas Detalle");
@@ -496,6 +533,22 @@ class DBAdmin {
       return "0";
     }
   }
+  Future<String> actionDB_GuiasElectronicas_AumentarCorrelativoVehiculos(String idPago) async {
+    try {
+      final Database db = await getDatabase();
+      db.transaction((txn) async {
+        txn.execute("UPDATE PedidosDeliveryPagos SET impresiones = impresiones + 1 WHERE id= '${idPago}'");
+      }).whenComplete(() {
+        print("Impresion + 1");
+      });
+      return "1";
+    } catch (e) {
+      return "0";
+    }
+  }
+
+
+
 
   /// /////////////////////////////////////////////////////////////////
   /// ///////////////////todo: CONSULTADORES //////////////////////////

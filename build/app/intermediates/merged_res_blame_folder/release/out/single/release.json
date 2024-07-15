@@ -44,6 +44,10 @@
         "source": "C:\\Users\\JULIO\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
+        "merged": "D:\\JULIO CHARA\\SISTEMAS\\ANDROID\\transmap_app\\build\\app\\intermediates\\merged_res\\release\\xml_flutter_printing_file_paths.xml.flat",
+        "source": "D:\\JULIO CHARA\\SISTEMAS\\ANDROID\\transmap_app\\build\\printing\\intermediates\\packaged_res\\release\\xml\\flutter_printing_file_paths.xml"
+    },
+    {
         "merged": "D:\\JULIO CHARA\\SISTEMAS\\ANDROID\\transmap_app\\build\\app\\intermediates\\merged_res\\release\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\JULIO\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },

@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
+import 'package:transmap_app/src/models/general_model.dart';
 import 'package:transmap_app/src/models/informes_preventivos/alertas_model.dart';
 import 'package:transmap_app/src/models/login_model.dart';
 import 'package:transmap_app/src/models/placa_model.dart';
@@ -9,6 +12,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transmap_app/src/services/detail_services.dart';
 import 'package:transmap_app/src/services/login_services.dart';
 import 'package:transmap_app/utils/sp_global.dart';
+import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/constants.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -23,11 +30,13 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _isFetching = false;
   String _email = "", _password = "";
+  String _currentVersion = '';
+  List<CronogramaModel> listaCronogramaModel = [];
 
   static List<LoginTiposModel> placas = [];
   static List<LoginTiposModel> placasPreferenciales =[];
 
-
+  TestClassModel _modelInfoApp = new TestClassModel();
 
   LoginTiposModel? _selectedPlaca;
   LoginTiposModel? _selectedPlacaReferencial;
@@ -62,9 +71,44 @@ class _LoginPageState extends State<LoginPage> {
     getData();
 
   }
+  Future<void> _getVersionInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _currentVersion = info.version;
+    });
+  }
+
+  Future<void> _launchURL() async {
+    final url = 'https://play.google.com/store/apps/details?id=${_prefs.spAppInfoID}';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo lanzar $url';
+    }
+  }
+  Future<void> _launchPoliticas() async {
+    final url = PPUrl;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo lanzar $url';
+    }
+  }
+
 
   void getData() async {
     try {
+
+      var _dataServices = new LoginServices();
+
+      _dataServices.Cronograma_diasLibres().then((value) {
+        listaCronogramaModel = value;
+        setState(() {
+          loading = false;
+        });
+      });
+
+
 
       sendModel.placaFk = "0";
       sendModel.placaFkDesc = "0";
@@ -74,12 +118,21 @@ class _LoginPageState extends State<LoginPage> {
       print("Parte 1");
       var objDetailServices = new DetailServices();
 
+      _modelInfoApp = await objDetailServices.AppInfo_ObtenerInfoApp();
+      print(_modelInfoApp.toJson());
+
+
+
+
+
       placas = await objDetailServices.Login_ObtenerPlacas();
       placasPreferenciales = await objDetailServices.Login_ObtenerSubPlacas();
 
       _placaDropdownMenuItems = buildDropDownMenuItems(placas);
       _placaReferencialDropdownMenuItems = buildPlacaReferencialDropDownMenuItems(placasPreferenciales);
 
+
+      _getVersionInfo();
 
       setState(() {
         print("Parte 2");
@@ -90,6 +143,290 @@ class _LoginPageState extends State<LoginPage> {
     } catch (e) {
       print(e);
     }
+  }
+
+
+  //
+  existeVisor() async{
+    loading = true;
+
+    var _service = new LoginServices();
+    TestClassModel model = await _service.ExisteVisor();
+
+
+    setState(() {
+      loading = false;
+      if(model.resultado == "1"){ //cuando existe si podremos crear
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Notificacion"),
+              content: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(model.mensaje == null ? "-" : model.mensaje!, style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),),
+                    Lottie.asset("assets/animation/animation_hb_2.json",alignment: Alignment.center),
+                    Text(model.id == null ? "-" : model.id!, style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pink,
+                    ),),
+                  ],
+                ),
+              ),
+              actionsAlignment: MainAxisAlignment.center, // Centrar los botones
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Cerrar la ventana emergente
+                  },
+                  child: Text('Cerrar'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    });
+  }
+
+  // void _showDialog(BuildContext context) {
+  void _showDialog() {
+    // Datos de prueba
+    List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Cronograma de dias Libres'),
+          content: Container(
+            width: double.maxFinite,
+            height: 200, // Proporciona un tamaño fijo
+            child: ListView.builder(
+              itemCount: listaCronogramaModel.length,
+              itemBuilder: (BuildContext context, int i) {
+                return ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "${listaCronogramaModel[i].empleado}",
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54,
+                          fontSize: 11,
+                        ),
+                      ),
+                    ],
+                  ),
+                  subtitle: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        listaCronogramaModel[i].fechaInicial!,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blueAccent
+                        ),
+                      ),
+                    ),
+                    Text(
+                      listaCronogramaModel[i].fechaFinal!,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green),
+                    ),
+                  ],
+                ),
+                );
+              },
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Cerrar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  ListadoCronogramas() async{
+    loading = true;
+    // var _dataServices = new LoginServices();
+    //
+    // _dataServices.Cronograma_diasLibres().then((value) {
+    //   listaCronogramaModel = value;
+    //   setState(() {
+    //     loading = false;
+    //   });
+    // });
+
+
+ //   var _service = new LoginServices();
+  //  TestClassModel model = await _service.ExisteVisor();
+
+
+    setState(() {
+      loading = false;
+      if(listaCronogramaModel.length >0){ //cuando existe si podremos crear
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Notificacion"),
+              content: Container(
+                height: 200, // Proporciona un tamaño fijo
+                child: ListView.builder(
+                  itemCount: listaCronogramaModel.length,
+                  itemBuilder: (BuildContext context, int i) {
+                    return ListTile(
+                      onTap: () {},
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "${listaCronogramaModel[i].empleado}",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                      ),
+                      subtitle: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              listaCronogramaModel[i].fechaInicial!,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blueAccent
+                              ),
+                            ),
+                          ),
+                          Text(
+                            listaCronogramaModel[i].fechaFinal!,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              actionsAlignment: MainAxisAlignment.center, // Centrar los botones
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Cerrar la ventana emergente
+                  },
+                  child: Text('Cerrar'),
+                ),
+              ],
+            );
+
+            // return AlertDialog(
+            //   title: Text("Notificacion"),
+            //   content: Container(
+            //     height: 200,
+            //       child: ListView.builder(
+            //         itemCount: listaCronogramaModel.length,
+            //         itemBuilder: (BuildContext context, int i) {
+            //           return ListTile(
+            //             onTap: () {
+            //             },
+            //             title: Row(
+            //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //               children: [
+            //                 Text(
+            //                   "${listaCronogramaModel[i].empleado}" ,
+            //                   overflow: TextOverflow.ellipsis,
+            //                   maxLines: 1,
+            //                   style: const TextStyle(
+            //                     fontWeight: FontWeight.bold,
+            //                     color: Colors.black54,
+            //                     fontSize: 13,
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //             // subtitle: Text(informeModelList2[i].fecha!),
+            //             subtitle: Row(
+            //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //               children: [
+            //                 Flexible(
+            //                   child: Text(
+            //                     listaCronogramaModel[i].fechaInicial! ,
+            //                     overflow: TextOverflow.ellipsis,
+            //                     maxLines: 2,
+            //                     style: TextStyle(
+            //                         fontWeight: FontWeight.bold,
+            //                         color: Colors.blueAccent
+            //                     ),
+            //                   ),
+            //                 ) ,
+            //                 Text(
+            //                   // "${double.parse(informeModelList2[i].usuarioCreacionDesc!).toStringAsFixed(2)}",
+            //                   listaCronogramaModel[i].fechaFinal!,
+            //                   overflow: TextOverflow.ellipsis,
+            //                   maxLines: 1,
+            //                   style: const TextStyle(
+            //                       fontWeight: FontWeight.bold,
+            //                       color: Colors.green),
+            //                 ),
+            //               ],
+            //             ),
+            //           );
+            //         },
+            //       ),
+            //     ),
+            //   actionsAlignment: MainAxisAlignment.center, // Centrar los botones
+            //   actions: [
+            //     TextButton(
+            //       onPressed: () {
+            //         Navigator.of(context).pop(); // Cerrar la ventana emergente
+            //       },
+            //       child: Text('Cerrar'),
+            //     ),
+            //   ],
+            // );
+          },
+        );
+      }
+    });
+
+
+
   }
 
 
@@ -167,20 +504,22 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: loading
           ? Center(child: CircularProgressIndicator())
-      :Stack(
-        children: <Widget>[
-          _crearFondo(context),
-          _loginForm(context),
-          if (_isFetching)
-            Positioned(
-              child: Container(
-                color: Colors.black26,
-                child: Center(
-                  child: CircularProgressIndicator(),
+      :SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            _crearFondo(context),
+            _loginForm(context),
+            if (_isFetching)
+              Positioned(
+                child: Container(
+                  color: Colors.black26,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {
@@ -196,7 +535,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _crearFondo(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final primerFondo = Container(
+   final primerFondo = Container(
       height: size.height * 0.4,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -217,37 +556,121 @@ class _LoginPageState extends State<LoginPage> {
     return Stack(
       children: <Widget>[
         primerFondo,
-        Positioned(
-          top: 90.0,
-          left: 30.0,
-          child: circulo,
+
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,  // Esto alinea los widgets a la derecha.
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0, top: 30.0),
+                  child: ElevatedButton.icon(
+                    icon: Icon(
+                      CupertinoIcons.doc,
+                      size: 12.0,  // Ajusta el tamaño del ícono aquí.
+                    ),
+                    label: Text(
+                      'Politicas de Privacidad',
+                      style: TextStyle(fontSize: 12.0),  // Ajusta el tamaño del texto aquí.
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blueAccent,
+                      minimumSize: Size(100, 30),  // Ajusta el tamaño mínimo del botón aquí.
+                    ),
+                    onPressed: () {
+                      print("A");
+                      setState(() {
+
+                      });
+                      _launchPoliticas();
+                    },
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    print("A");
+                    setState(() {
+
+                    });
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 80.0, top: 30.0),
+                    child: Text("Version: "+
+                        _currentVersion,
+                      style: TextStyle(fontSize: 14.0),  // Ajusta el tamaño del texto aquí.
+                    ),
+                  ),
+                ),
+                if (_modelInfoApp.mensaje != _currentVersion) Padding(
+                  padding: const EdgeInsets.only(right: 0.0, top: 0.0),
+                  child: ElevatedButton.icon(
+                    icon: Icon(
+                      CupertinoIcons.arrow_up_circle,
+                      size: 12.0,  // Ajusta el tamaño del ícono aquí.
+                    ),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(fontSize: 12.0),  // Ajusta el tamaño del texto aquí.
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                      minimumSize: Size(100, 30),  // Ajusta el tamaño mínimo del botón aquí.
+                    ),
+                    onPressed: () {
+                      print("A");
+                      setState(() {
+
+                      });
+                      _launchURL();
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+          ],
         ),
-        Positioned(
-          top: -40.0,
-          right: -30.0,
-          child: circulo,
-        ),
-        Positioned(
-          bottom: -50.0,
-          right: -10.0,
-          child: circulo,
-        ),
-        Positioned(
-          bottom: 120.0,
-          right: 20.0,
-          child: circulo,
-        ),
-        Positioned(
-          bottom: -50.0,
-          left: -20.0,
-          child: circulo,
-        ),
+
+
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   children: <Widget>[
+        //     Column(
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.only(right: 20.0, top: 40.0),  // Ajusta este valor a tu preferencia.
+        //           child: Text(_currentVersion),
+        //         ),
+        //         Padding(
+        //           padding: const EdgeInsets.only(right: 20.0, top: 0.0),
+        //           child: ElevatedButton.icon(
+        //             icon: Icon(CupertinoIcons.arrow_up_circle), // Usa el ícono que prefieras
+        //             label: Text('Actualizar'),
+        //             style: ElevatedButton.styleFrom(
+        //               primary: Colors.green,
+        //             ),
+        //             onPressed: () {
+        //               // _launchURL();
+        //             },
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //
+        //   ],
+        //  ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
                 height: 200.0,
-                padding: EdgeInsets.only(top: 70.0),
+                padding: EdgeInsets.only(top: 90.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset("assets/logo.jpg"),
@@ -261,8 +684,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget _loginForm(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return SingleChildScrollView(
-      child: Column(
+    return Column(
+      //child: Column(
         children: <Widget>[
           SafeArea(
             child: Container(
@@ -285,6 +708,25 @@ class _LoginPageState extends State<LoginPage> {
                 ]),
             child: Column(
               children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+                    IconButton(
+                      onPressed: () {
+                        existeVisor();
+                      },
+                      icon: Icon(Icons.cake), // Icono de flecha hacia abajo
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        // ListadoCronogramas();
+                        _showDialog();
+                      },
+                      icon: Icon(Icons.calendar_month), // Icono de flecha hacia abajo
+                    ),
+                  ],
+                ),
                 Text(
                   "INGRESO",
                   style: TextStyle(fontSize: 30.0, letterSpacing: 1.0),
@@ -308,7 +750,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 50.0,
           )
         ],
-      ),
+ //     ),
     );
   }
 

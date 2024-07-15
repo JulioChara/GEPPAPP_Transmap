@@ -168,7 +168,7 @@ class _InformeAdmPageState extends State<InformeAdmPage> {
                           fontWeight: FontWeight.bold, color: Colors.black54),
                     ),
                     subtitle: Text(
-                        "${informeModelList2[i].correlativo}   |   ${informeModelList2[i].tipoprioridad}  |  ${informeModelList2[i].tipoestado}   |  ${informeModelList2[i].fechacreacion} "),
+                        "${informeModelList2[i].correlativo}   |   ${informeModelList2[i].tipoprioridad}  |  ${informeModelList2[i].tipoestado}   |  ${informeModelList2[i].fechacreacion}  ${informeModelList2[i].concepto!.length >2 ? " | Check: "+ informeModelList2[i].concepto!.substring(informeModelList2[i].concepto!.length -3): "-"}"),
                     leading: Icon(
                       Icons.content_paste,
                       color: Colors.redAccent,

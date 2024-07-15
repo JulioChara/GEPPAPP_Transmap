@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transmap_app/src/models/guiasElectronicas/guiasElectronicas_model.dart';
+import 'package:transmap_app/src/services/checkList/checkList_service.dart';
 import 'package:transmap_app/src/services/guiasElectronicas/guiasElectronicas_services.dart';
 import 'package:transmap_app/src/widgets/menu_widget.dart';
 import 'package:transmap_app/utils/sp_global.dart';
@@ -126,17 +128,160 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
   _openAndroidPrivateFile(String ruta) async {
     final result = await OpenFilex.open(ruta);
   }
+  //
+  // existeCheckList() async{
+  //   if(_prefs.usIdPlaca != "0" && _prefs.usIdPlaca != ""){ //cuando existe si podremos crear
+  //     Navigator.pushNamed(context, 'checkListCreate');
+  //   }else {
+  //     showMessajeAWYesNo(DialogType.ERROR, "SIN PLACA","No se selecciono ninguna PLACA, ¿Desea Ingresarlo?", 1);
+  //   }
+  // }
+  //
+  //
+  // showMessajeAWYesNo(DialogType type, String titulo, String desc, int accion) {
+  //   AwesomeDialog(
+  //     dismissOnTouchOutside: false,
+  //     context: context,
+  //     dialogType: type,
+  //     headerAnimationLoop: false,
+  //     animType: AnimType.TOPSLIDE,
+  //     showCloseIcon: true,
+  //     closeIcon: const Icon(Icons.close_fullscreen_outlined),
+  //     title: titulo,
+  //     descTextStyle: TextStyle(fontSize: 18),
+  //     desc: desc,
+  //     btnCancelText: "No",
+  //     btnOkText: "Si",
+  //     btnCancelOnPress: () {},
+  //     onDissmissCallback: (type) {
+  //       debugPrint('Dialog Dissmiss from callback $type');
+  //     },
+  //     btnOkOnPress: () {
+  //       switch (accion) {
+  //         case 0:
+  //           {
+  //             // nada
+  //           }
+  //           break;
+  //         case 1:
+  //           {
+  //             Navigator.pushReplacementNamed(
+  //               context,
+  //               'login',
+  //               // 'checkListCreate',
+  //             );
+  //           }
+  //           break;
+  //       }
+  //     },
+  //   ).show();
+  // }
 
-  existeCheckList() async{
-    if(_prefs.usIdPlaca != "0" && _prefs.usIdPlaca != ""){ //cuando existe si podremos crear
-      Navigator.pushNamed(context, 'checkListCreate');
-    }else {
-      showMessajeAWYesNo(DialogType.ERROR, "SIN PLACA","No se selecciono ninguna PLACA, ¿Desea Ingresarlo?", 1);
+
+
+
+  void Pruebas(String Id) async {
+    try {
+      var _guiasElectronicasServices = new GuiasElectronicasServices();
+      String a = await _guiasElectronicasServices.DescargarGuiaElectronicaPDF(Id);
+    }catch(ex){
+
     }
   }
+  //
+  existeCheckList() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String id = await prefs.getString("idUser")!;
+    var _checkServices = new CheckListServices();
+    String existTurn = await _checkServices.CheckList_ConsultaExistenciaxUsuario(_prefs.usIdPlaca);
+    String existTurnSem = await _checkServices.CheckList_ConsultaExistenciaSemanal(_prefs.usIdPlaca);
+
+    String existTurnSec = "1";
+    String existTurnSemSec = "1";
+    if (_prefs.usIdPlacaRef != "null" && _prefs.usIdPlacaRef != "" && _prefs.usIdPlacaRef != "0"){
+      existTurnSec = await _checkServices.CheckList_ConsultaExistenciaxUsuario(_prefs.usIdPlacaRef);
+      existTurnSemSec = await _checkServices.CheckList_ConsultaExistenciaSemanal(_prefs.usIdPlacaRef);
+    }
+
+    // if(_prefs.rolId == "11"){
+    //   if(existTurnSem == "1" ){ //cuando existe si podremos crear
+    //     if(existTurn == "1"){ //cuando existe si podremos crear
+    //       Navigator.pushNamed(context, 'guiasElectronicasCreate');
+    //     }else if(existTurn =="0"){
+    //       showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO","No hay registro de checklist para la placa: "+_prefs.usIdPlacaDesc+" el dia de hoy, ¿Desea ingresarlo?", 1);
+    //     }
+    //   //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+    //   }else if(existTurnSem =="0"){
+    //     showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL","No hay registro de checklist Semanal para la placa: "+_prefs.usIdPlacaDesc+", ¿Desea ingresarlo?", 2);
+    //   }
+    // }else{
+    //   Navigator.pushNamed(context, 'guiasElectronicasCreate');
+    // }
 
 
-  showMessajeAWYesNo(DialogType type, String titulo, String desc, int accion) {
+    if(_prefs.rolId == "11"){
+      if(existTurnSem == "1" ){ //cuando existe si podremos crear
+        if(existTurn == "1"){ //cuando existe si podremos crear
+        //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+        }else if(existTurn =="0"){
+          showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO","No hay registro de checklist para la placa: "+_prefs.usIdPlacaDesc+" el dia de hoy, ¿Desea ingresarlo?", 1 , 1);
+          return;
+        }
+        //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+      }else if(existTurnSem =="0" ){
+        showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL","No hay registro de checklist Semanal para la placa: "+_prefs.usIdPlacaDesc+", ¿Desea ingresarlo?", 2,1);
+        return;
+      }
+
+      if(existTurnSemSec == "1" ){ //cuando existe si podremos crear
+        if(existTurnSec == "1"){ //cuando existe si podremos crear
+       //   Navigator.pushNamed(context, 'guiasElectronicasCreate');
+        }else if(existTurnSec =="0"){
+          showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO","No hay registro de checklist para la placa Secundaria: "+_prefs.usIdPlacaRefDesc+" el dia de hoy, ¿Desea ingresarlo?", 1,2);
+          return;
+        }
+        //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+      }else if(existTurnSemSec =="0"){
+        showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL","No hay registro de checklist Semanal para la placa Secundaria: "+_prefs.usIdPlacaRefDesc+", ¿Desea ingresarlo?", 2, 2);
+        return;
+      }
+
+      if(existTurnSem == "1" && existTurn == "1" && existTurnSemSec == "1" && existTurnSec == "1"){
+        Navigator.pushNamed(context, 'guiasElectronicasCreate');
+      }
+
+
+    }else{
+      Navigator.pushNamed(context, 'guiasElectronicasCreate');
+    }
+
+
+  }
+
+  // existeCheckListSecundario() async{
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   var _checkServices = new CheckListServices();
+  //   String existTurn = await _checkServices.CheckList_ConsultaExistenciaxUsuario(_prefs.usIdPlacaRef);
+  //   String existTurnSem = await _checkServices.CheckList_ConsultaExistenciaSemanal(_prefs.usIdPlacaRef);
+  //   if(_prefs.rolId == "11"){
+  //     if(existTurnSem == "1" ){ //cuando existe si podremos crear
+  //       if(existTurn == "1"){ //cuando existe si podremos crear
+  //         Navigator.pushNamed(context, 'guiasElectronicasCreate');
+  //       }else if(existTurn =="0"){
+  //         showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST DIARIO","No hay registro de checklist para la placa Secundaria: "+_prefs.usIdPlacaRefDesc+" el dia de hoy, ¿Desea ingresarlo?", 1);
+  //       }
+  //       //  Navigator.pushNamed(context, 'guiasElectronicasCreate');
+  //     }else if(existTurnSem =="0"){
+  //       showMessajeAWYesNo(DialogType.ERROR, "CHECK LIST SEMANAL","No hay registro de checklist Semanal para la placa Secundaria: "+_prefs.usIdPlacaRefDesc+", ¿Desea ingresarlo?", 2);
+  //     }
+  //   }else{
+  //     Navigator.pushNamed(context, 'guiasElectronicasCreate');
+  //   }
+  //
+  // }
+
+
+  showMessajeAWYesNo(DialogType type, String titulo, String desc, int accion, int usarPlaca) {
     AwesomeDialog(
       dismissOnTouchOutside: false,
       context: context,
@@ -155,6 +300,12 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
         debugPrint('Dialog Dissmiss from callback $type');
       },
       btnOkOnPress: () {
+        if(usarPlaca == 1){
+          _prefs.spAlternarPlaca = "1";
+        }else if(usarPlaca == 2) {
+          _prefs.spAlternarPlaca = "2";
+        }
+
         switch (accion) {
           case 0:
             {
@@ -163,9 +314,21 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
             break;
           case 1:
             {
+
+              _prefs.spTipoCheckList = "D";
               Navigator.pushReplacementNamed(
                 context,
-                'login',
+                'checkListHome',
+                // 'checkListCreate',
+              );
+            }
+            break;
+          case 2:
+            {
+              _prefs.spTipoCheckList = "S";
+              Navigator.pushReplacementNamed(
+                context,
+                'checkListHome',
                 // 'checkListCreate',
               );
             }
@@ -176,24 +339,6 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
   }
 
 
-
-
-  void Pruebas(String Id) async {
-    try {
-      var _guiasElectronicasServices = new GuiasElectronicasServices();
-      String a = await _guiasElectronicasServices.DescargarGuiaElectronicaPDF(Id);
-    }catch(ex){
-
-    }
-  }
-  // _launchURL() async {
-  //
-  //   String FUrl = kUrl + "/Download";
-  //   final Uri url = Uri.parse(FUrl);
-  //   if (!await launchUrl(url)) {
-  //     throw Exception('Could not launch ');
-  //   }
-  // }
 
 
   @override
@@ -217,14 +362,15 @@ class _GuiasElectronicasPageState extends State<GuiasElectronicasPage> {
             iconSize: 30.0,
             onPressed: () {
               //Navigator.pushNamed(context, 'general');
-              Navigator.pushNamed(context, 'guiasElectronicasCreate');
+              existeCheckList();
+
+         //     existeCheckList();
+
 
              // existeCheckList();
             },
           )
         ],
-
-
       ),
       // floatingActionButton: FloatingActionButton(
       //   backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),

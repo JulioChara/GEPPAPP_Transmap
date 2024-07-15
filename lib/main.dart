@@ -10,6 +10,7 @@ import 'package:transmap_app/src/pages/guia_page.dart';
 import 'package:transmap_app/src/pages/guiasElectronicas/guiasElectronicas_create.dart';
 import 'package:transmap_app/src/pages/guiasElectronicas/guiasElectronicas_page.dart';
 import 'package:transmap_app/src/pages/home_page.dart';
+import 'package:transmap_app/src/pages/impresion/impresion_checkList_page.dart';
 import 'package:transmap_app/src/pages/impresion/impresion_guiasElectronicas_page.dart';
 import 'package:transmap_app/src/pages/impresion/offline/offline_impresion_guiasElectronicas_page.dart';
 import 'package:transmap_app/src/pages/login_page.dart';
@@ -92,8 +93,11 @@ class MyApp extends StatelessWidget {
           ///todo: CHECKLIST
           'checkListHome':  (BuildContext context) => CheckListPage(),
           'checkListCreate':  (BuildContext context) => CheckListCreatePage(),
+          'impresionCheckList':  (BuildContext context) => ImpresionCheckListPage(),
+
           'guiasElectronicasHome':  (BuildContext context) => GuiasElectronicasPage(),
           'guiasElectronicasCreate':  (BuildContext context) => GuiasElectronicasCreatePage(),
+
 
           ///todo: OFFLINE
           'offlineData':  (BuildContext context) => OfflineImportarExportarPage(),
@@ -128,7 +132,9 @@ class PreInit extends StatelessWidget {
   SPGlobal _prefs = SPGlobal();
   @override
   Widget build(BuildContext context) {
-    return _prefs.isLogin ? ((_prefs.spInformeCloud == "0") ? GuiasElectronicasPage(): OfflineImportarExportarPage()) : LoginPage();
+    // return _prefs.isLogin ? ((_prefs.spInformeCloud == "0") ? GuiasElectronicasPage(): OfflineImportarExportarPage()) : LoginPage();
+    return  LoginPage();
+   // return (_prefs.spInformeCloud == "0") ? LoginPage(): OfflineImportarExportarPage();
     // return _prefs.isLogin ? HomePage() : LoginPage();
    // return  LoginPage();
     //return  MyHomePage();
